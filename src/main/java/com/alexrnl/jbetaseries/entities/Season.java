@@ -5,6 +5,10 @@ import java.util.NavigableSet;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
+import com.alexrnl.commons.utils.object.AutoCompare;
+import com.alexrnl.commons.utils.object.AutoHashCode;
+import com.alexrnl.commons.utils.object.Field;
+
 /**
  * Class representing a season of a show.<br />
  * @author Alex
@@ -39,6 +43,7 @@ public class Season implements Comparable<Season> {
 	 * Return the attribute seasonNumber.
 	 * @return the attribute seasonNumber.
 	 */
+	@Field
 	public Integer getSeasonNumber () {
 		return seasonNumber;
 	}
@@ -84,6 +89,19 @@ public class Season implements Comparable<Season> {
 	@Override
 	public int compareTo (final Season s) {
 		return seasonNumber.compareTo(s.getSeasonNumber());
+	}
+	
+	@Override
+	public int hashCode () {
+		return AutoHashCode.getInstance().hashCode(this);
+	}
+	
+	@Override
+	public boolean equals (final Object obj) {
+		if (!(obj instanceof Season)) {
+			return false;
+		}
+		return AutoCompare.getInstance().compare(this, (Season) obj);
 	}
 	
 }
