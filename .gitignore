@@ -1,0 +1,39 @@
+#################
+## Java
+#################
+# Compilation files #
+*.class
+target
+
+# Package files #
+*.jar
+*.war
+*.ear
+
+#################
+## Eclipse
+#################
+
+.project
+.metadata
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+.classpath
+.settings/
+
+# Locally stored "Eclipse launch configurations"
+*.launch
+
+############
+## Windows
+############
+
+# Windows image file caches
+Thumbs.db
+
+# Folder config file
+Desktop.ini
