@@ -14,6 +14,8 @@ public final class JBetaSeries {
 	private final String	key;
 	/** The preferred data type format */
 	private final Format	format;
+	/** */
+	private final String	userAgent;
 	/** The token for the user, <code>null</code> if no user is logged. */
 	private final String	token;
 	
@@ -24,7 +26,7 @@ public final class JBetaSeries {
 	 *        the API key to use.
 	 */
 	public JBetaSeries (final String key) {
-		this(key, Format.XML);
+		this(key, Format.XML, "");
 	}
 	
 	/**
@@ -35,9 +37,23 @@ public final class JBetaSeries {
 	 *        the data type required for the API.
 	 */
 	public JBetaSeries (final String key, final Format format) {
+		this(key, format, "jBetaSeries");
+	}
+	
+	/**
+	 * Constructor #2.<br />
+	 * @param key
+	 *        the API key to use.
+	 * @param format
+	 *        the data type required for the API.
+	 * @param userAgent
+	 *        the user-agent to use with the application.
+	 */
+	public JBetaSeries (final String key, final Format format, final String userAgent) {
 		super();
 		this.key = key;
 		this.format = format;
+		this.userAgent = userAgent;
 		this.token = null;
 	}
 	
