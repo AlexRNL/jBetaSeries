@@ -9,7 +9,7 @@ import java.util.Map;
  */
 public abstract class Request {
 	/** The verb to use for the request */
-	private final String	verb;
+	private final Verb		verb;
 	/** The target method */
 	private final String	method;
 	
@@ -20,7 +20,7 @@ public abstract class Request {
 	 * @param method
 	 *        the method of the request.
 	 */
-	private Request (final String verb, final String method) {
+	protected Request (final Verb verb, final String method) {
 		super();
 		this.verb = verb;
 		this.method = method;
@@ -30,7 +30,7 @@ public abstract class Request {
 	 * Return the attribute verb.
 	 * @return the attribute verb.
 	 */
-	public String getVerb () {
+	public Verb getVerb () {
 		return verb;
 	}
 	
