@@ -14,6 +14,8 @@ public final class APIAddresses {
 		super();
 	}
 	
-	/** Address of the method */
+	/** Address for archiving or unarchiving shows. */
 	public static final String	SHOWS_ARCHIVE	= "/shows/archive";
+	/** Address for displaying shows */
+	public static final String	SHOWS_DISPLAY	= "/shows/display";
 }
