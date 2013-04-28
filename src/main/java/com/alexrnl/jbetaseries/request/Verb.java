@@ -1,4 +1,4 @@
-package com.alexrnl.request;
+package com.alexrnl.jbetaseries.request;
 
 /**
  * Available verb for the request to the API.

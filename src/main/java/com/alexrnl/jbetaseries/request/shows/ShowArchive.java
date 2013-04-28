@@ -1,10 +1,9 @@
-package com.alexrnl.request.shows;
+package com.alexrnl.jbetaseries.request.shows;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import com.alexrnl.request.Request;
-import com.alexrnl.request.Verb;
+import com.alexrnl.jbetaseries.request.Verb;
 
 /**
  * Archive a show in the logged member account.<br />
