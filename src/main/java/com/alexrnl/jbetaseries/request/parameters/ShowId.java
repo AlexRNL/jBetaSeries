@@ -6,7 +6,7 @@ package com.alexrnl.jbetaseries.request.parameters;
  */
 public class ShowId extends Parameter<Integer> {
 	/** Name of the id parameter */
-	private static final String	PARAMETER_ID	= "id";
+	public static final String	PARAMETER_ID	= "id";
 	
 	/**
 	 * Constructor #1.<br />
