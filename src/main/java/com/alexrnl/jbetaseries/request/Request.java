@@ -13,9 +13,9 @@ import com.alexrnl.jbetaseries.request.parameters.Parameter;
  */
 public abstract class Request {
 	/** The verb to use for the request */
-	private final Verb			verb;
+	private final Verb					verb;
 	/** The target method */
-	private final String		method;
+	private final String				method;
 	/** The parameters of the request */
 	private final List<Parameter<?>>	parameters;
 	
