@@ -1,5 +1,6 @@
 package com.alexrnl.jbetaseries.request.shows;
 
+import com.alexrnl.jbetaseries.request.APIAddresses;
 import com.alexrnl.jbetaseries.request.Request;
 import com.alexrnl.jbetaseries.request.Verb;
 import com.alexrnl.jbetaseries.request.parameters.ShowId;
@@ -10,16 +11,13 @@ import com.alexrnl.jbetaseries.request.parameters.ShowId;
  */
 public class ShowUnarchive extends Request {
 	
-	/** Address of the method */
-	private static final String	ADDRESS			= "/shows/archive";
-	
 	/**
 	 * Constructor #1.<br />
 	 * @param id
 	 *        the id of the show to archive.
 	 */
 	public ShowUnarchive (final Integer id) {
-		super(Verb.DELETE, ADDRESS);
+		super(Verb.DELETE, APIAddresses.SHOWS_ARCHIVE);
 		addParameter(new ShowId(id));
 	}
 	
