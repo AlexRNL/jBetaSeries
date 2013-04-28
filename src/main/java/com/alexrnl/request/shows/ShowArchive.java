@@ -17,15 +17,15 @@ public class ShowArchive extends Request {
 	/** Name of the id parameter */
 	private static final String	PARAMETER_ID	= "id";
 	
-	/** */
-	private final String		id;
+	/** The id of the show to archive */
+	private final Integer		id;
 	
 	/**
 	 * Constructor #1.<br />
 	 * @param id
 	 *        the id of the show to archive.
 	 */
-	public ShowArchive (final String id) {
+	public ShowArchive (final Integer id) {
 		super(Verb.GET, ADDRESS);
 		this.id = id;
 	}
@@ -34,14 +34,14 @@ public class ShowArchive extends Request {
 	 * Return the attribute id.
 	 * @return the attribute id.
 	 */
-	public String getId () {
+	public Integer getId () {
 		return id;
 	}
 	
 	@Override
 	public Map<String, String> getParameters () {
 		final Map<String, String> parameters = new HashMap<>();
-		parameters.put(PARAMETER_ID, getId());
+		parameters.put(PARAMETER_ID, getId().toString());
 		return parameters;
 	}
 	
