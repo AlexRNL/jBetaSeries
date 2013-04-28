@@ -3,6 +3,7 @@ package com.alexrnl.jbetaseries.request.shows;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.alexrnl.jbetaseries.request.Request;
 import com.alexrnl.jbetaseries.request.Verb;
 
 /**
