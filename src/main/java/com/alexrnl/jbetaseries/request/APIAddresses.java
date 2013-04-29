@@ -14,6 +14,15 @@ public final class APIAddresses {
 		super();
 	}
 	
+	// Main address of the API
+	/** The host of the API */
+	public static final String	HOST			= "api.betaseries.com";
+	/** The HTTP prefix, for a standard use of the API */
+	public static final String	HTTP			= "http://";
+	/** The HTTPS prefix, for a secure usage of the API */
+	public static final String	HTTPS			= "https://";
+	
+	// Methods of the API
 	/** Address for archiving or unarchiving shows. */
 	public static final String	SHOWS_ARCHIVE	= "/shows/archive";
 	/** Address for displaying shows */
