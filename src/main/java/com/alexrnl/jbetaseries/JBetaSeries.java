@@ -14,7 +14,7 @@ public final class JBetaSeries {
 	private final String	key;
 	/** The preferred data type format */
 	private final Format	format;
-	/** */
+	/** The user-agent to use with the API */
 	private final String	userAgent;
 	/** The token for the user, <code>null</code> if no user is logged. */
 	private final String	token;
@@ -37,7 +37,7 @@ public final class JBetaSeries {
 	 *        the data type required for the API.
 	 */
 	public JBetaSeries (final String key, final Format format) {
-		this(key, format, "jBetaSeries");
+		this(key, format, JBetaSeries.class.getSimpleName());
 	}
 	
 	/**
