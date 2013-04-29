@@ -18,4 +18,6 @@ public final class APIAddresses {
 	public static final String	SHOWS_ARCHIVE	= "/shows/archive";
 	/** Address for displaying shows */
 	public static final String	SHOWS_DISPLAY	= "/shows/display";
+	/** Address for retrieving episodes of shows */
+	public static final String	SHOWS_EPISODES	= "/shows/episodes";
 }
