@@ -31,4 +31,6 @@ public final class APIAddresses {
 	public static final String	SHOWS_EPISODES	= "/shows/episodes";
 	/** Address for noting a show */
 	public static final String	SHOWS_NOTE		= "/shows/note";
+	/** Address for getting a random show */
+	public static final String	SHOWS_RANDOM	= "/shows/random";
 }
