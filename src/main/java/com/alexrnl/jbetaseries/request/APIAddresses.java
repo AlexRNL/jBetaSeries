@@ -29,4 +29,6 @@ public final class APIAddresses {
 	public static final String	SHOWS_DISPLAY	= "/shows/display";
 	/** Address for retrieving episodes of shows */
 	public static final String	SHOWS_EPISODES	= "/shows/episodes";
+	/** Address for noting a show */
+	public static final String	SHOWS_NOTE		= "/shows/note";
 }
