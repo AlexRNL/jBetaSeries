@@ -6,7 +6,7 @@ package com.alexrnl.jbetaseries.request.parameters;
  */
 public class Episode extends Parameter<Integer> {
 	/** Name of the episode parameter */
-	private static final String	PARAMETER_EPISODE	= "episode";
+	public static final String	PARAMETER_EPISODE	= "episode";
 	
 	/**
 	 * Constructor #1.<br />
