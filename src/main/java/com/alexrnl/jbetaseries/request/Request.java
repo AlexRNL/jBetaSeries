@@ -60,7 +60,6 @@ public abstract class Request {
 	
 	/**
 	 * Return the parameters which are required by the request.<br />
-	 * Override this method if parameters are required.
 	 * @return the parameters to sent to the API.
 	 */
 	public final Map<String, String> getParameters () {
