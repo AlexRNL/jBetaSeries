@@ -18,8 +18,10 @@ public class ShowNote extends Request {
 	 *        the id of the show to note.
 	 * @param note
 	 *        the note to set for the show.
+	 * @throws IllegalArgumentException
+	 *         if the not is outside the range [1;5].
 	 */
-	public ShowNote (final Integer showId, final Integer note) {
+	public ShowNote (final Integer showId, final Integer note) throws IllegalArgumentException {
 		super(Verb.POST, APIAddresses.SHOWS_NOTE);
 		addParameter(new ShowId(showId));
 		addParameter(new Note(note));

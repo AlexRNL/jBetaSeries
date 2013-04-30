@@ -12,9 +12,14 @@ public class Note extends Parameter<Integer> {
 	 * Constructor #1.<br />
 	 * @param note
 	 *        the note to set.
+	 * @throws IllegalArgumentException
+	 *         if the not is outside the range [1;5].
 	 */
-	public Note (final Integer note) {
+	public Note (final Integer note) throws IllegalArgumentException {
 		super(PARAMETER_NOTE, note);
+		if (note < 1 || 5 < note) {
+			throw new IllegalArgumentException("The note must be comprise between 1 and 5.");
+		}
 	}
 	
 }
