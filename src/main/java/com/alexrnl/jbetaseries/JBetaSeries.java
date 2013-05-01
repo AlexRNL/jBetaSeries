@@ -1,6 +1,12 @@
 package com.alexrnl.jbetaseries;
 
+import java.io.IOException;
+import java.nio.charset.Charset;
 import java.util.logging.Logger;
+
+import com.alexrnl.commons.error.ExceptionUtils;
+import com.alexrnl.jbetaseries.request.RequestManager;
+import com.alexrnl.jbetaseries.request.shows.ShowSearch;
 
 /**
  * Entry point of the interface to the BetaSeries API.<br />
@@ -8,16 +14,12 @@ import java.util.logging.Logger;
  */
 public final class JBetaSeries {
 	/** Logger */
-	private static Logger	lg	= Logger.getLogger(JBetaSeries.class.getName());
+	private static Logger			lg	= Logger.getLogger(JBetaSeries.class.getName());
 	
-	/** The key to use for the API */
-	private final String	key;
-	/** The preferred data type format */
-	private final Format	format;
-	/** The user-agent to use with the API */
-	private final String	userAgent;
+	/** The request manager */
+	private final RequestManager	requestManager;
 	/** The token for the user, <code>null</code> if no user is logged. */
-	private final String	token;
+	private final String			token;
 	
 	/**
 	 * Constructor #1.<br />
@@ -26,7 +28,7 @@ public final class JBetaSeries {
 	 *        the API key to use.
 	 */
 	public JBetaSeries (final String key) {
-		this(key, Format.XML, "");
+		this(key, Format.XML);
 	}
 	
 	/**
@@ -42,6 +44,7 @@ public final class JBetaSeries {
 	
 	/**
 	 * Constructor #2.<br />
+	 * This constructor will use the default JVM charset (probably UTF-8).
 	 * @param key
 	 *        the API key to use.
 	 * @param format
@@ -50,11 +53,40 @@ public final class JBetaSeries {
 	 *        the user-agent to use with the application.
 	 */
 	public JBetaSeries (final String key, final Format format, final String userAgent) {
+		this(key, format, userAgent, Charset.defaultCharset());
+	}
+	
+	/**
+	 * Constructor #2.<br />
+	 * @param key
+	 *        the API key to use.
+	 * @param format
+	 *        the data type required for the API.
+	 * @param userAgent
+	 *        the user-agent to use with the application.
+	 * @param charset
+	 *        the charset to use.
+	 */
+	public JBetaSeries (final String key, final Format format, final String userAgent, final Charset charset) {
 		super();
-		this.key = key;
-		this.format = format;
-		this.userAgent = userAgent;
+		this.requestManager = new RequestManager(key, format, userAgent, charset);
 		this.token = null;
+	}
+	
+	/**
+	 * Entry point of test method.
+	 * @param args
+	 *        the arguments from the command line.
+	 */
+	public static void main (final String[] args) {
+		final JBetaSeries jBetaSeries = new JBetaSeries("");
+		
+		try {
+			lg.info(jBetaSeries.requestManager.execute(new ShowSearch("person of")));
+		} catch (final IOException e) {
+			lg.warning("Error while processing request: " + ExceptionUtils.display(e));
+			e.printStackTrace();
+		}
 	}
 	
 }
