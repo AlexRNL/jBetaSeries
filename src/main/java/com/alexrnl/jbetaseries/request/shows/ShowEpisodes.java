@@ -40,4 +40,24 @@ public class ShowEpisodes extends Request {
 			addParameter(new Episode(episodeNumber));
 		}
 	}
+	
+	/**
+	 * Constructor #2.<br />
+	 * @param showId
+	 *        the id of the show.
+	 * @param seasonNumber
+	 *        the number of the season (<code>null</code> for ignored).
+	 */
+	public ShowEpisodes (final Integer showId, final Integer seasonNumber) {
+		this(showId, seasonNumber, null);
+	}
+	
+	/**
+	 * Constructor #3.<br />
+	 * @param showId
+	 *        the id of the show.
+	 */
+	public ShowEpisodes (final Integer showId) {
+		this(showId, null);
+	}
 }
