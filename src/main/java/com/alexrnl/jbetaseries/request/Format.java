@@ -1,4 +1,4 @@
-package com.alexrnl.jbetaseries;
+package com.alexrnl.jbetaseries.request;
 
 /**
  * Format available by the API.<br />

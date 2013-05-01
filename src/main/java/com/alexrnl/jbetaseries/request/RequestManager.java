@@ -16,7 +16,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import com.alexrnl.commons.error.ExceptionUtils;
-import com.alexrnl.jbetaseries.Format;
 
 /**
  * Handle the request to the API.<br />
@@ -85,7 +84,8 @@ public class RequestManager {
 		connection.connect();
 		lg.info("Response code: " + connection.getResponseCode());
 		
-		try (final BufferedReader rd = new BufferedReader(new InputStreamReader(connection.getInputStream()))) {
+		try (final BufferedReader rd = new BufferedReader(
+				new InputStreamReader(connection.getInputStream(), charset.name()))) {
 			String line;
 			while ((line = rd.readLine()) != null) {
 				sb.append(line + '\n');

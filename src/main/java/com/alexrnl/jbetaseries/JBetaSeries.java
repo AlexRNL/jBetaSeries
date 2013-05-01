@@ -5,6 +5,7 @@ import java.nio.charset.Charset;
 import java.util.logging.Logger;
 
 import com.alexrnl.commons.error.ExceptionUtils;
+import com.alexrnl.jbetaseries.request.Format;
 import com.alexrnl.jbetaseries.request.RequestManager;
 import com.alexrnl.jbetaseries.request.shows.ShowSearch;
 
@@ -85,7 +86,6 @@ public final class JBetaSeries {
 			lg.info(jBetaSeries.requestManager.execute(new ShowSearch("person of")));
 		} catch (final IOException e) {
 			lg.warning("Error while processing request: " + ExceptionUtils.display(e));
-			e.printStackTrace();
 		}
 	}
 	
