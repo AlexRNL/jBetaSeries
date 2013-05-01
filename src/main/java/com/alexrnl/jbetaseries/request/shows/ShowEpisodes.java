@@ -5,7 +5,7 @@ import com.alexrnl.jbetaseries.request.Request;
 import com.alexrnl.jbetaseries.request.Verb;
 import com.alexrnl.jbetaseries.request.parameters.Episode;
 import com.alexrnl.jbetaseries.request.parameters.Season;
-import com.alexrnl.jbetaseries.request.parameters.ShowId;
+import com.alexrnl.jbetaseries.request.parameters.Id;
 
 /**
  * Retrieve the episode of a given show.<br />
@@ -28,7 +28,7 @@ public class ShowEpisodes extends Request {
 	public ShowEpisodes (final Integer showId, final Integer seasonNumber, final Integer episodeNumber)
 			throws IllegalArgumentException {
 		super(Verb.GET, APIAddresses.SHOWS_EPISODES);
-		addParameter(new ShowId(showId));
+		addParameter(new Id(showId));
 		if (seasonNumber == null && episodeNumber != null) {
 			throw new IllegalArgumentException("The episode number cannot be set if the season" +
 					"number is missing.");

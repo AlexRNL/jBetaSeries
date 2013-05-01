@@ -4,7 +4,7 @@ import com.alexrnl.jbetaseries.request.APIAddresses;
 import com.alexrnl.jbetaseries.request.Request;
 import com.alexrnl.jbetaseries.request.Verb;
 import com.alexrnl.jbetaseries.request.parameters.Comment;
-import com.alexrnl.jbetaseries.request.parameters.ShowId;
+import com.alexrnl.jbetaseries.request.parameters.Id;
 import com.alexrnl.jbetaseries.request.parameters.ToId;
 
 /**
@@ -24,7 +24,7 @@ public class ShowSendRecommendation extends Request {
 	 */
 	public ShowSendRecommendation (final Integer showId, final Integer friendId, final String comment) {
 		super(Verb.POST, APIAddresses.SHOWS_RECOMMENDATION);
-		addParameter(new ShowId(showId));
+		addParameter(new Id(showId));
 		addParameter(new ToId(friendId));
 		if (comment != null) {
 			addParameter(new Comment(comment));

@@ -3,7 +3,7 @@ package com.alexrnl.jbetaseries.request.shows;
 import com.alexrnl.jbetaseries.request.APIAddresses;
 import com.alexrnl.jbetaseries.request.Request;
 import com.alexrnl.jbetaseries.request.Verb;
-import com.alexrnl.jbetaseries.request.parameters.ShowId;
+import com.alexrnl.jbetaseries.request.parameters.Id;
 
 /**
  * Request for deleting a recommendation from the logged account.<br />
@@ -18,6 +18,6 @@ public class ShowDeleteRecommendation extends Request {
 	 */
 	public ShowDeleteRecommendation (final Integer recommendationId) {
 		super(Verb.DELETE, APIAddresses.SHOWS_RECOMMENDATION);
-		addParameter(new ShowId(recommendationId));
+		addParameter(new Id(recommendationId));
 	}
 }

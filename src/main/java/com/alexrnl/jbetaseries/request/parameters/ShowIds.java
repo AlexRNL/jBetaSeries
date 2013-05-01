@@ -14,7 +14,7 @@ public class ShowIds extends Parameter<String> {
 	 *        the id of the show.
 	 */
 	public ShowIds (final Integer... ids) {
-		super(ShowId.PARAMETER_ID, StringUtils.separateWith(",", (Object[]) ids));
+		super(Id.PARAMETER_ID, StringUtils.separateWith(",", (Object[]) ids));
 	}
 	
 }

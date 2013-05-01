@@ -4,7 +4,7 @@ import com.alexrnl.jbetaseries.request.APIAddresses;
 import com.alexrnl.jbetaseries.request.Request;
 import com.alexrnl.jbetaseries.request.Verb;
 import com.alexrnl.jbetaseries.request.parameters.Note;
-import com.alexrnl.jbetaseries.request.parameters.ShowId;
+import com.alexrnl.jbetaseries.request.parameters.Id;
 
 /**
  * Set the note to a show for the logged user.<br />
@@ -23,7 +23,7 @@ public class ShowNote extends Request {
 	 */
 	public ShowNote (final Integer showId, final Integer note) throws IllegalArgumentException {
 		super(Verb.POST, APIAddresses.SHOWS_NOTE);
-		addParameter(new ShowId(showId));
+		addParameter(new Id(showId));
 		addParameter(new Note(note));
 	}
 }

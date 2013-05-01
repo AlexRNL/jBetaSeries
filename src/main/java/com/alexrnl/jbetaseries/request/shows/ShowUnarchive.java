@@ -3,7 +3,7 @@ package com.alexrnl.jbetaseries.request.shows;
 import com.alexrnl.jbetaseries.request.APIAddresses;
 import com.alexrnl.jbetaseries.request.Request;
 import com.alexrnl.jbetaseries.request.Verb;
-import com.alexrnl.jbetaseries.request.parameters.ShowId;
+import com.alexrnl.jbetaseries.request.parameters.Id;
 
 /**
  * Archive a show in the logged member account.<br />
@@ -18,7 +18,7 @@ public class ShowUnarchive extends Request {
 	 */
 	public ShowUnarchive (final Integer id) {
 		super(Verb.DELETE, APIAddresses.SHOWS_ARCHIVE);
-		addParameter(new ShowId(id));
+		addParameter(new Id(id));
 	}
 	
 }
