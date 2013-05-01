@@ -5,6 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import com.alexrnl.jbetaseries.request.parameters.BetaVersion;
 import com.alexrnl.jbetaseries.request.parameters.Parameter;
 
 /**
@@ -31,6 +32,9 @@ public abstract class Request {
 		this.verb = verb;
 		this.method = method;
 		this.parameters = new LinkedList<>();
+		if (APIConstants.IS_BETA) {
+			parameters.add(new BetaVersion());
+		}
 	}
 	
 	/**

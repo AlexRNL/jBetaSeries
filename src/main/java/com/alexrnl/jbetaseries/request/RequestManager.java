@@ -9,8 +9,6 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URLEncoder;
 import java.nio.charset.Charset;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Map.Entry;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -24,9 +22,6 @@ import com.alexrnl.commons.error.ExceptionUtils;
 public class RequestManager {
 	/** Logger */
 	private static Logger	lg	= Logger.getLogger(RequestManager.class.getName());
-	
-	/** Flag indicating the */
-	private static final boolean IS_BETA = true;
 	
 	/** The key of the API */
 	private final String	key;
@@ -109,14 +104,9 @@ public class RequestManager {
 		final StringBuilder addressBuilder = new StringBuilder(APIAddresses.HTTP).append(APIAddresses.HOST);
 		addressBuilder.append(request.getMethod());
 		
-		// TODO remove when beta is off
-		final Map<String, String> parameters = new HashMap<>(request.getParameters());
-		if (IS_BETA) {
-			parameters.put("v", "2.0");
-		}
 		if (!request.getParameters().isEmpty()) {
 			addressBuilder.append("?");
-			for (final Entry<String, String> parameter : parameters.entrySet()) {
+			for (final Entry<String, String> parameter : request.getParameters().entrySet()) {
 				addressBuilder.append(parameter.getKey()).append("=")
 				.append(URLEncoder.encode(parameter.getValue(), charset.name()))
 				.append("&");
