@@ -33,4 +33,6 @@ public final class APIAddresses {
 	public static final String	SHOWS_NOTE		= "/shows/note";
 	/** Address for getting a random show */
 	public static final String	SHOWS_RANDOM	= "/shows/random";
+	/** Address for searching for shows */
+	public static final String	SHOWS_SEARCH	= "/shows/search";
 }
