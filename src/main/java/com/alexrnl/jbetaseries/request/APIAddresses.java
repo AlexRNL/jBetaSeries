@@ -39,4 +39,6 @@ public final class APIAddresses {
 	public static final String	SHOWS_RECOMMENDATION	= "/shows/recommendation";
 	/** Address for getting recommendations */
 	public static final String	SHOWS_RECOMMENDATIONS	= "/shows/recommendations";
+	/** Address for adding and removing the show */
+	public static final String	SHOWS_SHOW				= "/shows/show";
 }
