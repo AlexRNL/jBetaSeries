@@ -7,7 +7,7 @@ import java.util.logging.Logger;
 import com.alexrnl.commons.error.ExceptionUtils;
 import com.alexrnl.jbetaseries.request.Format;
 import com.alexrnl.jbetaseries.request.RequestManager;
-import com.alexrnl.jbetaseries.request.shows.ShowSearch;
+import com.alexrnl.jbetaseries.request.members.MemberAuth;
 
 /**
  * Entry point of the interface to the BetaSeries API.<br />
@@ -19,8 +19,6 @@ public final class JBetaSeries {
 	
 	/** The request manager */
 	private final RequestManager	requestManager;
-	/** The token for the user, <code>null</code> if no user is logged. */
-	private final String			token;
 	
 	/**
 	 * Constructor #1.<br />
@@ -71,7 +69,6 @@ public final class JBetaSeries {
 	public JBetaSeries (final String key, final Format format, final String userAgent, final Charset charset) {
 		super();
 		this.requestManager = new RequestManager(key, format, userAgent, charset);
-		this.token = null;
 	}
 	
 	/**
@@ -83,7 +80,7 @@ public final class JBetaSeries {
 		final JBetaSeries jBetaSeries = new JBetaSeries("");
 		
 		try {
-			lg.info(jBetaSeries.requestManager.execute(new ShowSearch("person of")));
+			lg.info(jBetaSeries.requestManager.execute(new MemberAuth("Dev011", "5e8edd851d2fdfbd7415232c67367cc3")));
 		} catch (final IOException e) {
 			lg.warning("Error while processing request: " + ExceptionUtils.display(e));
 		}

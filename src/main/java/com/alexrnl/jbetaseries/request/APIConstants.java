@@ -18,4 +18,6 @@ public final class APIConstants {
 	public static final boolean	IS_BETA			= true;
 	/** The name for the API key parameter */
 	public static final String	KEY_PARAMETER	= "X-BetaSeries-Key";
+	/** The name for the API token parameter */
+	public static final String	TOKEN_PARAMETER	= "X-BetaSeries-Token";
 }

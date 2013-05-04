@@ -31,6 +31,8 @@ public class RequestManager {
 	private final String	userAgent;
 	/** The charset to use */
 	private final Charset	charset;
+	/** The token for the user, <code>null</code> if no user is logged. */
+	private String			token;
 	// TODO add the secure flag
 	
 	/**
@@ -50,6 +52,7 @@ public class RequestManager {
 		this.format = format;
 		this.userAgent = userAgent;
 		this.charset = charset;
+		this.token = null;
 	}
 	
 	/**
@@ -74,6 +77,9 @@ public class RequestManager {
 		connection.addRequestProperty(APIConstants.KEY_PARAMETER, key);
 		connection.addRequestProperty("User-Agent", userAgent);
 		connection.addRequestProperty("Accept", format.getDescription());
+		if (token != null) {
+			connection.addRequestProperty(APIConstants.TOKEN_PARAMETER, token);
+		}
 		
 		final StringBuilder sb = new StringBuilder();
 		connection.connect();
@@ -121,5 +127,21 @@ public class RequestManager {
 			lg.info("created address: " + address);
 		}
 		return address;
+	}
+	
+	/**
+	 * Return the attribute token.
+	 * @return the attribute token.
+	 */
+	public String getToken () {
+		return token;
+	}
+	
+	/**
+	 * Set the attribute token.
+	 * @param token the attribute token.
+	 */
+	public void setToken (final String token) {
+		this.token = token;
 	}
 }
