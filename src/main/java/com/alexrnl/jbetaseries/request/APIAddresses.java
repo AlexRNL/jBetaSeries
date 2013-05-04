@@ -28,6 +28,8 @@ public final class APIAddresses {
 	public static final String MEMBERS_AUTH				= "/members/auth";
 	/** Address for getting the badges */
 	public static final String MEMBERS_BADGES			= "/members/badges";
+	/** Address for destroying the active token */
+	public static final String MEMBERS_DESTROY			= "/members/destroy";
 	// Methods for shows
 	/** Address for archiving or unarchiving shows. */
 	public static final String	SHOWS_ARCHIVE			= "/shows/archive";
