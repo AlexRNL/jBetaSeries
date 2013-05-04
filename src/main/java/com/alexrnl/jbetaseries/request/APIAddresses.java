@@ -30,8 +30,10 @@ public final class APIAddresses {
 	public static final String MEMBERS_BADGES			= "/members/badges";
 	/** Address for destroying the active token */
 	public static final String MEMBERS_DESTROY			= "/members/destroy";
-	/** Address fir getting information on the members */
+	/** Address for getting information on the members */
 	public static final String MEMBERS_INFOS			= "/members/infos";
+	/** Address for checking the token validity */
+	public static final String MEMBERS_IS_ACTIVE		= "/members/is_active";
 	// Methods for shows
 	/** Address for archiving or unarchiving shows. */
 	public static final String	SHOWS_ARCHIVE			= "/shows/archive";
