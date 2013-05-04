@@ -34,6 +34,8 @@ public final class APIAddresses {
 	public static final String MEMBERS_INFOS			= "/members/infos";
 	/** Address for checking the token validity */
 	public static final String MEMBERS_IS_ACTIVE		= "/members/is_active";
+	/** Address for getting the notifications of the member */
+	public static final String MEMBERS_NOTIFICATIONS	= "/members/notifications";
 	// Methods for shows
 	/** Address for archiving or unarchiving shows. */
 	public static final String	SHOWS_ARCHIVE			= "/shows/archive";

@@ -1,7 +1,7 @@
 package com.alexrnl.jbetaseries.request.parameters;
 
 /**
- * Parameter which allow to set the id of a show.<br />
+ * Parameter which allow to set the id.<br />
  * @author Alex
  */
 public class Id extends Parameter<Integer> {
