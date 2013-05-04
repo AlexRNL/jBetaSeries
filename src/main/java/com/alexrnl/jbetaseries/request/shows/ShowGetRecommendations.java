@@ -5,7 +5,7 @@ import com.alexrnl.jbetaseries.request.Request;
 import com.alexrnl.jbetaseries.request.Verb;
 
 /**
- * Get the recommendations of the logged member.
+ * Get the recommendations of the logged member.<br />
  * @author Alex
  */
 public class ShowGetRecommendations extends Request {

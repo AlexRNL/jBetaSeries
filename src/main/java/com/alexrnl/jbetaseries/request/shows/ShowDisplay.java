@@ -6,7 +6,7 @@ import com.alexrnl.jbetaseries.request.Verb;
 import com.alexrnl.jbetaseries.request.parameters.ShowIds;
 
 /**
- * Display one or several shows.
+ * Display one or several shows.<br />
  * @author Alex
  */
 public class ShowDisplay extends Request {

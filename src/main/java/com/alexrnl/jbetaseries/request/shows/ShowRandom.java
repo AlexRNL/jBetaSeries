@@ -5,7 +5,7 @@ import com.alexrnl.jbetaseries.request.Request;
 import com.alexrnl.jbetaseries.request.Verb;
 
 /**
- * Retrieve a random show from the API.<br /
+ * Retrieve a random show from the API.<br />
  * @author Alex
  */
 public class ShowRandom extends Request {
