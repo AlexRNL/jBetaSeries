@@ -1,7 +1,7 @@
 package com.alexrnl.jbetaseries.request.parameters;
 
 /**
- * Parameter which allow to set a comment to post.
+ * Parameter which allow to set a comment to post.<br />
  * @author Alex
  */
 public class Comment extends Parameter<String> {

@@ -1,7 +1,7 @@
 package com.alexrnl.jbetaseries.request.parameters;
 
 /**
- * A parameter to be transmitted to the API.
+ * A parameter to be transmitted to the API.<br />
  * @author Alex
  * @param <T>
  *        the type of the parameter.

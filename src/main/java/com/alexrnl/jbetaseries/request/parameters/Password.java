@@ -2,7 +2,7 @@ package com.alexrnl.jbetaseries.request.parameters;
 
 
 /**
- * Parameter which allow to set the password (MD5 encoded) of the application.
+ * Parameter which allow to set the password (MD5 encoded) of the application.<br />
  * @author Alex
  */
 public class Password extends Parameter<String> {

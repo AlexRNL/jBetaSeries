@@ -2,7 +2,7 @@ package com.alexrnl.jbetaseries.request.parameters;
 
 
 /**
- * Parameter indicating to use the new version of the BetaSeries API.
+ * Parameter indicating to use the new version of the BetaSeries API.<br />
  * @author Alex
  */
 public class BetaVersion extends Parameter<String> {

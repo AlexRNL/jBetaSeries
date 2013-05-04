@@ -1,7 +1,7 @@
 package com.alexrnl.jbetaseries.request.parameters;
 
 /**
- * Parameter which allow to set a title for a query in the available shows.
+ * Parameter which allow to set a title for a query in the available shows.<br />
  * @author Alex
  */
 public class Title extends Parameter<String> {
