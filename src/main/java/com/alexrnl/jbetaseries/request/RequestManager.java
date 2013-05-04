@@ -74,7 +74,7 @@ public class RequestManager {
 		}
 		
 		connection.setRequestMethod(request.getVerb().getHttpMethodName());
-		//connection.addRequestProperty("Accept-Charset", charset.name());
+		connection.addRequestProperty("Accept-Charset", charset.name());
 		connection.addRequestProperty(APIConstants.KEY_PARAMETER, key);
 		connection.addRequestProperty("User-Agent", userAgent);
 		connection.addRequestProperty("Accept", format.getDescription());
