@@ -26,6 +26,8 @@ public final class APIAddresses {
 	// Methods for members
 	/** Address for authenticating a member */
 	public static final String MEMBERS_AUTH				= "/members/auth";
+	/** Address for getting the badges */
+	public static final String MEMBERS_BADGES			= "/members/badges";
 	// Methods for shows
 	/** Address for archiving or unarchiving shows. */
 	public static final String	SHOWS_ARCHIVE			= "/shows/archive";
@@ -37,12 +39,12 @@ public final class APIAddresses {
 	public static final String	SHOWS_NOTE				= "/shows/note";
 	/** Address for getting a random show */
 	public static final String	SHOWS_RANDOM			= "/shows/random";
-	/** Address for searching for shows */
-	public static final String	SHOWS_SEARCH			= "/shows/search";
 	/** Address for recommending shows */
 	public static final String	SHOWS_RECOMMENDATION	= "/shows/recommendation";
 	/** Address for getting recommendations */
 	public static final String	SHOWS_RECOMMENDATIONS	= "/shows/recommendations";
+	/** Address for searching for shows */
+	public static final String	SHOWS_SEARCH			= "/shows/search";
 	/** Address for adding and removing the show */
 	public static final String	SHOWS_SHOW				= "/shows/show";
 }
