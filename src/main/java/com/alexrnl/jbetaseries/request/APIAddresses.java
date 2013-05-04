@@ -23,6 +23,10 @@ public final class APIAddresses {
 	public static final String	HTTPS					= "https://";
 	
 	// Methods of the API
+	// Methods for members
+	/** Address for authenticating a member */
+	public static final String MEMBERS_AUTH				= "/members/auth";
+	// Methods for shows
 	/** Address for archiving or unarchiving shows. */
 	public static final String	SHOWS_ARCHIVE			= "/shows/archive";
 	/** Address for displaying shows */
