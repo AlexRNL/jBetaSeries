@@ -20,4 +20,8 @@ public final class APIConstants {
 	public static final String	KEY_PARAMETER	= "X-BetaSeries-Key";
 	/** The name for the API token parameter */
 	public static final String	TOKEN_PARAMETER	= "X-BetaSeries-Token";
+	/** The minimum note allowed by the API */
+	public static final int		NOTE_MIN		= 1;
+	/** The maximum note allowed by the API */
+	public static final int		NOTE_MAX		= 5;
 }

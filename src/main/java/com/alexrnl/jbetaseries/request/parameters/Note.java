@@ -1,5 +1,7 @@
 package com.alexrnl.jbetaseries.request.parameters;
 
+import com.alexrnl.jbetaseries.request.APIConstants;
+
 /**
  * Parameter which allow to set the note of a show or an episode.<br />
  * @author Alex
@@ -7,10 +9,6 @@ package com.alexrnl.jbetaseries.request.parameters;
 public class Note extends Parameter<Integer> {
 	/** Name of the note parameter */
 	public static final String	PARAMETER_NOTE	= "note";
-	/** The minimum note allowed by the API */
-	public static final int		NOTE_MIN		= 1;
-	/** The maximum note allowed by the API */
-	public static final int		NOTE_MAX		= 5;
 	
 	/**
 	 * Constructor #1.<br />
@@ -21,7 +19,7 @@ public class Note extends Parameter<Integer> {
 	 */
 	public Note (final Integer note) throws IllegalArgumentException {
 		super(PARAMETER_NOTE, note);
-		if (note < NOTE_MIN || note > NOTE_MAX) {
+		if (note < APIConstants.NOTE_MIN || note > APIConstants.NOTE_MAX) {
 			throw new IllegalArgumentException("The note must be comprise between 1 and 5.");
 		}
 	}
