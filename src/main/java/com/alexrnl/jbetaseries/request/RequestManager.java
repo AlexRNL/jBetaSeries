@@ -2,6 +2,7 @@ package com.alexrnl.jbetaseries.request;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
@@ -73,7 +74,7 @@ public class RequestManager {
 		}
 		
 		connection.setRequestMethod(request.getVerb().getHttpMethodName());
-		connection.addRequestProperty("Accept-Charset", charset.name());
+		//connection.addRequestProperty("Accept-Charset", charset.name());
 		connection.addRequestProperty(APIConstants.KEY_PARAMETER, key);
 		connection.addRequestProperty("User-Agent", userAgent);
 		connection.addRequestProperty("Accept", format.getDescription());
@@ -83,22 +84,25 @@ public class RequestManager {
 		
 		final StringBuilder sb = new StringBuilder();
 		connection.connect();
-		lg.info("Response code: " + connection.getResponseCode());
+		lg.info("Response code: " + connection.getResponseCode() +
+				"; message: " + connection.getResponseMessage());
 		
-		try (final BufferedReader rd = new BufferedReader(
-				new InputStreamReader(connection.getInputStream(), charset.name()))) {
+		final InputStream stream = connection.getResponseCode() == HttpURLConnection.HTTP_OK ?
+				connection.getInputStream() : connection.getErrorStream();
+		try (final BufferedReader rd = new BufferedReader(new InputStreamReader(stream,
+				charset.name()))) {
 			String line;
 			while ((line = rd.readLine()) != null) {
 				sb.append(line + '\n');
 			}
 		} catch (final IOException e) {
-			
+			lg.warning("Error while reading data from API: " + ExceptionUtils.display(e));
 		}
 		return sb.toString();
 	}
 	
 	/**
-	 * 
+	 * Build the address to connect to from the specified request.<br />
 	 * @param request
 	 *        the request to use to build the address.
 	 * @return the address to connect to.
