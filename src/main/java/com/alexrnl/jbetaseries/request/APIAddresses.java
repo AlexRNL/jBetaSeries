@@ -39,7 +39,9 @@ public final class APIAddresses {
 	/** Address for OAuth authentication */
 	public static final String MEMBERS_OAUTH			= "/members/oauth";
 	/** Address for changing options */
-	public static final String MEMBERS_OPTION			= "/member/option";
+	public static final String MEMBERS_OPTION			= "/members/option";
+	/** Address for getting the options */
+	public static final String MEMBERS_OPTIONS			= "/members/options";
 	// Methods for shows
 	/** Address for archiving or unarchiving shows. */
 	public static final String	SHOWS_ARCHIVE			= "/shows/archive";
