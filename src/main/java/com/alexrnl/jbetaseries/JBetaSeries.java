@@ -7,7 +7,8 @@ import java.util.logging.Logger;
 import com.alexrnl.commons.error.ExceptionUtils;
 import com.alexrnl.jbetaseries.request.Format;
 import com.alexrnl.jbetaseries.request.RequestManager;
-import com.alexrnl.jbetaseries.request.shows.ShowRandom;
+import com.alexrnl.jbetaseries.request.members.MemberAuth;
+import com.alexrnl.jbetaseries.request.members.MemberNotifications;
 
 /**
  * Entry point of the interface to the BetaSeries API.<br />
@@ -72,7 +73,7 @@ public final class JBetaSeries {
 	}
 	
 	/**
-	 * Entry point of test method.
+	 * Entry point of test method.<br />
 	 * @param args
 	 *        the arguments from the command line.
 	 */
@@ -80,7 +81,9 @@ public final class JBetaSeries {
 		final JBetaSeries jBetaSeries = new JBetaSeries("", Format.XML);
 		
 		try {
-			lg.info(jBetaSeries.requestManager.execute(new ShowRandom()));
+			lg.info(jBetaSeries.requestManager.execute(new MemberAuth("Dev001", "developer")));
+			//jBetaSeries.requestManager.setToken("XXXXXXXXXXX");
+			lg.info(jBetaSeries.requestManager.execute(new MemberNotifications()));
 		} catch (final IOException e) {
 			lg.warning("Error while processing request: " + ExceptionUtils.display(e));
 		}
