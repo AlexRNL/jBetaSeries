@@ -85,7 +85,7 @@ public final class JBetaSeries {
 			lg.info(jBetaSeries.requestManager.execute(new MemberAuth("", "")));
 			jBetaSeries.requestManager.setToken(null);
 			lg.info(jBetaSeries.requestManager.execute(new MemberOptions()));
-			jBetaSeries.requestManager.equals(new MemberDestroy());
+			jBetaSeries.requestManager.execute(new MemberDestroy());
 		} catch (final IOException e) {
 			lg.warning("Error while processing request: " + ExceptionUtils.display(e));
 		}
