@@ -36,6 +36,8 @@ public final class APIAddresses {
 	public static final String MEMBERS_IS_ACTIVE		= "/members/is_active";
 	/** Address for getting the notifications of the member */
 	public static final String MEMBERS_NOTIFICATIONS	= "/members/notifications";
+	/** Address for OAuth authentication */
+	public static final String MEMBERS_OAUTH			= "/members/oauth";
 	// Methods for shows
 	/** Address for archiving or unarchiving shows. */
 	public static final String	SHOWS_ARCHIVE			= "/shows/archive";
