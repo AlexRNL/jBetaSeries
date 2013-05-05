@@ -7,6 +7,7 @@ import com.alexrnl.jbetaseries.request.parameters.AutoDelete;
 import com.alexrnl.jbetaseries.request.parameters.LastId;
 import com.alexrnl.jbetaseries.request.parameters.Number;
 import com.alexrnl.jbetaseries.request.parameters.Sort;
+import com.alexrnl.jbetaseries.request.parameters.Sort.Type;
 import com.alexrnl.jbetaseries.request.parameters.Summary;
 
 
@@ -16,12 +17,81 @@ import com.alexrnl.jbetaseries.request.parameters.Summary;
  */
 public class MemberNotifications extends Request {
 	
-	public MemberNotifications (final Boolean summary, final Integer number, final Sort.Type sort, final Integer lastId, final Boolean autoDelete) {
+	/**
+	 * Constructor #1.<br />
+	 * @param summary
+	 *        <code>true</code> if just the number of notifications is required.
+	 * @param number
+	 *        Number of notification required.
+	 * @param autoDelete
+	 *        <code>true</code> to automatically delete the notifications.
+	 * @param sort
+	 *        order for the notification.
+	 * @param lastId
+	 *        the last id of the notification to retrieve.
+	 */
+	private MemberNotifications (final Boolean summary, final Integer number, final Boolean autoDelete,
+			final Sort.Type sort, final Integer lastId) {
 		super(Verb.GET, APIAddresses.MEMBERS_NOTIFICATIONS);
-		addParameter(new Summary(summary)); // summary: Résumé du nombre de notifications ou complet
-		addParameter(new Number(number)); // number: Nombre de notifications
-		addParameter(new Sort(sort)); // sort: Tri descendant ou ascendant
-		addParameter(new LastId(lastId)); // last_id: Dernier ID
-		addParameter(new AutoDelete(autoDelete)); // auto_delete: Suppression automatique des notifications
+		if (summary != null) {
+			addParameter(new Summary(summary));
+		}
+		if (number != null) {
+			addParameter(new Number(number));
+		}
+		if (sort != null) {
+			addParameter(new Sort(sort));
+		}
+		if (lastId != null) {
+			addParameter(new LastId(lastId));
+		}
+		if (autoDelete != null) {
+			addParameter(new AutoDelete(autoDelete));
+		}
+	}
+	
+	/**
+	 * Constructor #2.<br />
+	 * If any of the parameter is <code>null</code>, it will not be used.
+	 * @param number
+	 *        Number of notification required.
+	 * @param autoDelete
+	 *        <code>true</code> to automatically delete the notifications.
+	 * @param sort
+	 *        order for the notification.
+	 */
+	public MemberNotifications (final Integer number, final Boolean autoDelete, final Type sort) {
+		this(false, number, autoDelete, sort, null);
+	}
+	
+	/**
+	 * Constructor #3.<br />
+	 * If any of the parameter is <code>null</code>, it will not be used.
+	 * @param number
+	 *        Number of notification required.
+	 * @param autoDelete
+	 *        <code>true</code> to automatically delete the notifications.
+	 * @param lastId
+	 *        the last id of the notification to retrieve.
+	 */
+	public MemberNotifications (final Integer number, final Boolean autoDelete, final Integer lastId) {
+		this(false, number, autoDelete, null, lastId);
+	}
+	
+	/**
+	 * Constructor #4.<br />
+	 * Default constructor.
+	 */
+	public MemberNotifications () {
+		this(null, null, null, null, null);
+	}
+	
+	/**
+	 * Constructor #5.<br />
+	 * @param summary
+	 *        <code>true</code> if just the number of notifications is required.
+	 */
+	public MemberNotifications (final Boolean summary) {
+		this (summary, null, null, null, null);
 	}
 }
