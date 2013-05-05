@@ -1,5 +1,6 @@
 package com.alexrnl.jbetaseries.request.members;
 
+import com.alexrnl.commons.utils.StringUtils;
 import com.alexrnl.jbetaseries.request.APIAddresses;
 import com.alexrnl.jbetaseries.request.Request;
 import com.alexrnl.jbetaseries.request.Verb;
@@ -17,11 +18,11 @@ public class MemberAuth extends Request {
 	 * @param login
 	 *        the login of the member.
 	 * @param password
-	 *        the password of the member (encoded in MD5).
+	 *        the password of the member in clear text <em>will later be encoded in MD5</em>.
 	 */
 	public MemberAuth (final String login, final String password) {
 		super(Verb.POST, APIAddresses.MEMBERS_AUTH);
 		addParameter(new Login(login));
-		addParameter(new Password(password));
+		addParameter(new Password(StringUtils.getMD5(password)));
 	}
 }
