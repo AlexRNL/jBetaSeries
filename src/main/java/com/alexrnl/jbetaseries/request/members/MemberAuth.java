@@ -18,7 +18,7 @@ public class MemberAuth extends Request {
 	 * @param login
 	 *        the login of the member.
 	 * @param password
-	 *        the password of the member in clear text <em>will later be encoded in MD5</em>.
+	 *        the password of the member in clear text; <em>will later be encoded in MD5</em>.
 	 */
 	public MemberAuth (final String login, final String password) {
 		super(Verb.POST, APIAddresses.MEMBERS_AUTH);
