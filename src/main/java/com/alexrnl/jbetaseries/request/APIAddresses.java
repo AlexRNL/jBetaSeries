@@ -46,6 +46,8 @@ public final class APIAddresses {
 	public static final String	MEMBERS_SEARCH			= "/members/search";
 	/** Address for signing-up for a new account */
 	public static final String	MEMBERS_SIGN_UP			= "/members/signup";
+	/** Address for looking for friends in BetaSeries' API */
+	public static final String	MEMBERS_SYNC				= "/members/sync";
 	// Methods for shows
 	/** Address for archiving or unarchiving shows. */
 	public static final String	SHOWS_ARCHIVE			= "/shows/archive";
