@@ -42,6 +42,8 @@ public final class APIAddresses {
 	public static final String MEMBERS_OPTION			= "/members/option";
 	/** Address for getting the options */
 	public static final String MEMBERS_OPTIONS			= "/members/options";
+	/** Address for searching members */
+	public static final String MEMBERS_SEARCH			= "/members/search";
 	// Methods for shows
 	/** Address for archiving or unarchiving shows. */
 	public static final String	SHOWS_ARCHIVE			= "/shows/archive";
