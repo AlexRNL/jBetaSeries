@@ -25,25 +25,27 @@ public final class APIAddresses {
 	// Methods of the API
 	// Methods for members
 	/** Address for authenticating a member */
-	public static final String MEMBERS_AUTH				= "/members/auth";
+	public static final String	MEMBERS_AUTH			= "/members/auth";
 	/** Address for getting the badges */
-	public static final String MEMBERS_BADGES			= "/members/badges";
+	public static final String	MEMBERS_BADGES			= "/members/badges";
 	/** Address for destroying the active token */
-	public static final String MEMBERS_DESTROY			= "/members/destroy";
+	public static final String	MEMBERS_DESTROY			= "/members/destroy";
 	/** Address for getting information on the members */
-	public static final String MEMBERS_INFOS			= "/members/infos";
+	public static final String	MEMBERS_INFOS			= "/members/infos";
 	/** Address for checking the token validity */
-	public static final String MEMBERS_IS_ACTIVE		= "/members/is_active";
+	public static final String	MEMBERS_IS_ACTIVE		= "/members/is_active";
 	/** Address for getting the notifications of the member */
-	public static final String MEMBERS_NOTIFICATIONS	= "/members/notifications";
+	public static final String	MEMBERS_NOTIFICATIONS	= "/members/notifications";
 	/** Address for OAuth authentication */
-	public static final String MEMBERS_OAUTH			= "/members/oauth";
+	public static final String	MEMBERS_OAUTH			= "/members/oauth";
 	/** Address for changing options */
-	public static final String MEMBERS_OPTION			= "/members/option";
+	public static final String	MEMBERS_OPTION			= "/members/option";
 	/** Address for getting the options */
-	public static final String MEMBERS_OPTIONS			= "/members/options";
+	public static final String	MEMBERS_OPTIONS			= "/members/options";
 	/** Address for searching members */
-	public static final String MEMBERS_SEARCH			= "/members/search";
+	public static final String	MEMBERS_SEARCH			= "/members/search";
+	/** Address for signing-up for a new account */
+	public static final String	MEMBERS_SIGN_UP			= "/members/signup";
 	// Methods for shows
 	/** Address for archiving or unarchiving shows. */
 	public static final String	SHOWS_ARCHIVE			= "/shows/archive";
