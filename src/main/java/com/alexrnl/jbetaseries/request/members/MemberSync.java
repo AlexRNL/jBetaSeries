@@ -18,6 +18,8 @@ public class MemberSync extends Request {
 	 */
 	public MemberSync (final String... emails) {
 		super(Verb.POST, APIAddresses.MEMBERS_SYNC);
-		addParameter(new Mails(emails));
+		for (final String email : emails) {
+			addParameter(new Mails(email));
+		}
 	}
 }
