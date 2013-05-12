@@ -4,17 +4,20 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
-import java.net.URI;
-import java.net.URISyntaxException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.net.URLEncoder;
 import java.nio.charset.Charset;
+import java.util.Map;
 import java.util.Map.Entry;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import com.alexrnl.commons.error.ExceptionUtils;
+import com.alexrnl.jbetaseries.request.parameters.BetaVersion;
 
 /**
  * Handle the request to the API.<br />
@@ -34,7 +37,8 @@ public class RequestManager {
 	private final Charset	charset;
 	/** The token for the user, <code>null</code> if no user is logged. */
 	private String			token;
-	// TODO add the secure flag
+	/** <code>true</code> if using the secure API address */
+	private final boolean	isSecure;
 	
 	/**
 	 * Constructor #1.<br />
@@ -47,13 +51,37 @@ public class RequestManager {
 	 * @param charset
 	 *        the charset to use.
 	 */
-	public RequestManager (final String key, final Format format, final String userAgent, final Charset charset) {
+	public RequestManager (final String key, final Format format, final String userAgent,
+			final Charset charset) {
+		this(key, format, userAgent, charset, false);
+	}
+
+	/**
+	 * Constructor #1.<br />
+	 * @param key
+	 *        the key of the API.
+	 * @param format
+	 *        the format for the API response.
+	 * @param userAgent
+	 *        the user-agent to declare.
+	 * @param charset
+	 *        the charset to use.
+	 * @param isSecure
+	 *        <code>true</code> for using the secure API address.
+	 */
+	public RequestManager (final String key, final Format format, final String userAgent,
+			final Charset charset, final boolean isSecure) {
 		super();
 		this.key = key;
 		this.format = format;
 		this.userAgent = userAgent;
 		this.charset = charset;
+		this.isSecure = isSecure;
 		this.token = null;
+		
+		if (lg.isLoggable(Level.FINE)) {
+			lg.fine(RequestManager.class.getSimpleName() + " created: " + toString());
+		}
 	}
 	
 	/**
@@ -66,27 +94,63 @@ public class RequestManager {
 	 */
 	public String execute (final Request request) throws IOException {
 		HttpURLConnection connection;
-		try {
-			connection = (HttpURLConnection) new URI(buildAddress(request)).toURL().openConnection();
-		} catch (final URISyntaxException | UnsupportedEncodingException e) {
-			lg.warning("Could not build URI: " + ExceptionUtils.display(e));
-			return "failed!";
+		// Build address
+		final StringBuilder address = new StringBuilder(buildAddress(request));
+		final String parameters = getParameters(request);
+		if (!isPost(request)) {
+			address.append('?').append(parameters);
+		} else {
+			final BetaVersion beta = new BetaVersion();
+			address.append('?').append(beta.getName()).append('=').append(beta.getValue());
 		}
 		
+		// Open connection to address
+		try {
+			if (lg.isLoggable(Level.INFO)) {
+				lg.info("Connecting to " + address.toString());
+			}
+			connection = (HttpURLConnection) new URL(address.toString()).openConnection();
+		} catch (final MalformedURLException e) {
+			lg.warning("Could not build URL: " + ExceptionUtils.display(e));
+			throw new IOException("Could not build address from " + address.toString(), e);
+		}
+		
+		// Set connection properties
+		connection.setDoOutput(true);
 		connection.setRequestMethod(request.getVerb().getHttpMethodName());
 		connection.addRequestProperty("Accept-Charset", charset.name());
-		connection.addRequestProperty(APIConstants.KEY_PARAMETER, key);
 		connection.addRequestProperty("User-Agent", userAgent);
 		connection.addRequestProperty("Accept", format.getDescription());
+		connection.addRequestProperty(APIConstants.KEY_PARAMETER, key);
 		if (token != null) {
 			connection.addRequestProperty(APIConstants.TOKEN_PARAMETER, token);
 		}
 		
-		final StringBuilder sb = new StringBuilder();
-		connection.connect();
+		// Writing parameter for post request
+		if (isPost(request)) {
+			final byte[] parameterBytes = parameters.getBytes(charset);
+			connection.setInstanceFollowRedirects(false);
+			connection.setDoInput(true);
+			connection.setRequestProperty("Content-Length", "" + Integer.toString(parameterBytes.length));
+			connection.setUseCaches(false);
+			if (lg.isLoggable(Level.INFO)) {
+				lg.info("Sending parameters: " + parameters);
+			}
+
+			connection.connect();
+			final OutputStream wr = connection.getOutputStream();
+			wr.write(parameterBytes);
+			wr.flush();
+			wr.close();
+		} else {
+			connection.setDoInput(false);
+			connection.connect();
+		}
+		
 		lg.info("Response code: " + connection.getResponseCode() +
 				"; message: " + connection.getResponseMessage());
-		
+
+		final StringBuilder sb = new StringBuilder();
 		final InputStream stream = connection.getResponseCode() == HttpURLConnection.HTTP_OK ?
 				connection.getInputStream() : connection.getErrorStream();
 		try (final BufferedReader rd = new BufferedReader(new InputStreamReader(stream,
@@ -102,35 +166,45 @@ public class RequestManager {
 	}
 	
 	/**
+	 * Check is a request is a {@link Verb#POST} request.<br />
+	 * @param request
+	 *        the request to test.
+	 * @return <code>true</code> if it is a POST request.
+	 */
+	private static boolean isPost (final Request request) {
+		return Verb.POST.equals(request.getVerb());
+	}
+	
+	/**
 	 * Build the address to connect to from the specified request.<br />
 	 * @param request
 	 *        the request to use to build the address.
 	 * @return the address to connect to.
+	 */
+	private String buildAddress (final Request request) {
+		return (isSecure ? APIAddresses.HTTPS : APIAddresses.HTTP) + APIAddresses.HOST + request.getMethod();
+	}
+	
+	/**
+	 * 
+	 * @param request the request to use to build the address.
+	 * @return the parameters
 	 * @throws UnsupportedEncodingException
 	 *         if the selected encoding is not supported by the platform.
 	 */
-	private String buildAddress (final Request request) throws UnsupportedEncodingException {
-		String address;
-		final StringBuilder addressBuilder = new StringBuilder(APIAddresses.HTTP).append(APIAddresses.HOST);
-		addressBuilder.append(request.getMethod());
-		
-		if (!request.getParameters().isEmpty()) {
-			addressBuilder.append("?");
-			for (final Entry<String, String> parameter : request.getParameters().entrySet()) {
-				addressBuilder.append(parameter.getKey()).append("=")
-				.append(URLEncoder.encode(parameter.getValue(), charset.name()))
-				.append("&");
-			}
-			// Remove the last ampersand
-			address = addressBuilder.substring(0, addressBuilder.length() - 1).trim();
-		} else {
-			address = addressBuilder.toString().trim();
+	private String getParameters (final Request request) throws UnsupportedEncodingException {
+		final Map<String, String> parameters = request.getParameters();
+		if (parameters.size() == 0) {
+			return "";
 		}
-		
-		if (lg.isLoggable(Level.INFO)) {
-			lg.info("created address: " + address);
+		final StringBuilder parametersBuilder = new StringBuilder();
+		for (final Entry<String, String> parameter : parameters.entrySet()) {
+			parametersBuilder.append(parameter.getKey()).append("=")
+			.append(URLEncoder.encode(parameter.getValue(), charset.name()))
+			.append("&");
 		}
-		return address;
+		// Remove the last ampersand
+		return parametersBuilder.substring(0, parametersBuilder.length() - 1).trim();
 	}
 	
 	/**
@@ -148,4 +222,19 @@ public class RequestManager {
 	public void setToken (final String token) {
 		this.token = token;
 	}
+
+	/**
+	 * Return the attribute isSecure.
+	 * @return the attribute isSecure.
+	 */
+	public boolean isSecure () {
+		return isSecure;
+	}
+
+	@Override
+	public String toString () {
+		return "RequestManager [key=" + key + ", format=" + format + ", userAgent=" + userAgent
+				+ ", charset=" + charset + ", token=" + token + ", isSecure=" + isSecure + "]";
+	}
+	
 }
