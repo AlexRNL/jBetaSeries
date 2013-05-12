@@ -11,13 +11,12 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.nio.charset.Charset;
-import java.util.Map;
-import java.util.Map.Entry;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import com.alexrnl.commons.error.ExceptionUtils;
-import com.alexrnl.jbetaseries.request.parameters.BetaVersion;
+import com.alexrnl.jbetaseries.request.parameters.Parameter;
 
 /**
  * Handle the request to the API.<br />
@@ -99,9 +98,6 @@ public class RequestManager {
 		final String parameters = getParameters(request);
 		if (!isPost(request)) {
 			address.append('?').append(parameters);
-		} else {
-			final BetaVersion beta = new BetaVersion();
-			address.append('?').append(beta.getName()).append('=').append(beta.getValue());
 		}
 		
 		// Open connection to address
@@ -186,22 +182,23 @@ public class RequestManager {
 	}
 	
 	/**
-	 * 
-	 * @param request the request to use to build the address.
-	 * @return the parameters
+	 * Build the string from the parameters of the request.<br />
+	 * @param request
+	 *        the request to use to build the address.
+	 * @return the parameters to sent to the API.
 	 * @throws UnsupportedEncodingException
 	 *         if the selected encoding is not supported by the platform.
 	 */
 	private String getParameters (final Request request) throws UnsupportedEncodingException {
-		final Map<String, String> parameters = request.getParameters();
+		final List<Parameter<?>> parameters = request.getParameters();
 		if (parameters.size() == 0) {
 			return "";
 		}
 		final StringBuilder parametersBuilder = new StringBuilder();
-		for (final Entry<String, String> parameter : parameters.entrySet()) {
-			parametersBuilder.append(parameter.getKey()).append("=")
-			.append(URLEncoder.encode(parameter.getValue(), charset.name()))
-			.append("&");
+		for (final Parameter<?> parameter : parameters) {
+			parametersBuilder.append(parameter.getName()).append('=')
+			.append(URLEncoder.encode(String.valueOf(parameter.getValue()), charset.name()))
+			.append('&');
 		}
 		// Remove the last ampersand
 		return parametersBuilder.substring(0, parametersBuilder.length() - 1).trim();

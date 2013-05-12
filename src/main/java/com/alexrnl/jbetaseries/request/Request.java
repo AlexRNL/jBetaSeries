@@ -1,9 +1,8 @@
 package com.alexrnl.jbetaseries.request;
 
-import java.util.HashMap;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
 
 import com.alexrnl.jbetaseries.request.parameters.BetaVersion;
 import com.alexrnl.jbetaseries.request.parameters.Parameter;
@@ -63,14 +62,10 @@ public abstract class Request {
 	}
 	
 	/**
-	 * Return the parameters which are required by the request.<br />
+	 * Return an unmodifiable list of the parameters which are required by the request.<br />
 	 * @return the parameters to sent to the API.
 	 */
-	public final Map<String, String> getParameters () {
-		final Map<String, String> stringParameters = new HashMap<>(parameters.size());
-		for (final Parameter<?> parameter : parameters) {
-			stringParameters.put(parameter.getName(), String.valueOf(parameter.getValue()));
-		}
-		return stringParameters;
+	public final List<Parameter<?>> getParameters () {
+		return Collections.unmodifiableList(parameters);
 	}
 }
