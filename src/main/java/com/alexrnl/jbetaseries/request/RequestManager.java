@@ -113,6 +113,7 @@ public class RequestManager {
 		
 		// Set connection properties
 		connection.setDoOutput(true);
+		connection.setDoInput(isPost(request));
 		connection.setRequestMethod(request.getVerb().getHttpMethodName());
 		connection.addRequestProperty("Accept-Charset", charset.name());
 		connection.addRequestProperty("User-Agent", userAgent);
@@ -126,9 +127,7 @@ public class RequestManager {
 		if (isPost(request)) {
 			final byte[] parameterBytes = parameters.getBytes(charset);
 			connection.setInstanceFollowRedirects(false);
-			connection.setDoInput(true);
 			connection.setRequestProperty("Content-Length", "" + Integer.toString(parameterBytes.length));
-			connection.setUseCaches(false);
 			if (lg.isLoggable(Level.INFO)) {
 				lg.info("Sending parameters: " + parameters);
 			}
@@ -139,12 +138,13 @@ public class RequestManager {
 			wr.flush();
 			wr.close();
 		} else {
-			connection.setDoInput(false);
 			connection.connect();
 		}
 		
-		lg.info("Response code: " + connection.getResponseCode() +
-				"; message: " + connection.getResponseMessage());
+		if (lg.isLoggable(Level.INFO)) {
+			lg.info("Response code: " + connection.getResponseCode() +
+					"; message: " + connection.getResponseMessage());
+		}
 
 		final StringBuilder sb = new StringBuilder();
 		final InputStream stream = connection.getResponseCode() == HttpURLConnection.HTTP_OK ?
