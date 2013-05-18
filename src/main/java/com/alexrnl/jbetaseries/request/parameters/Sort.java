@@ -5,7 +5,7 @@ package com.alexrnl.jbetaseries.request.parameters;
  * @author Alex
  */
 public class Sort extends Parameter<Sort.Type> {
-	/** */
+	/** The name of the sort parameter */
 	public static final String	PARAMETER_SORT	= "sort";
 	
 	/**
