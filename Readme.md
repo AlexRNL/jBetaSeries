@@ -9,9 +9,15 @@ The library is not complete yet, work in progress !
 Advancement
 ------
 - [x] Request manager
+<<<<<<< HEAD
 - [x] Request for shows (but some are not ported to the _new_ API yet)
 - [x] Request for members.
 - [ ] Request for episodes (in progress).
+=======
+- [x] Request for shows (but some are not ported to the _new_ yet)
+- [x] Request for members.
+- [ ] Request for episodes.
+>>>>>>> b1f3b9d856605d05297d5e8e9417a541ab912473
 - [ ] Request for timeline.
 - [ ] Request for subtitles.
 - [ ] Request for planning.
