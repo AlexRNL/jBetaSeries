@@ -23,6 +23,9 @@ public final class APIAddresses {
 	public static final String	HTTPS					= "https://";
 	
 	// Methods of the API
+	// Methods for episodes
+	/** Address for displaying episode(s) information */
+	public static final String	EPISODES_DISPLAY		= "/episodes/display";
 	// Methods for members
 	/** Address for authenticating a member */
 	public static final String	MEMBERS_AUTH			= "/members/auth";

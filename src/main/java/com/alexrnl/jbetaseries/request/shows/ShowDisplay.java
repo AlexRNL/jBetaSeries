@@ -3,7 +3,7 @@ package com.alexrnl.jbetaseries.request.shows;
 import com.alexrnl.jbetaseries.request.APIAddresses;
 import com.alexrnl.jbetaseries.request.Request;
 import com.alexrnl.jbetaseries.request.Verb;
-import com.alexrnl.jbetaseries.request.parameters.ShowIds;
+import com.alexrnl.jbetaseries.request.parameters.Ids;
 
 /**
  * Display one or several shows.<br />
@@ -18,7 +18,7 @@ public class ShowDisplay extends Request {
 	 */
 	public ShowDisplay (final Integer... ids) {
 		super(Verb.GET, APIAddresses.SHOWS_DISPLAY);
-		addParameter(new ShowIds(ids));
+		addParameter(new Ids(ids));
 	}
 	
 }
