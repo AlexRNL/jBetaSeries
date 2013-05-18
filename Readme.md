@@ -10,8 +10,8 @@ Advancement
 ------
 - [x] Request manager
 - [x] Request for shows (but some are not ported to the _new_ yet)
-- [x] Request for members (in progress).
-- [ ] Request for episodes.
+- [x] Request for members.
+- [ ] Request for episodes (in progress).
 - [ ] Request for timeline.
 - [ ] Request for subtitles.
 - [ ] Request for planning.
