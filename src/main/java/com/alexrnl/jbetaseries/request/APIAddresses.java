@@ -28,7 +28,7 @@ public final class APIAddresses {
 	public static final String	EPISODES_DISPLAY		= "/episodes/display";
 	/** Address for marking an episode as downloaded */
 	public static final String	EPISODES_DOWNLOADED		= "/episodes/downloaded";
-	/** Addres for requesting the list of episodes */
+	/** Address for requesting the list of episodes */
 	public static final String	EPISODES_LIST			= "/episodes/list";
 	// Methods for members
 	/** Address for authenticating a member */
