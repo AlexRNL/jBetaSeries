@@ -9,6 +9,7 @@ public class Sort extends Parameter<Sort.Type> {
 	public static final String	PARAMETER_SORT	= "sort";
 	
 	/**
+	 * Sort type enumeration for the API.
 	 * @author Alex
 	 */
 	public static enum Type {
