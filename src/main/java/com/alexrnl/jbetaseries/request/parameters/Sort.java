@@ -19,7 +19,7 @@ public class Sort extends Parameter<Sort.Type> {
 		DESCENDING ("desc");
 		
 		/** The value of the sorting type */
-		private String	value;
+		private final String	value;
 		
 		/**
 		 * Constructor #1.<br />
