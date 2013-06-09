@@ -30,6 +30,8 @@ public final class APIAddresses {
 	public static final String	EPISODES_DOWNLOADED		= "/episodes/downloaded";
 	/** Address for requesting the list of episodes */
 	public static final String	EPISODES_LIST			= "/episodes/list";
+	/** Address for grading episodes */
+	public static final String	EPISODES_NOTE			= "/episodes/note";
 	// Methods for members
 	/** Address for authenticating a member */
 	public static final String	MEMBERS_AUTH			= "/members/auth";
