@@ -41,6 +41,8 @@ public final class APIAddresses {
 	public static final String	MEMBERS_INFOS			= "/members/infos";
 	/** Address for checking the token validity */
 	public static final String	MEMBERS_IS_ACTIVE		= "/members/is_active";
+	/** Address for resetting the password of the member's account */
+	public static final String	MEMBERS_LOST				= "/members/lost";
 	/** Address for getting the notifications of the member */
 	public static final String	MEMBERS_NOTIFICATIONS	= "/members/notifications";
 	/** Address for OAuth authentication */
