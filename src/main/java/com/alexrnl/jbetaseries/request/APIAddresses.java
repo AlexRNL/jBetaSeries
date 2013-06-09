@@ -76,4 +76,6 @@ public final class APIAddresses {
 	public static final String	SHOWS_SHOW				= "/shows/show";
 	/** Address for getting similar shows */
 	public static final String	SHOWS_SIMILARS			= "/shows/similars";
+	/** Address for getting shows videos */
+	public static final String	SHOWS_VIDEOS			= "/shows/videos";
 }
