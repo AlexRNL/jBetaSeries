@@ -9,7 +9,7 @@ public class Login extends Parameter<String> {
 	public static final String	PARAMETER_LOGIN	= "login";
 	
 	/**
-	 * Constructor #.<br />
+	 * Constructor #1.<br />
 	 * @param login
 	 *        the login of the member.
 	 */
