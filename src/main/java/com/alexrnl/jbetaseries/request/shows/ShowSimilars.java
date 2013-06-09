@@ -9,14 +9,14 @@ import com.alexrnl.jbetaseries.request.parameters.Id;
  * Get the shows which are marked as similar to the current one.<br />
  * @author Alex
  */
-public class ShowSimilar extends Request {
+public class ShowSimilars extends Request {
 	
 	/**
 	 * Constructor #1.<br />
 	 * @param showId
 	 *        the id of the show.
 	 */
-	public ShowSimilar (final Integer showId) {
+	public ShowSimilars (final Integer showId) {
 		super(Verb.GET, APIAddresses.SHOWS_SIMILARS);
 		addParameter(new Id(showId));
 	}
