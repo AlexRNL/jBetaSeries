@@ -13,7 +13,7 @@ import com.alexrnl.jbetaseries.request.parameters.Id;
 public class EpisodeWatched extends Request {
 	
 	/**
-	 * Constructor #.<br />
+	 * Constructor #1.<br />
 	 * @param episodeId
 	 *        the id of the episode to mark as seen.
 	 * @param bulk
@@ -27,4 +27,15 @@ public class EpisodeWatched extends Request {
 			addParameter(new Bulk());
 		}
 	}
+	
+	/**
+	 * Constructor #2.<br />
+	 * This will mark <em>all</em> previous episodes as seen.
+	 * @param episodeId the id of the episode to mark as seen.
+	 * @see #EpisodeWatched(Integer, boolean)
+	 */
+	public EpisodeWatched (final Integer episodeId) {
+		this(episodeId, true);
+	}
+	
 }
