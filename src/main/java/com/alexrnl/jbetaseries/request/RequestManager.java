@@ -196,9 +196,13 @@ public class RequestManager {
 		}
 		final StringBuilder parametersBuilder = new StringBuilder();
 		for (final Parameter<?> parameter : parameters) {
-			parametersBuilder.append(parameter.getName()).append('=')
-			.append(URLEncoder.encode(String.valueOf(parameter.getValue()), charset.name()))
-			.append('&');
+			parametersBuilder.append(parameter.getName());
+			// Check against null parameters, if a parameter is null, then its name is enough
+			if (parameter.getValue() != null) {
+				parametersBuilder.append('=')
+				.append(URLEncoder.encode(String.valueOf(parameter.getValue()), charset.name()));
+			}
+			parametersBuilder.append('&');
 		}
 		// Remove the last ampersand
 		return parametersBuilder.substring(0, parametersBuilder.length() - 1).trim();
