@@ -11,7 +11,7 @@ Advancement
 - [x] Request manager.
 - [x] Request for shows.
 - [x] Request for members.
-- [ ] Request for episodes (in progress).
+- [x] Request for episodes.
 - [ ] Request for timeline.
 - [ ] Request for subtitles.
 - [ ] Request for planning.
