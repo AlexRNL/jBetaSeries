@@ -8,8 +8,8 @@ The library is not complete yet, work in progress !
 
 Advancement
 ------
-- [x] Request manager
-- [x] Request for shows (but some are not ported to the _new_ API yet)
+- [x] Request manager.
+- [x] Request for shows.
 - [x] Request for members.
 - [ ] Request for episodes (in progress).
 - [ ] Request for timeline.
