@@ -17,7 +17,7 @@ public class ShowSimilar extends Request {
 	 *        the id of the show.
 	 */
 	public ShowSimilar (final Integer showId) {
-		super(Verb.GET, APIAddresses.SHOWS_SIMILAR);
+		super(Verb.GET, APIAddresses.SHOWS_SIMILARS);
 		addParameter(new Id(showId));
 	}
 }
