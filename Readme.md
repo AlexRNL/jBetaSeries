@@ -15,7 +15,7 @@ Advancement
 - [ ] Request for timeline.
 - [ ] Request for subtitles.
 - [ ] Request for planning.
-- [ ] Request for messages.
+- [x] Request for messages.
 - [ ] Request for comments.
 - [ ] Request for movies.
 - [ ] Request for friends.
