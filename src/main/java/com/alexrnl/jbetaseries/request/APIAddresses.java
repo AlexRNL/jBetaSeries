@@ -70,6 +70,8 @@ public final class APIAddresses {
 	public static final String	MESSAGES_INBOX			= "/messages/inbox";
 	/** Address for actions on specific messages */
 	public static final String	MESSAGES_MESSAGE		= "/messages/message";
+	/** Address for marking a message as read */
+	public static final String	MESSAGES_READ			= "/messages/read";
 	// Methods for shows
 	/** Address for archiving or unarchiving shows */
 	public static final String	SHOWS_ARCHIVE			= "/shows/archive";
