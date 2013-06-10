@@ -68,6 +68,8 @@ public final class APIAddresses {
 	public static final String	MESSAGES_DISCUSSION		= "/messages/discussion";
 	/** Address for getting the inbox of the member */
 	public static final String	MESSAGES_INBOX			= "/messages/inbox";
+	/** Address for actions on specific messages */
+	public static final String	MESSAGES_MESSAGE		= "/messages/message";
 	// Methods for shows
 	/** Address for archiving or unarchiving shows */
 	public static final String	SHOWS_ARCHIVE			= "/shows/archive";
