@@ -113,7 +113,7 @@ public class RequestManager {
 		
 		// Set connection properties
 		connection.setDoOutput(true);
-		connection.setDoInput(isPost(request));
+		connection.setDoInput(true);
 		connection.setRequestMethod(request.getVerb().getHttpMethodName());
 		connection.addRequestProperty("Accept-Charset", charset.name());
 		connection.addRequestProperty("User-Agent", userAgent);
