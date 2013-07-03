@@ -9,7 +9,7 @@ import org.junit.runners.Suite.SuiteClasses;
  * @author Alex
  */
 @RunWith(Suite.class)
-@SuiteClasses({ FormatTest.class })
+@SuiteClasses({ FormatTest.class, VerbTest.class })
 public class RequestTests {
 	
 }
