@@ -8,8 +8,7 @@ import com.alexrnl.commons.error.ExceptionUtils;
 import com.alexrnl.jbetaseries.request.Format;
 import com.alexrnl.jbetaseries.request.RequestManager;
 import com.alexrnl.jbetaseries.request.members.MemberAuth;
-import com.alexrnl.jbetaseries.request.members.MemberDestroy;
-import com.alexrnl.jbetaseries.request.members.MemberOptions;
+import com.alexrnl.jbetaseries.request.shows.ShowDisplay;
 
 /**
  * Entry point of the interface to the BetaSeries API.<br />
@@ -70,7 +69,7 @@ public final class JBetaSeries {
 	 */
 	public JBetaSeries (final String key, final Format format, final String userAgent, final Charset charset) {
 		super();
-		this.requestManager = new RequestManager(key, format, userAgent, charset);
+		this.requestManager = new RequestManager(key, format, userAgent, charset, false);
 	}
 	
 	/**
@@ -83,9 +82,9 @@ public final class JBetaSeries {
 		
 		try {
 			lg.info(jBetaSeries.requestManager.execute(new MemberAuth("", "")));
-			jBetaSeries.requestManager.setToken(null);
-			lg.info(jBetaSeries.requestManager.execute(new MemberOptions()));
-			jBetaSeries.requestManager.execute(new MemberDestroy());
+//			jBetaSeries.requestManager.setToken("");
+			lg.info(jBetaSeries.requestManager.execute(new ShowDisplay(8, 1)));
+//			lg.info(jBetaSeries.requestManager.execute(new MemberDestroy()));
 		} catch (final IOException e) {
 			lg.warning("Error while processing request: " + ExceptionUtils.display(e));
 		}
