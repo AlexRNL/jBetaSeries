@@ -9,7 +9,8 @@ import org.junit.runners.Suite.SuiteClasses;
  * @author Alex
  */
 @RunWith(Suite.class)
-@SuiteClasses({ AutoDeleteTest.class, BetaVersionTest.class, BSBooleanTest.class, BulkTest.class })
+@SuiteClasses({ AutoDeleteTest.class, BetaVersionTest.class, BSBooleanTest.class, BulkTest.class,
+		CommentTest.class })
 public class ParametersTests {
 	
 }
