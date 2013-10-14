@@ -7,7 +7,7 @@ import com.alexrnl.jbetaseries.request.parameters.NumberStr;
 import com.alexrnl.jbetaseries.request.parameters.ShowId;
 
 /**
- * Request for searching for a specific episode, using its show id and it number in the series.
+ * Request for searching for a specific episode, using its show id and it number in the series.<br />
  * @author Alex
  */
 public class EpisodeSearch extends Request {
