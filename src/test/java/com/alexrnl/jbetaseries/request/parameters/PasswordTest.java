@@ -11,7 +11,7 @@ import org.junit.Test;
  */
 public class PasswordTest {
 	/** The password to test */
-	private Password password;
+	private Password	password;
 	
 	/**
 	 * Set up test attributes.
