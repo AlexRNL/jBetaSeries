@@ -10,7 +10,7 @@ import org.junit.runners.Suite.SuiteClasses;
  */
 @RunWith(Suite.class)
 @SuiteClasses({ AutoDeleteTest.class, BetaVersionTest.class, BSBooleanTest.class, BulkTest.class,
-		CommentTest.class, EMailTest.class, EpisodeTest.class, FileTest.class })
+		CommentTest.class, EMailTest.class, EpisodeTest.class, FileTest.class, FindTest.class })
 public class ParametersTests {
 	
 }
