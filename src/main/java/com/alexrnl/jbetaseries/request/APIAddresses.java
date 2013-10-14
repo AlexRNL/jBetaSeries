@@ -34,6 +34,8 @@ public final class APIAddresses {
 	public static final String	EPISODES_NOTE			= "/episodes/note";
 	/** Address for scraping a file to an episode */
 	public static final String	EPISODES_SCRAPE			= "/episodes/scraper";
+	/** Address for searching an episode */
+	public static final String	EPISODES_SEARCH			= "/episodes/search";
 	/** Adddress for marking episodes as seen */
 	public static final String	EPISODES_WATCHED		= "/episodes/watched";
 	// Methods for members
