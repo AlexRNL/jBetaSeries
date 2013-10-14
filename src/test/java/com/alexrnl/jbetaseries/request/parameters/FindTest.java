@@ -26,7 +26,7 @@ public class FindTest {
 	 */
 	@Test
 	public void testGetName () {
-		assertEquals(emailToFind.getName(), "find");
+		assertEquals("find", emailToFind.getName());
 	}
 	
 	/**
@@ -34,6 +34,6 @@ public class FindTest {
 	 */
 	@Test
 	public void testGetValue () {
-		assertEquals(emailToFind.getValue(), "ldr@google.fr");
+		assertEquals("ldr@google.fr", emailToFind.getValue());
 	}
 }
