@@ -11,7 +11,7 @@ import org.junit.Test;
 public class BSBooleanTest {
 	
 	/**
-	 * Test method for {@link com.alexrnl.jbetaseries.request.parameters.BSBoolean#getValue()}.
+	 * Test method for {@link BSBoolean#getValue()}.
 	 */
 	@Test
 	public void testGetValue () {
@@ -20,7 +20,7 @@ public class BSBooleanTest {
 	}
 	
 	/**
-	 * Test method for {@link com.alexrnl.jbetaseries.request.parameters.BSBoolean#toString()}.
+	 * Test method for {@link BSBoolean#toString()}.
 	 */
 	@Test
 	public void testToString () {
@@ -29,7 +29,7 @@ public class BSBooleanTest {
 	}
 	
 	/**
-	 * Test method for {@link com.alexrnl.jbetaseries.request.parameters.BSBoolean#fromValue(java.lang.String)}.
+	 * Test method for {@link BSBoolean#fromValue(String)}.
 	 */
 	@Test
 	public void testFromValueString () {
@@ -38,7 +38,7 @@ public class BSBooleanTest {
 	}
 	
 	/**
-	 * Test method for {@link com.alexrnl.jbetaseries.request.parameters.BSBoolean#fromValue(java.lang.String)}.
+	 * Test method for {@link BSBoolean#fromValue(String)}.
 	 */
 	@Test(expected = IllegalArgumentException.class)
 	public void testFromValueStringIllegalArgument () {
@@ -46,7 +46,7 @@ public class BSBooleanTest {
 	}
 	
 	/**
-	 * Test method for {@link com.alexrnl.jbetaseries.request.parameters.BSBoolean#fromValue(boolean)}.
+	 * Test method for {@link BSBoolean#fromValue(boolean)}.
 	 */
 	@Test
 	public void testFromValueBoolean () {

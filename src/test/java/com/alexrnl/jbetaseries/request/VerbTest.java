@@ -11,7 +11,7 @@ import org.junit.Test;
 public class VerbTest {
 	
 	/**
-	 * Test method for {@link com.alexrnl.jbetaseries.request.Verb#getHttpMethodName()}.
+	 * Test method for {@link Verb#getHttpMethodName()}.
 	 */
 	@Test
 	public void testGetHttpMethodName () {

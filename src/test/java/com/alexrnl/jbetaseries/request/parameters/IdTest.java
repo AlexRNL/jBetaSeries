@@ -22,7 +22,7 @@ public class IdTest {
 	}
 	
 	/**
-	 * Test method for {@link com.alexrnl.jbetaseries.request.parameters.Parameter#getName()}.
+	 * Test method for {@link Parameter#getName()}.
 	 */
 	@Test
 	public void testGetName () {
@@ -30,7 +30,7 @@ public class IdTest {
 	}
 	
 	/**
-	 * Test method for {@link com.alexrnl.jbetaseries.request.parameters.Parameter#getValue()}.
+	 * Test method for {@link Parameter#getValue()}.
 	 */
 	@Test
 	public void testGetValue () {

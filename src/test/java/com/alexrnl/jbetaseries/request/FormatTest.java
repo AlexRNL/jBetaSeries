@@ -11,7 +11,7 @@ import org.junit.Test;
 public class FormatTest {
 	
 	/**
-	 * Test method for {@link com.alexrnl.jbetaseries.request.Format#getDescription()}.
+	 * Test method for {@link Format#getDescription()}.
 	 */
 	@Test
 	public void testGetDescription () {
