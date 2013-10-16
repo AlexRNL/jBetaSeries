@@ -13,7 +13,7 @@ import org.junit.runners.Suite.SuiteClasses;
 		CommentTest.class, EMailTest.class, EpisodeTest.class, FileTest.class, FindTest.class,
 		IdTest.class, IdsTest.class, LastIdTest.class, LimitTest.class, LoginTest.class,
 		MailsTest.class, NameTest.class, NoteTest.class, NumberTest.class, NumberStrTest.class,
-		PageTest.class, PasswordTest.class, SeasonTest.class, ShowIdTest.class })
+		PageTest.class, PasswordTest.class, SeasonTest.class, ShowIdTest.class, SortTest.class })
 public class ParametersTests {
 	
 }
