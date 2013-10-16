@@ -26,7 +26,7 @@ public abstract class Request {
 	 * @param method
 	 *        the method of the request.
 	 */
-	protected Request (final Verb verb, final String method) {
+	public Request (final Verb verb, final String method) {
 		super();
 		this.verb = verb;
 		this.method = method;
@@ -57,7 +57,7 @@ public abstract class Request {
 	 * @param parameter
 	 *        the parameter to add.
 	 */
-	public void addParameter (final Parameter<?> parameter) {
+	protected void addParameter (final Parameter<?> parameter) {
 		parameters.add(parameter);
 	}
 	
