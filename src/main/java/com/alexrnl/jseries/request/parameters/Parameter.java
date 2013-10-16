@@ -1,5 +1,9 @@
 package com.alexrnl.jseries.request.parameters;
 
+import com.alexrnl.commons.utils.object.AutoCompare;
+import com.alexrnl.commons.utils.object.AutoHashCode;
+import com.alexrnl.commons.utils.object.Field;
+
 /**
  * A parameter to be transmitted to the API.<br />
  * @author Alex
@@ -29,6 +33,7 @@ public abstract class Parameter<T> {
 	 * Return the attribute name.
 	 * @return the attribute name.
 	 */
+	@Field
 	public String getName () {
 		return name;
 	}
@@ -37,8 +42,27 @@ public abstract class Parameter<T> {
 	 * Return the attribute value.
 	 * @return the attribute value.
 	 */
+	@Field
 	public T getValue () {
 		return value;
+	}
+	
+	@Override
+	public int hashCode () {
+		return AutoHashCode.getInstance().hashCode(this);
+	}
+	
+	@Override
+	public boolean equals (final Object obj) {
+		if (!(obj instanceof Parameter)) {
+			return false;
+		}
+		return AutoCompare.getInstance().compare(this, (Parameter<?>) obj);
+	}
+	
+	@Override
+	public String toString () {
+		return "Parameter [name='" + name + "', value='" + value + "']";
 	}
 	
 }
