@@ -14,9 +14,9 @@ import com.alexrnl.jseries.request.shows.ShowDisplay;
  * Entry point of the interface to the BetaSeries API.<br />
  * @author Alex
  */
-public final class JBetaSeries {
+public final class JSeries {
 	/** Logger */
-	private static Logger			lg	= Logger.getLogger(JBetaSeries.class.getName());
+	private static Logger			lg	= Logger.getLogger(JSeries.class.getName());
 	
 	/** The request manager */
 	private final RequestManager	requestManager;
@@ -27,7 +27,7 @@ public final class JBetaSeries {
 	 * @param key
 	 *        the API key to use.
 	 */
-	public JBetaSeries (final String key) {
+	public JSeries (final String key) {
 		this(key, Format.XML);
 	}
 	
@@ -38,8 +38,8 @@ public final class JBetaSeries {
 	 * @param format
 	 *        the data type required for the API.
 	 */
-	public JBetaSeries (final String key, final Format format) {
-		this(key, format, JBetaSeries.class.getSimpleName());
+	public JSeries (final String key, final Format format) {
+		this(key, format, JSeries.class.getSimpleName());
 	}
 	
 	/**
@@ -52,7 +52,7 @@ public final class JBetaSeries {
 	 * @param userAgent
 	 *        the user-agent to use with the application.
 	 */
-	public JBetaSeries (final String key, final Format format, final String userAgent) {
+	public JSeries (final String key, final Format format, final String userAgent) {
 		this(key, format, userAgent, Charset.defaultCharset());
 	}
 	
@@ -67,7 +67,7 @@ public final class JBetaSeries {
 	 * @param charset
 	 *        the charset to use.
 	 */
-	public JBetaSeries (final String key, final Format format, final String userAgent, final Charset charset) {
+	public JSeries (final String key, final Format format, final String userAgent, final Charset charset) {
 		super();
 		this.requestManager = new RequestManager(key, format, userAgent, charset, false);
 	}
@@ -78,7 +78,7 @@ public final class JBetaSeries {
 	 *        the arguments from the command line.
 	 */
 	public static void main (final String[] args) {
-		final JBetaSeries jBetaSeries = new JBetaSeries("", Format.XML);
+		final JSeries jBetaSeries = new JSeries("", Format.XML);
 		
 		try {
 			lg.info(jBetaSeries.requestManager.execute(new MemberAuth("", "")));
