@@ -9,7 +9,7 @@ import org.junit.runners.Suite.SuiteClasses;
  * @author Alex
  */
 @RunWith(Suite.class)
-@SuiteClasses({ AutoDeleteTest.class, BetaVersionTest.class, BSBooleanTest.class, BulkTest.class,
+@SuiteClasses({ AutoDeleteTest.class, VersionTest.class, BSBooleanTest.class, BulkTest.class,
 		CommentTest.class, EMailTest.class, EpisodeTest.class, FileTest.class, FindTest.class,
 		IdTest.class, IdsTest.class, LastIdTest.class, LimitTest.class, LoginTest.class,
 		MailsTest.class, NameTest.class, NoteTest.class, NumberTest.class, NumberStrTest.class,

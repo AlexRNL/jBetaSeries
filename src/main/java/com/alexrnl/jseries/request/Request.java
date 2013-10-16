@@ -4,7 +4,10 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
-import com.alexrnl.jseries.request.parameters.BetaVersion;
+import com.alexrnl.commons.utils.object.AutoCompare;
+import com.alexrnl.commons.utils.object.AutoHashCode;
+import com.alexrnl.commons.utils.object.Field;
+import com.alexrnl.jseries.request.parameters.Version;
 import com.alexrnl.jseries.request.parameters.Parameter;
 
 /**
@@ -31,15 +34,14 @@ public abstract class Request {
 		this.verb = verb;
 		this.method = method;
 		this.parameters = new LinkedList<>();
-		if (APIConstants.IS_BETA) {
-			parameters.add(new BetaVersion());
-		}
+		parameters.add(new Version());
 	}
 	
 	/**
 	 * Return the attribute verb.
 	 * @return the attribute verb.
 	 */
+	@Field
 	public Verb getVerb () {
 		return verb;
 	}
@@ -48,6 +50,7 @@ public abstract class Request {
 	 * Return the attribute method.
 	 * @return the attribute method.
 	 */
+	@Field
 	public String getMethod () {
 		return method;
 	}
@@ -65,7 +68,26 @@ public abstract class Request {
 	 * Return an unmodifiable list of the parameters which are required by the request.<br />
 	 * @return the parameters to sent to the API.
 	 */
+	@Field
 	public final List<Parameter<?>> getParameters () {
 		return Collections.unmodifiableList(parameters);
+	}
+
+	@Override
+	public int hashCode () {
+		return AutoHashCode.getInstance().hashCode(this);
+	}
+
+	@Override
+	public boolean equals (final Object obj) {
+		if (!(obj instanceof Request)) {
+			return false;
+		}
+		return AutoCompare.getInstance().compare(this, (Request) obj);
+	}
+
+	@Override
+	public String toString () {
+		return "Request [verb=" + verb + ", method=" + method + ", parameters=" + parameters + "]";
 	}
 }

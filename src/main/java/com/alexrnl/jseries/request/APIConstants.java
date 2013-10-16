@@ -14,8 +14,6 @@ public final class APIConstants {
 		super();
 	}
 	
-	/** Flag indicating the status of the API */
-	public static final boolean	IS_BETA			= true;
 	/** The name for the API key parameter */
 	public static final String	KEY_PARAMETER	= "X-BetaSeries-Key";
 	/** The name for the API token parameter */

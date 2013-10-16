@@ -5,17 +5,17 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 /**
- * Test suite for the {@link BetaVersion} class.
+ * Test suite for the {@link Version} class.
  * @author Alex
  */
-public class BetaVersionTest {
+public class VersionTest {
 	
 	/**
 	 * Test method for {@link Parameter#getName()}.
 	 */
 	@Test
 	public void testGetName () {
-		assertEquals("v", new BetaVersion().getName());
+		assertEquals("v", new Version().getName());
 	}
 	
 	/**
@@ -23,6 +23,6 @@ public class BetaVersionTest {
 	 */
 	@Test
 	public void testGetValue () {
-		assertEquals("2.0", new BetaVersion().getValue());
+		assertEquals("2.1", new Version().getValue());
 	}
 }
