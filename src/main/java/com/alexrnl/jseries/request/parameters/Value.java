@@ -6,7 +6,7 @@ package com.alexrnl.jseries.request.parameters;
  */
 public class Value extends Parameter<String> {
 	/** Name of the value parameter */
-	public static final String	PARAMETER_VALUE	= "name";
+	public static final String	PARAMETER_VALUE	= "value";
 	
 	/**
 	 * Constructor #1.<br />
