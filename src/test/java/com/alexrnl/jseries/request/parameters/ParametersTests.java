@@ -14,7 +14,7 @@ import org.junit.runners.Suite.SuiteClasses;
 		IdTest.class, IdsTest.class, LastIdTest.class, LimitTest.class, LoginTest.class,
 		MailsTest.class, NameTest.class, NoteTest.class, NumberTest.class, NumberStrTest.class,
 		PageTest.class, PasswordTest.class, SeasonTest.class, ShowIdTest.class, SortTest.class,
-		SubtitlesTest.class, SubtitlesTest.class })
+		SubtitlesTest.class, SubtitlesTest.class, SummaryTest.class })
 public class ParametersTests {
 	
 }
