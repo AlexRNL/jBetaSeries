@@ -56,4 +56,12 @@ public class Subtitles extends Parameter<Subtitles.Filter> {
 	public Subtitles (final Filter subtitles) {
 		super(PARAMETER_SUBTITLES, subtitles);
 	}
+
+	/**
+	 * Constructor #2.<br />
+	 * This constructor just request the subtitles.
+	 */
+	public Subtitles () {
+		this(null);
+	}
 }

@@ -11,6 +11,7 @@ import com.alexrnl.jseries.request.Request;
 import com.alexrnl.jseries.request.Verb;
 import com.alexrnl.jseries.request.parameters.Ids;
 import com.alexrnl.jseries.request.parameters.Parameter;
+import com.alexrnl.jseries.request.parameters.Subtitles;
 import com.alexrnl.jseries.request.parameters.Version;
 
 /**
@@ -22,6 +23,8 @@ public class EpisodeDisplayTest {
 	private EpisodeDisplay	episodeDisplay;
 	/** The request with multiple episode to test */
 	private EpisodeDisplay	multiEpisodeDisplay;
+	/** The request with subtitles in episode to test */
+	private EpisodeDisplay	episodeDisplayWithSubtitles;
 	
 	/**
 	 * Set up test attributes.
@@ -30,6 +33,7 @@ public class EpisodeDisplayTest {
 	public void setUp () {
 		episodeDisplay = new EpisodeDisplay(8);
 		multiEpisodeDisplay = new EpisodeDisplay(2, 3);
+		episodeDisplayWithSubtitles = new EpisodeDisplay(true, 14, 88);
 	}
 	
 	/**
@@ -39,6 +43,7 @@ public class EpisodeDisplayTest {
 	public void testGetVerb () {
 		assertEquals(Verb.GET, episodeDisplay.getVerb());
 		assertEquals(Verb.GET, multiEpisodeDisplay.getVerb());
+		assertEquals(Verb.GET, episodeDisplayWithSubtitles.getVerb());
 	}
 	
 	/**
@@ -48,6 +53,7 @@ public class EpisodeDisplayTest {
 	public void testGetMethod () {
 		assertEquals("/episodes/display", episodeDisplay.getMethod());
 		assertEquals("/episodes/display", multiEpisodeDisplay.getMethod());
+		assertEquals("/episodes/display", episodeDisplayWithSubtitles.getMethod());
 	}
 	
 	/**
@@ -57,6 +63,7 @@ public class EpisodeDisplayTest {
 	public void testGetParameters () {
 		assertEquals(Arrays.asList(new Parameter<?>[] {new Version(), new Ids(8)}), episodeDisplay.getParameters());
 		assertEquals(Arrays.asList(new Parameter<?>[] {new Version(), new Ids(2, 3)}), multiEpisodeDisplay.getParameters());
+		assertEquals(Arrays.asList(new Parameter<?>[] {new Version(), new Subtitles(), new Ids(14, 88)}), episodeDisplayWithSubtitles.getParameters());
 	}
 	
 	/**

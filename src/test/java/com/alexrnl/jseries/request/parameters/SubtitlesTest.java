@@ -1,6 +1,7 @@
 package com.alexrnl.jseries.request.parameters;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -20,6 +21,8 @@ public class SubtitlesTest {
 	private Subtitles	subtitleVF;
 	/** The VOVF subtitle parameter to test */
 	private Subtitles	subtitleVOVF;
+	/** The flag subtitles to test */
+	private Subtitles	subtitleNull;
 	
 	/**
 	 * Set up test attributes.
@@ -30,6 +33,7 @@ public class SubtitlesTest {
 		subtitleVO = new Subtitles(Filter.VO);
 		subtitleVF = new Subtitles(Filter.VF);
 		subtitleVOVF = new Subtitles(Filter.VOVF);
+		subtitleNull = new Subtitles();
 	}
 	
 	/**
@@ -41,6 +45,7 @@ public class SubtitlesTest {
 		assertEquals("subtitles", subtitleVO.getName());
 		assertEquals("subtitles", subtitleVF.getName());
 		assertEquals("subtitles", subtitleVOVF.getName());
+		assertEquals("subtitles", subtitleNull.getName());
 	}
 	
 	/**
@@ -52,6 +57,7 @@ public class SubtitlesTest {
 		assertEquals(Filter.VO, subtitleVO.getValue());
 		assertEquals(Filter.VF, subtitleVF.getValue());
 		assertEquals(Filter.VOVF, subtitleVOVF.getValue());
+		assertNull(subtitleNull.getValue());
 	}
 	
 	/**
