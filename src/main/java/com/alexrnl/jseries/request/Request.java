@@ -7,8 +7,8 @@ import java.util.List;
 import com.alexrnl.commons.utils.object.AutoCompare;
 import com.alexrnl.commons.utils.object.AutoHashCode;
 import com.alexrnl.commons.utils.object.Field;
-import com.alexrnl.jseries.request.parameters.Version;
 import com.alexrnl.jseries.request.parameters.Parameter;
+import com.alexrnl.jseries.request.parameters.Version;
 
 /**
  * Abstract class defining a generic request to the BetaSeries API.<br />
@@ -88,6 +88,7 @@ public abstract class Request {
 
 	@Override
 	public String toString () {
-		return "Request [verb=" + verb + ", method=" + method + ", parameters=" + parameters + "]";
+		return getClass().getSimpleName() + " [verb=" + verb + ", method=" + method
+				+ ", parameters=" + parameters + "]";
 	}
 }

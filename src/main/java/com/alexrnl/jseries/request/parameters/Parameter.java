@@ -62,7 +62,7 @@ public abstract class Parameter<T> {
 	
 	@Override
 	public String toString () {
-		return "Parameter [name='" + name + "', value='" + value + "']";
+		return getClass().getSimpleName() + " [name='" + name + "', value='" + value + "']";
 	}
 	
 }
