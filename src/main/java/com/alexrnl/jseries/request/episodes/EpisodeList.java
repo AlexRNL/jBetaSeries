@@ -46,7 +46,8 @@ public class EpisodeList extends Request {
 	
 	/**
 	 * Constructor #3.<br />
-	 * @param showId the id of the show.
+	 * @param showId
+	 *        the id of the show.
 	 */
 	public EpisodeList (final Integer showId) {
 		this(showId, null, null);
@@ -84,7 +85,7 @@ public class EpisodeList extends Request {
 	}
 	
 	/**
-	 * Constructor #6.<br />
+	 * Constructor #7.<br />
 	 * @param subtitles
 	 *        filter episode per subtitle availability.
 	 * @param limit
