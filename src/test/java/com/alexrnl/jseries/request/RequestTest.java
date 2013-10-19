@@ -15,7 +15,7 @@ import com.alexrnl.jseries.request.parameters.Parameter;
  */
 public class RequestTest {
 	/** The request to test */
-	private ConcreteRequest testRequest;
+	private ConcreteRequest	testRequest;
 	
 	/**
 	 * Concrete request class for tests.
