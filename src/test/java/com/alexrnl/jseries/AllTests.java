@@ -7,7 +7,7 @@ import org.junit.runners.Suite.SuiteClasses;
 import com.alexrnl.jseries.request.RequestTests;
 
 /**
- * All tests for the jBetaSeries library.<br />
+ * All tests for the jSeries library.<br />
  * @author Alex
  */
 @RunWith(Suite.class)

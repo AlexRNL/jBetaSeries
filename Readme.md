@@ -24,4 +24,4 @@ Advancement
 
 Build status
 ------
-[![Build Status](https://travis-ci.org/AlexRNL/jBetaSeries.png?branch=master)](https://travis-ci.org/AlexRNL/jBetaSeries)
+[![Build Status](https://travis-ci.org/AlexRNL/jSeries.png?branch=master)](https://travis-ci.org/AlexRNL/jSeries)

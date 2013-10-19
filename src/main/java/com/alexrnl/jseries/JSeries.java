@@ -78,13 +78,13 @@ public final class JSeries {
 	 *        the arguments from the command line.
 	 */
 	public static void main (final String[] args) {
-		final JSeries jBetaSeries = new JSeries("", Format.XML);
+		final JSeries jSeries = new JSeries("", Format.XML);
 		
 		try {
-			lg.info(jBetaSeries.requestManager.execute(new MemberAuth("", "")));
-//			jBetaSeries.requestManager.setToken("");
-			lg.info(jBetaSeries.requestManager.execute(new ShowDisplay(8, 1)));
-//			lg.info(jBetaSeries.requestManager.execute(new MemberDestroy()));
+			lg.info(jSeries.requestManager.execute(new MemberAuth("", "")));
+//			jSeries.requestManager.setToken("");
+			lg.info(jSeries.requestManager.execute(new ShowDisplay(8, 1)));
+//			lg.info(jSeries.requestManager.execute(new MemberDestroy()));
 		} catch (final IOException e) {
 			lg.warning("Error while processing request: " + ExceptionUtils.display(e));
 		}

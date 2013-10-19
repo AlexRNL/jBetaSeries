@@ -5,7 +5,7 @@
 	<artifactId>jSeries</artifactId>
 	<packaging>jar</packaging>
 	<version>0.1-SNAPSHOT</version>
-	<name>jBetaSeries</name>
+	<name>jSeries</name>
 
 	<inceptionYear>2013</inceptionYear>
 	
