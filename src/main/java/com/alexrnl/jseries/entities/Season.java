@@ -5,7 +5,7 @@ import java.util.NavigableSet;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
-import com.alexrnl.commons.utils.object.AutoCompare;
+import com.alexrnl.commons.utils.object.AutoEquals;
 import com.alexrnl.commons.utils.object.AutoHashCode;
 import com.alexrnl.commons.utils.object.Field;
 
@@ -101,7 +101,7 @@ public class Season implements Comparable<Season> {
 		if (!(obj instanceof Season)) {
 			return false;
 		}
-		return AutoCompare.getInstance().compare(this, (Season) obj);
+		return AutoEquals.getInstance().compare(this, (Season) obj);
 	}
 	
 }

@@ -1,6 +1,6 @@
 package com.alexrnl.jseries.request.parameters;
 
-import com.alexrnl.commons.utils.object.AutoCompare;
+import com.alexrnl.commons.utils.object.AutoEquals;
 import com.alexrnl.commons.utils.object.AutoHashCode;
 import com.alexrnl.commons.utils.object.Field;
 
@@ -57,7 +57,7 @@ public abstract class Parameter<T> {
 		if (!(obj instanceof Parameter)) {
 			return false;
 		}
-		return AutoCompare.getInstance().compare(this, (Parameter<?>) obj);
+		return AutoEquals.getInstance().compare(this, (Parameter<?>) obj);
 	}
 	
 	@Override

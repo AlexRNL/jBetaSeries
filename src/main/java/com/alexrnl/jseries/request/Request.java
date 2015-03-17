@@ -4,7 +4,7 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
-import com.alexrnl.commons.utils.object.AutoCompare;
+import com.alexrnl.commons.utils.object.AutoEquals;
 import com.alexrnl.commons.utils.object.AutoHashCode;
 import com.alexrnl.commons.utils.object.Field;
 import com.alexrnl.jseries.request.parameters.Parameter;
@@ -83,7 +83,7 @@ public abstract class Request {
 		if (!(obj instanceof Request)) {
 			return false;
 		}
-		return AutoCompare.getInstance().compare(this, (Request) obj);
+		return AutoEquals.getInstance().compare(this, (Request) obj);
 	}
 
 	@Override
