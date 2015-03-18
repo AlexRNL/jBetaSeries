@@ -12,6 +12,7 @@ import com.alexrnl.jseries.request.Verb;
 import com.alexrnl.jseries.request.parameters.Ids;
 import com.alexrnl.jseries.request.parameters.Parameter;
 import com.alexrnl.jseries.request.parameters.Subtitles;
+import com.alexrnl.jseries.request.parameters.TheTVDBIds;
 import com.alexrnl.jseries.request.parameters.Version;
 
 /**
@@ -25,6 +26,8 @@ public class EpisodeDisplayTest {
 	private EpisodeDisplay	multiEpisodeDisplay;
 	/** The request with subtitles in episode to test */
 	private EpisodeDisplay	episodeDisplayWithSubtitles;
+	/** The request with theTVDB ids to test */
+	private EpisodeDisplay	episodeDisplayTheTvdb;
 	
 	/**
 	 * Set up test attributes.
@@ -33,7 +36,8 @@ public class EpisodeDisplayTest {
 	public void setUp () {
 		episodeDisplay = new EpisodeDisplay(8);
 		multiEpisodeDisplay = new EpisodeDisplay(2, 3);
-		episodeDisplayWithSubtitles = new EpisodeDisplay(true, 14, 88);
+		episodeDisplayWithSubtitles = new EpisodeDisplay(true, false, 14, 88);
+		episodeDisplayTheTvdb = new EpisodeDisplay(false, true, 4, 8);
 	}
 	
 	/**
@@ -44,6 +48,7 @@ public class EpisodeDisplayTest {
 		assertEquals(Verb.GET, episodeDisplay.getVerb());
 		assertEquals(Verb.GET, multiEpisodeDisplay.getVerb());
 		assertEquals(Verb.GET, episodeDisplayWithSubtitles.getVerb());
+		assertEquals(Verb.GET, episodeDisplayTheTvdb.getVerb());
 	}
 	
 	/**
@@ -54,6 +59,7 @@ public class EpisodeDisplayTest {
 		assertEquals("/episodes/display", episodeDisplay.getMethod());
 		assertEquals("/episodes/display", multiEpisodeDisplay.getMethod());
 		assertEquals("/episodes/display", episodeDisplayWithSubtitles.getMethod());
+		assertEquals("/episodes/display", episodeDisplayTheTvdb.getMethod());
 	}
 	
 	/**
@@ -64,6 +70,7 @@ public class EpisodeDisplayTest {
 		assertEquals(Arrays.asList(new Parameter<?>[] {new Version(), new Ids(8)}), episodeDisplay.getParameters());
 		assertEquals(Arrays.asList(new Parameter<?>[] {new Version(), new Ids(2, 3)}), multiEpisodeDisplay.getParameters());
 		assertEquals(Arrays.asList(new Parameter<?>[] {new Version(), new Subtitles(), new Ids(14, 88)}), episodeDisplayWithSubtitles.getParameters());
+		assertEquals(Arrays.asList(new Parameter<?>[] {new Version(), new TheTVDBIds(4, 8)}), episodeDisplayTheTvdb.getParameters());
 	}
 	
 	/**
@@ -73,4 +80,5 @@ public class EpisodeDisplayTest {
 	public void testModificationParameter () {
 		episodeDisplay.getParameters().add(null);
 	}
+	
 }
