@@ -11,6 +11,7 @@ import com.alexrnl.jseries.request.Request;
 import com.alexrnl.jseries.request.Verb;
 import com.alexrnl.jseries.request.parameters.Id;
 import com.alexrnl.jseries.request.parameters.Parameter;
+import com.alexrnl.jseries.request.parameters.TheTVDBId;
 import com.alexrnl.jseries.request.parameters.Version;
 
 /**
@@ -20,13 +21,16 @@ import com.alexrnl.jseries.request.parameters.Version;
 public class EpisodeNotDownloadedTest {
 	/** The episode not downloaded request to test */
 	private EpisodeNotDownloaded	episodeNotDownloaded;
+	/** The episode not downloaded request to test with theTVDB id */
+	private EpisodeNotDownloaded	episodeNotDownloadedTVDB;
 	
 	/**
 	 * Set up test attributes.
 	 */
 	@Before
 	public void setUp () {
-		episodeNotDownloaded = new EpisodeNotDownloaded(8);
+		episodeNotDownloaded = new EpisodeNotDownloaded(false, 8);
+		episodeNotDownloadedTVDB = new EpisodeNotDownloaded(true, 88);
 	}
 	
 	/**
@@ -35,6 +39,7 @@ public class EpisodeNotDownloadedTest {
 	@Test
 	public void testGetVerb () {
 		assertEquals(Verb.DELETE, episodeNotDownloaded.getVerb());
+		assertEquals(Verb.DELETE, episodeNotDownloadedTVDB.getVerb());
 	}
 	
 	/**
@@ -43,6 +48,7 @@ public class EpisodeNotDownloadedTest {
 	@Test
 	public void testGetMethod () {
 		assertEquals("/episodes/downloaded", episodeNotDownloaded.getMethod());
+		assertEquals("/episodes/downloaded", episodeNotDownloadedTVDB.getMethod());
 	}
 	
 	/**
@@ -51,6 +57,7 @@ public class EpisodeNotDownloadedTest {
 	@Test
 	public void testGetParameters () {
 		assertEquals(Arrays.asList(new Parameter[] {new Version(), new Id(8)}), episodeNotDownloaded.getParameters());
+		assertEquals(Arrays.asList(new Parameter[] {new Version(), new TheTVDBId(88)}), episodeNotDownloadedTVDB.getParameters());
 	}
 	
 }
