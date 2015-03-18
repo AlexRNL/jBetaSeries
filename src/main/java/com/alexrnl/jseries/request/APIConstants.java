@@ -6,14 +6,6 @@ package com.alexrnl.jseries.request;
  */
 public final class APIConstants {
 	
-	/**
-	 * Constructor #1.<br />
-	 * Default private constructor.
-	 */
-	private APIConstants () {
-		super();
-	}
-	
 	/** The name for the API key parameter */
 	public static final String	KEY_PARAMETER	= "X-BetaSeries-Key";
 	/** The name for the API token parameter */
@@ -22,4 +14,12 @@ public final class APIConstants {
 	public static final int		NOTE_MIN		= 1;
 	/** The maximum note allowed by the API */
 	public static final int		NOTE_MAX		= 5;
+	
+	/**
+	 * Constructor #1.<br />
+	 * Default private constructor.
+	 */
+	private APIConstants () {
+		super();
+	}
 }

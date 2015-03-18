@@ -16,7 +16,7 @@ import com.alexrnl.jseries.request.shows.ShowDisplay;
  */
 public final class JSeries {
 	/** Logger */
-	private static Logger			lg	= Logger.getLogger(JSeries.class.getName());
+	private static final Logger		LG	= Logger.getLogger(JSeries.class.getName());
 	
 	/** The request manager */
 	private final RequestManager	requestManager;
@@ -81,12 +81,12 @@ public final class JSeries {
 		final JSeries jSeries = new JSeries("", Format.XML);
 		
 		try {
-			lg.info(jSeries.requestManager.execute(new MemberAuth("", "")));
+			LG.info(jSeries.requestManager.execute(new MemberAuth("", "")));
 //			jSeries.requestManager.setToken("");
-			lg.info(jSeries.requestManager.execute(new ShowDisplay(8, 1)));
-//			lg.info(jSeries.requestManager.execute(new MemberDestroy()));
+			LG.info(jSeries.requestManager.execute(new ShowDisplay(8, 1)));
+//			LG.info(jSeries.requestManager.execute(new MemberDestroy()));
 		} catch (final IOException e) {
-			lg.warning("Error while processing request: " + ExceptionUtils.display(e));
+			LG.warning("Error while processing request: " + ExceptionUtils.display(e));
 		}
 	}
 	

@@ -6,14 +6,6 @@ package com.alexrnl.jseries.request;
  */
 public final class APIAddresses {
 	
-	/**
-	 * Constructor #1.<br />
-	 * Default private constructor.
-	 */
-	private APIAddresses () {
-		super();
-	}
-	
 	// Main address of the API
 	/** The host of the API */
 	public static final String	HOST					= "api.betaseries.com";
@@ -99,4 +91,12 @@ public final class APIAddresses {
 	public static final String	SHOWS_SIMILARS			= "/shows/similars";
 	/** Address for getting shows videos */
 	public static final String	SHOWS_VIDEOS			= "/shows/videos";
+	
+	/**
+	 * Constructor #1.<br />
+	 * Default private constructor.
+	 */
+	private APIAddresses () {
+		super();
+	}
 }

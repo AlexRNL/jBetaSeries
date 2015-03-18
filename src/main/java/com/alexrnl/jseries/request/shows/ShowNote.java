@@ -3,8 +3,8 @@ package com.alexrnl.jseries.request.shows;
 import com.alexrnl.jseries.request.APIAddresses;
 import com.alexrnl.jseries.request.Request;
 import com.alexrnl.jseries.request.Verb;
-import com.alexrnl.jseries.request.parameters.Note;
 import com.alexrnl.jseries.request.parameters.Id;
+import com.alexrnl.jseries.request.parameters.Note;
 
 /**
  * Set the note to a show for the logged user.<br />
@@ -21,7 +21,7 @@ public class ShowNote extends Request {
 	 * @throws IllegalArgumentException
 	 *         if the not is outside the range [1;5].
 	 */
-	public ShowNote (final Integer showId, final Integer note) throws IllegalArgumentException {
+	public ShowNote (final Integer showId, final Integer note) {
 		super(Verb.POST, APIAddresses.SHOWS_NOTE);
 		addParameter(new Id(showId));
 		addParameter(new Note(note));

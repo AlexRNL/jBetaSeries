@@ -17,7 +17,7 @@ public class Note extends Parameter<Integer> {
 	 * @throws IllegalArgumentException
 	 *         if the not is outside the range [1;5].
 	 */
-	public Note (final Integer note) throws IllegalArgumentException {
+	public Note (final Integer note) {
 		super(PARAMETER_NOTE, note);
 		if (note < APIConstants.NOTE_MIN || note > APIConstants.NOTE_MAX) {
 			throw new IllegalArgumentException("The note must be comprise between 1 and 5.");

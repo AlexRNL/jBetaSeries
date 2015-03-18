@@ -13,7 +13,7 @@ import com.alexrnl.jseries.entities.enums.StatusShow;
  */
 public class Show {
 	/** Logger */
-	private static Logger			lg	= Logger.getLogger(Show.class.getName());
+	private static final Logger		LG	= Logger.getLogger(Show.class.getName());
 	
 	/** URL of the show (used as an id in BetaSeries) */
 	private final String			url;

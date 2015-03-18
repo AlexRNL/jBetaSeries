@@ -4,8 +4,8 @@ import com.alexrnl.jseries.request.APIAddresses;
 import com.alexrnl.jseries.request.Request;
 import com.alexrnl.jseries.request.Verb;
 import com.alexrnl.jseries.request.parameters.Episode;
-import com.alexrnl.jseries.request.parameters.Season;
 import com.alexrnl.jseries.request.parameters.Id;
+import com.alexrnl.jseries.request.parameters.Season;
 
 /**
  * Retrieve the episode of a given show.<br />
@@ -25,8 +25,7 @@ public class ShowEpisodes extends Request {
 	 * @throws IllegalArgumentException
 	 *         if the episode number is set while the season number is left to <code>null</code>.
 	 */
-	public ShowEpisodes (final Integer showId, final Integer seasonNumber, final Integer episodeNumber)
-			throws IllegalArgumentException {
+	public ShowEpisodes (final Integer showId, final Integer seasonNumber, final Integer episodeNumber) {
 		super(Verb.GET, APIAddresses.SHOWS_EPISODES);
 		addParameter(new Id(showId));
 		if (seasonNumber == null && episodeNumber != null) {

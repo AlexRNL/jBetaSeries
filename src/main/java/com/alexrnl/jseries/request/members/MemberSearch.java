@@ -20,7 +20,7 @@ public class MemberSearch extends Request {
 	 * @throws IllegalArgumentException
 	 *         if the login is less than 2 characters long.
 	 */
-	public MemberSearch (final String login) throws IllegalArgumentException {
+	public MemberSearch (final String login) {
 		super(Verb.GET, APIAddresses.MEMBERS_SEARCH);
 		Objects.requireNonNull(login, "Cannot search for null string");
 		if (login.length() < 2) {

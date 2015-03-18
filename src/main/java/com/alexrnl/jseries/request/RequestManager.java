@@ -24,20 +24,20 @@ import com.alexrnl.jseries.request.parameters.Parameter;
  */
 public class RequestManager {
 	/** Logger */
-	private static Logger	lg	= Logger.getLogger(RequestManager.class.getName());
+	private static final Logger	LG	= Logger.getLogger(RequestManager.class.getName());
 	
 	/** The key of the API */
-	private final String	key;
+	private final String		key;
 	/** The format of the API response required */
-	private final Format	format;
+	private final Format		format;
 	/** The user-agent of the application */
-	private final String	userAgent;
+	private final String		userAgent;
 	/** The charset to use */
-	private final Charset	charset;
+	private final Charset		charset;
 	/** The token for the user, <code>null</code> if no user is logged. */
-	private String			token;
+	private String				token;
 	/** <code>true</code> if using the secure API address */
-	private final boolean	isSecure;
+	private final boolean		isSecure;
 	
 	/**
 	 * Constructor #1.<br />
@@ -78,8 +78,8 @@ public class RequestManager {
 		this.isSecure = isSecure;
 		this.token = null;
 		
-		if (lg.isLoggable(Level.FINE)) {
-			lg.fine(RequestManager.class.getSimpleName() + " created: " + toString());
+		if (LG.isLoggable(Level.FINE)) {
+			LG.fine(RequestManager.class.getSimpleName() + " created: " + toString());
 		}
 	}
 	
@@ -102,12 +102,12 @@ public class RequestManager {
 		
 		// Open connection to address
 		try {
-			if (lg.isLoggable(Level.INFO)) {
-				lg.info("Connecting to " + address.toString());
+			if (LG.isLoggable(Level.INFO)) {
+				LG.info("Connecting to " + address.toString());
 			}
 			connection = (HttpURLConnection) new URL(address.toString()).openConnection();
 		} catch (final MalformedURLException e) {
-			lg.warning("Could not build URL: " + ExceptionUtils.display(e));
+			LG.warning("Could not build URL: " + ExceptionUtils.display(e));
 			throw new IOException("Could not build address from " + address.toString(), e);
 		}
 		
@@ -128,8 +128,8 @@ public class RequestManager {
 			final byte[] parameterBytes = parameters.getBytes(charset);
 			connection.setInstanceFollowRedirects(false);
 			connection.setRequestProperty("Content-Length", "" + Integer.toString(parameterBytes.length));
-			if (lg.isLoggable(Level.INFO)) {
-				lg.info("Sending parameters: " + parameters);
+			if (LG.isLoggable(Level.INFO)) {
+				LG.info("Sending parameters: " + parameters);
 			}
 
 			connection.connect();
@@ -141,8 +141,8 @@ public class RequestManager {
 			connection.connect();
 		}
 		
-		if (lg.isLoggable(Level.INFO)) {
-			lg.info("Response code: " + connection.getResponseCode() +
+		if (LG.isLoggable(Level.INFO)) {
+			LG.info("Response code: " + connection.getResponseCode() +
 					"; message: " + connection.getResponseMessage());
 		}
 
@@ -156,7 +156,7 @@ public class RequestManager {
 				sb.append(line + '\n');
 			}
 		} catch (final IOException e) {
-			lg.warning("Error while reading data from API: " + ExceptionUtils.display(e));
+			LG.warning("Error while reading data from API: " + ExceptionUtils.display(e));
 		}
 		return sb.toString();
 	}
@@ -191,7 +191,7 @@ public class RequestManager {
 	 */
 	private String getParameters (final Request request) throws UnsupportedEncodingException {
 		final List<Parameter<?>> parameters = request.getParameters();
-		if (parameters.size() == 0) {
+		if (parameters.isEmpty()) {
 			return "";
 		}
 		final StringBuilder parametersBuilder = new StringBuilder();
