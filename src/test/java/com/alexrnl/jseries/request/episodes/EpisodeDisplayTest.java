@@ -10,7 +10,6 @@ import org.junit.Test;
 import com.alexrnl.jseries.request.Request;
 import com.alexrnl.jseries.request.Verb;
 import com.alexrnl.jseries.request.parameters.Ids;
-import com.alexrnl.jseries.request.parameters.Parameter;
 import com.alexrnl.jseries.request.parameters.Subtitles;
 import com.alexrnl.jseries.request.parameters.TheTVDBIds;
 import com.alexrnl.jseries.request.parameters.Version;
@@ -67,10 +66,10 @@ public class EpisodeDisplayTest {
 	 */
 	@Test
 	public void testGetParameters () {
-		assertEquals(Arrays.asList(new Parameter<?>[] {new Version(), new Ids(8)}), episodeDisplay.getParameters());
-		assertEquals(Arrays.asList(new Parameter<?>[] {new Version(), new Ids(2, 3)}), multiEpisodeDisplay.getParameters());
-		assertEquals(Arrays.asList(new Parameter<?>[] {new Version(), new Subtitles(), new Ids(14, 88)}), episodeDisplayWithSubtitles.getParameters());
-		assertEquals(Arrays.asList(new Parameter<?>[] {new Version(), new TheTVDBIds(4, 8)}), episodeDisplayTheTvdb.getParameters());
+		assertEquals(Arrays.asList(new Version(), new Ids(8)), episodeDisplay.getParameters());
+		assertEquals(Arrays.asList(new Version(), new Ids(2, 3)), multiEpisodeDisplay.getParameters());
+		assertEquals(Arrays.asList(new Version(), new Subtitles(), new Ids(14, 88)), episodeDisplayWithSubtitles.getParameters());
+		assertEquals(Arrays.asList(new Version(), new TheTVDBIds(4, 8)), episodeDisplayTheTvdb.getParameters());
 	}
 	
 	/**

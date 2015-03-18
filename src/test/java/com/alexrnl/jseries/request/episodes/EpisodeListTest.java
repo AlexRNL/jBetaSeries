@@ -10,7 +10,6 @@ import org.junit.Test;
 import com.alexrnl.jseries.request.Request;
 import com.alexrnl.jseries.request.Verb;
 import com.alexrnl.jseries.request.parameters.Limit;
-import com.alexrnl.jseries.request.parameters.Parameter;
 import com.alexrnl.jseries.request.parameters.ShowId;
 import com.alexrnl.jseries.request.parameters.Subtitles;
 import com.alexrnl.jseries.request.parameters.Subtitles.Filter;
@@ -83,20 +82,13 @@ public class EpisodeListTest {
 	 */
 	@Test
 	public void testGetParameters () {
-		assertEquals(Arrays.asList(new Parameter<?>[] { new Version(), new ShowId(28), new Limit(14), new Subtitles(Filter.ALL) }),
-				fullRequest.getParameters());
-		assertEquals(Arrays.asList(new Parameter<?>[] { new Version() }),
-				defaultRequest.getParameters());
-		assertEquals(Arrays.asList(new Parameter<?>[] { new Version(), new ShowId(28) }),
-				showRequest.getParameters());
-		assertEquals(Arrays.asList(new Parameter<?>[] { new Version(), new Subtitles(Filter.VO) }),
-				subtitleFilteredRequest.getParameters());
-		assertEquals(Arrays.asList(new Parameter<?>[] { new Version(), new ShowId(8), new Limit(14) }),
-				limitedShowRequest.getParameters());
-		assertEquals(Arrays.asList(new Parameter<?>[] { new Version(), new ShowId(2), new Subtitles(Filter.VOVF) }),
-				subtitleShowRequest.getParameters());
-		assertEquals(Arrays.asList(new Parameter<?>[] { new Version(), new Limit(88), new Subtitles(Filter.VF) }),
-				subtitleLimitRequest.getParameters());
+		assertEquals(Arrays.asList(new Version(), new ShowId(28), new Limit(14), new Subtitles(Filter.ALL)), fullRequest.getParameters());
+		assertEquals(Arrays.asList(new Version()), defaultRequest.getParameters());
+		assertEquals(Arrays.asList(new Version(), new ShowId(28)), showRequest.getParameters());
+		assertEquals(Arrays.asList(new Version(), new Subtitles(Filter.VO)), subtitleFilteredRequest.getParameters());
+		assertEquals(Arrays.asList(new Version(), new ShowId(8), new Limit(14)), limitedShowRequest.getParameters());
+		assertEquals(Arrays.asList(new Version(), new ShowId(2), new Subtitles(Filter.VOVF)), subtitleShowRequest.getParameters());
+		assertEquals(Arrays.asList(new Version(), new Limit(88), new Subtitles(Filter.VF)), subtitleLimitRequest.getParameters());
 	}
 	
 }

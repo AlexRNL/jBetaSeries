@@ -10,7 +10,6 @@ import org.junit.Test;
 import com.alexrnl.jseries.request.Request;
 import com.alexrnl.jseries.request.Verb;
 import com.alexrnl.jseries.request.parameters.Id;
-import com.alexrnl.jseries.request.parameters.Parameter;
 import com.alexrnl.jseries.request.parameters.TheTVDBId;
 import com.alexrnl.jseries.request.parameters.Version;
 
@@ -56,7 +55,7 @@ public class EpisodeDownloadedTest {
 	 */
 	@Test
 	public void testGetParameters () {
-		assertEquals(Arrays.asList(new Parameter<?>[] { new Version(), new Id(8) }), episodeDownloaded.getParameters());
-		assertEquals(Arrays.asList(new Parameter<?>[] { new Version(), new TheTVDBId(28) }), episodeDownloadedTVDB.getParameters());
+		assertEquals(Arrays.asList(new Version(), new Id(8)), episodeDownloaded.getParameters());
+		assertEquals(Arrays.asList(new Version(), new TheTVDBId(28)), episodeDownloadedTVDB.getParameters());
 	}
 }
