@@ -15,7 +15,7 @@ public class EpisodeDownloaded extends Request {
 	/**
 	 * Constructor #1.<br />
 	 * @param theTVDB
-	 *        <code>true</code> if the episodes id is a theTVDB id.
+	 *        <code>true</code> if the episode id is a theTVDB id.
 	 * @param episodeId
 	 *        the id of the episode.
 	 */
