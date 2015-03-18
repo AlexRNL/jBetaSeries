@@ -40,6 +40,7 @@ public class NoteTest {
 	/**
 	 * Test method for an invalid note (too low).
 	 */
+	@SuppressWarnings("unused")
 	@Test(expected = IllegalArgumentException.class)
 	public void testNoteTooLow () {
 		new Note(0);
@@ -48,6 +49,7 @@ public class NoteTest {
 	/**
 	 * Test method for an invalid note (too high).
 	 */
+	@SuppressWarnings("unused")
 	@Test(expected = IllegalArgumentException.class)
 	public void testNoteTooHigh () {
 		new Note(6);
