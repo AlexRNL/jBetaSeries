@@ -7,8 +7,6 @@ import com.alexrnl.commons.utils.StringUtils;
  * @author Alex
  */
 public class TheTVDBIds extends Parameter<String> {
-	/** Name of the id parameter */
-	public static final String	PARAMETER_THE_TVDB_ID	= "thetvdb_id";
 	
 	/**
 	 * Constructor #1.<br />
@@ -16,7 +14,7 @@ public class TheTVDBIds extends Parameter<String> {
 	 *        the id of the show.
 	 */
 	public TheTVDBIds (final Integer... theTvdbId) {
-		super(PARAMETER_THE_TVDB_ID, StringUtils.separateWith(",", (Object[]) theTvdbId));
+		super(TheTVDBId.PARAMETER_THE_TVDB_ID, StringUtils.separateWith(",", (Object[]) theTvdbId));
 	}
 	
 }
