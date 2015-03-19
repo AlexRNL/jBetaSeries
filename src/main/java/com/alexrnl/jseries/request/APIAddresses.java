@@ -24,6 +24,8 @@ public final class APIAddresses {
 	public static final String	EPISODES_LIST			= "/episodes/list";
 	/** Address for requesting the latest aired episodes */
 	public static final String	EPISODES_LATEST			= "/episodes/latest";
+	/** Address for requesting the next airing episodes */
+	public static final String	EPISODES_NEXT			= "/episodes/next";
 	/** Address for grading episodes */
 	public static final String	EPISODES_NOTE			= "/episodes/note";
 	/** Address for scraping a file to an episode */
