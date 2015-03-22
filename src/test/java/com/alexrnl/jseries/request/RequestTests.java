@@ -13,8 +13,9 @@ import com.alexrnl.jseries.request.parameters.ParametersTests;
  * @author Alex
  */
 @RunWith(Suite.class)
-@SuiteClasses({ ParametersTests.class, RequestTest.class, FormatTest.class, VerbTest.class,
-		EpisodesTests.class, MessagesTests.class })
+@SuiteClasses({ APIAddressesTest.class, APIConstantsTest.class, ParametersTests.class,
+		RequestTest.class, FormatTest.class, VerbTest.class, EpisodesTests.class,
+		MessagesTests.class })
 public class RequestTests {
 	
 }

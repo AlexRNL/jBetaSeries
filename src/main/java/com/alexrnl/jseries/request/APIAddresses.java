@@ -1,5 +1,6 @@
 package com.alexrnl.jseries.request;
 
+
 /**
  * Class with the string constant defining the addresses of the API methods.<br />
  * @author Alex
@@ -102,5 +103,6 @@ public final class APIAddresses {
 	 */
 	private APIAddresses () {
 		super();
+		throw new InstantiationError("Instantiation of class " + APIAddresses.class + " is forbidden");
 	}
 }

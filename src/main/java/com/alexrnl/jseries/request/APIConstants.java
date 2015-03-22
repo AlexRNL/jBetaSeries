@@ -21,5 +21,6 @@ public final class APIConstants {
 	 */
 	private APIConstants () {
 		super();
+		throw new InstantiationError("Instantiation of class " + APIConstants.class + " is forbidden");
 	}
 }
