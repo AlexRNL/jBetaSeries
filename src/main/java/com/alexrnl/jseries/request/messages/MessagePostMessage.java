@@ -17,9 +17,9 @@ public class MessagePostMessage extends Request {
 	/**
 	 * Constructor #1.<br />
 	 * @param memberId
-	 *        the id of the member the message will be sent to (compulsory for first message).
+	 *        the id of the member the message will be sent to (mandatory for first message).
 	 * @param title
-	 *        the title of the message (compulsory for first message).
+	 *        the title of the message (mandatory for first message).
 	 * @param text
 	 *        the content of the message.
 	 * @param messageId
