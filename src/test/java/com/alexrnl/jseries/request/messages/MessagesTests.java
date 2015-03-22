@@ -9,7 +9,7 @@ import org.junit.runners.Suite.SuiteClasses;
  * @author Alex
  */
 @RunWith(Suite.class)
-@SuiteClasses({ MessageDiscussionTest.class })
+@SuiteClasses({ MessageDiscussionTest.class, MessageInboxTest.class })
 public class MessagesTests {
 	
 }
