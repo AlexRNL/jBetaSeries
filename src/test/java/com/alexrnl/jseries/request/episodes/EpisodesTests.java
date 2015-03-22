@@ -12,7 +12,7 @@ import org.junit.runners.Suite.SuiteClasses;
 @SuiteClasses({ EpisodeDisplayTest.class, EpisodeDownloadedTest.class, EpisodeGradeTest.class,
 		EpisodeLatestTest.class, EpisodeListTest.class, EpisodeNextTest.class,
 		EpisodeNotDownloadedTest.class, EpisodeScrapeTest.class, EpisodeSearchTest.class,
-		EpisodeUngradeTest.class })
+		EpisodeUngradeTest.class, EpisodeWatchedTest.class })
 public class EpisodesTests {
 	
 }

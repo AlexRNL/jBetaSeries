@@ -8,30 +8,30 @@ import org.junit.Before;
 import org.junit.Test;
 
 /**
- * Test suite for the {@link Bulk} class.
+ * Test suite for the {@link Delete} class.
  * @author Alex
  */
-public class BulkTest {
-	/** The bulk parameter which set the previous episodes as seen */
-	private Bulk bulk;
-	/** The bulk parameter which does not change the state of previous episodes */
-	private Bulk notBulk;
+public class DeleteTest {
+	/** The delete parameter which set the next episodes as unseen */
+	private Delete delete;
+	/** The delete parameter which does not change the state of next episodes */
+	private Delete notDelete;
 		
 	/**
 	 * Set up test attributes.
 	 */
 	@Before
 	public void setUp () {
-		bulk = new Bulk();
-		notBulk = new Bulk(false);
+		delete = new Delete();
+		notDelete = new Delete(false);
 	}
 	/**
 	 * Test method for {@link Parameter#getName()}.
 	 */
 	@Test
 	public void testGetName () {
-		assertEquals("bulk", bulk.getName());
-		assertEquals("bulk", notBulk.getName());
+		assertEquals("delete", delete.getName());
+		assertEquals("delete", notDelete.getName());
 	}
 	
 	/**
@@ -39,8 +39,8 @@ public class BulkTest {
 	 */
 	@Test
 	public void testGetValue () {
-		assertNull(bulk.getValue());
-		assertFalse(notBulk.getValue());
+		assertNull(delete.getValue());
+		assertFalse(notDelete.getValue());
 	}
 	
 }

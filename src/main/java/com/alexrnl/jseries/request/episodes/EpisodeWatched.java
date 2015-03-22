@@ -4,6 +4,7 @@ import com.alexrnl.jseries.request.APIAddresses;
 import com.alexrnl.jseries.request.Request;
 import com.alexrnl.jseries.request.Verb;
 import com.alexrnl.jseries.request.parameters.Bulk;
+import com.alexrnl.jseries.request.parameters.Delete;
 import com.alexrnl.jseries.request.parameters.Id;
 import com.alexrnl.jseries.request.parameters.Note;
 
@@ -20,14 +21,18 @@ public class EpisodeWatched extends Request {
 	 * @param bulk
 	 *        <code>true</code> if the previous episode (i.e. from previous seasons) should be also
 	 *        marked as seen.
+	 * @param delete <code>true</code>
 	 * @param note
 	 *        the note of the episode.
 	 */
-	public EpisodeWatched (final Integer episodeId, final boolean bulk, final Integer note) {
+	public EpisodeWatched (final Integer episodeId, final Boolean bulk, final Boolean delete, final Integer note) {
 		super(Verb.POST, APIAddresses.EPISODES_WATCHED);
 		addParameter(new Id(episodeId));
-		if (bulk) {
-			addParameter(new Bulk());
+		if (bulk != null) {
+			addParameter(new Bulk(bulk));
+		}
+		if (delete != null) {
+			addParameter(new Delete(delete));
 		}
 		if (note != null) {
 			addParameter(new Note(note));
@@ -41,18 +46,18 @@ public class EpisodeWatched extends Request {
 	 *        the id of the episode to mark as seen.
 	 * @param note
 	 *        the note of the episode.
-	 * @see #EpisodeWatched(Integer, boolean, Integer)
+	 * @see #EpisodeWatched(Integer, Boolean, Boolean, Integer)
 	 */
 	public EpisodeWatched (final Integer episodeId, final Integer note) {
-		this(episodeId, true, note);
+		this(episodeId, null, null, note);
 	}
 	
 	/**
 	 * Constructor #3.<br />
-	 * This will mark <em>all</em> previous episodes as seen and leave it unoted.
+	 * This will mark <em>all</em> previous episodes as seen and leave it unmarked.
 	 * @param episodeId
 	 *        the id of the episode to mark as seen.
-	 * @see #EpisodeWatched(Integer, boolean, Integer)
+	 * @see #EpisodeWatched(Integer, Boolean, Boolean, Integer)
 	 */
 	public EpisodeWatched (final Integer episodeId) {
 		this(episodeId, null);
