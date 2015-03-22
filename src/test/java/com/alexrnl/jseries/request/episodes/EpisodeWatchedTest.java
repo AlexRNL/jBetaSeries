@@ -13,6 +13,7 @@ import com.alexrnl.jseries.request.parameters.Bulk;
 import com.alexrnl.jseries.request.parameters.Delete;
 import com.alexrnl.jseries.request.parameters.Id;
 import com.alexrnl.jseries.request.parameters.Note;
+import com.alexrnl.jseries.request.parameters.TheTVDBId;
 import com.alexrnl.jseries.request.parameters.Version;
 
 /**
@@ -26,6 +27,8 @@ public class EpisodeWatchedTest {
 	private EpisodeWatched	episodeWatchedGraded;
 	/** The request with subtitles in episode to test */
 	private EpisodeWatched	episodeWatchedNotBulkNotDelete;
+	/** The request with a theTVDB episode id */
+	private EpisodeWatched	episodeWatchedTheTVDB;
 	
 	/**
 	 * Set up test attributes.
@@ -35,6 +38,7 @@ public class EpisodeWatchedTest {
 		episodeWatched = new EpisodeWatched(8);
 		episodeWatchedGraded = new EpisodeWatched(8, 3);
 		episodeWatchedNotBulkNotDelete = new EpisodeWatched(8, false, false, 3);
+		episodeWatchedTheTVDB = new EpisodeWatched(true, 8, true, true, 3);
 	}
 	
 	/**
@@ -45,6 +49,7 @@ public class EpisodeWatchedTest {
 		assertEquals(Verb.POST, episodeWatched.getVerb());
 		assertEquals(Verb.POST, episodeWatchedGraded.getVerb());
 		assertEquals(Verb.POST, episodeWatchedNotBulkNotDelete.getVerb());
+		assertEquals(Verb.POST, episodeWatchedTheTVDB.getVerb());
 	}
 	
 	/**
@@ -55,6 +60,7 @@ public class EpisodeWatchedTest {
 		assertEquals("/episodes/watched", episodeWatched.getMethod());
 		assertEquals("/episodes/watched", episodeWatchedGraded.getMethod());
 		assertEquals("/episodes/watched", episodeWatchedNotBulkNotDelete.getMethod());
+		assertEquals("/episodes/watched", episodeWatchedTheTVDB.getMethod());
 	}
 	
 	/**
@@ -65,6 +71,7 @@ public class EpisodeWatchedTest {
 		assertEquals(Arrays.asList(new Version(), new Id(8)), episodeWatched.getParameters());
 		assertEquals(Arrays.asList(new Version(), new Id(8), new Note(3)), episodeWatchedGraded.getParameters());
 		assertEquals(Arrays.asList(new Version(), new Id(8), new Bulk(false), new Delete(false), new Note(3)), episodeWatchedNotBulkNotDelete.getParameters());
+		assertEquals(Arrays.asList(new Version(), new TheTVDBId(8), new Bulk(true), new Delete(true), new Note(3)), episodeWatchedTheTVDB.getParameters());
 	}
 	
 }
