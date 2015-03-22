@@ -5,6 +5,7 @@ import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
 import com.alexrnl.jseries.request.episodes.EpisodesTests;
+import com.alexrnl.jseries.request.messages.MessagesTests;
 import com.alexrnl.jseries.request.parameters.ParametersTests;
 
 /**
@@ -13,7 +14,7 @@ import com.alexrnl.jseries.request.parameters.ParametersTests;
  */
 @RunWith(Suite.class)
 @SuiteClasses({ ParametersTests.class, RequestTest.class, FormatTest.class, VerbTest.class,
-		EpisodesTests.class })
+		EpisodesTests.class, MessagesTests.class })
 public class RequestTests {
 	
 }
