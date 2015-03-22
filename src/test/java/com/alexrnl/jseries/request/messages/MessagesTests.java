@@ -10,7 +10,7 @@ import org.junit.runners.Suite.SuiteClasses;
  */
 @RunWith(Suite.class)
 @SuiteClasses({ MessageDiscussionTest.class, MessageInboxTest.class, MessagePostMessageTest.class,
-		MessageDeleteMessageTest.class })
+		MessageDeleteMessageTest.class, MessageReadTest.class })
 public class MessagesTests {
 	
 }
