@@ -5,7 +5,7 @@
 	<groupId>com.alexrnl.jseries</groupId>
 	<artifactId>jSeries</artifactId>
 	<packaging>jar</packaging>
-	<version>0.1-SNAPSHOT</version>
+	<version>01.00.00-SNAPSHOT</version>
 
 	<name>jSeries</name>
 	<url>https://github.com/AlexRNL/jSeries</url>
