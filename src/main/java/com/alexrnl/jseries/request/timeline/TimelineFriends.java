@@ -34,7 +34,7 @@ public class TimelineFriends extends Request {
 	}
 	
 	/**
-	 * Constructor #1.<br />
+	 * Constructor #2.<br />
 	 * @param eventsPerPage
 	 *        the number of event per page.
 	 */
