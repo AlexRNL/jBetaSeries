@@ -1,13 +1,12 @@
 package com.alexrnl.jseries.request.parameters;
 
-
 /**
  * Parameter which allow to set an email for the member to be find.<br />
  * @author Alex
  */
 public class Find extends Parameter<String> {
 	/** The name of the email parameter */
-	public static final String	PARAMETER_FIND = "find";
+	public static final String	PARAMETER_FIND	= "find";
 	
 	/**
 	 * Constructor #1.<br />

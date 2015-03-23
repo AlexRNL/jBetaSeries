@@ -1,5 +1,7 @@
 package com.alexrnl.jseries.request.parameters;
 
+import static com.alexrnl.jseries.request.APIConstants.PARAMETER_VALUES_SEPARATOR;
+
 import com.alexrnl.commons.utils.StringUtils;
 
 /**
@@ -14,7 +16,7 @@ public class TheTVDBIds extends Parameter<String> {
 	 *        the id of the show.
 	 */
 	public TheTVDBIds (final Integer... theTvdbId) {
-		super(TheTVDBId.PARAMETER_THE_TVDB_ID, StringUtils.separateWith(",", (Object[]) theTvdbId));
+		super(TheTVDBId.PARAMETER_THE_TVDB_ID, StringUtils.separateWith(PARAMETER_VALUES_SEPARATOR, (Object[]) theTvdbId));
 	}
 	
 }

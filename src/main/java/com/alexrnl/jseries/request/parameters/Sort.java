@@ -10,7 +10,6 @@ public class Sort extends Parameter<Sort.Type> {
 	
 	/**
 	 * Sort type enumeration for the API.
-	 * @author Alex
 	 */
 	public static enum Type {
 		/** Ascending sort ordering */

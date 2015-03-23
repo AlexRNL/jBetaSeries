@@ -7,13 +7,15 @@ package com.alexrnl.jseries.request;
 public final class APIConstants {
 	
 	/** The name for the API key parameter */
-	public static final String	KEY_PARAMETER	= "X-BetaSeries-Key";
+	public static final String	KEY_PARAMETER						= "X-BetaSeries-Key";
 	/** The name for the API token parameter */
-	public static final String	TOKEN_PARAMETER	= "X-BetaSeries-Token";
+	public static final String	TOKEN_PARAMETER						= "X-BetaSeries-Token";
+	/** The separator for parameters which can hold several values */
+	public static final String	PARAMETER_VALUES_SEPARATOR			= ",";
 	/** The minimum note allowed by the API */
-	public static final int		NOTE_MIN		= 1;
+	public static final int		NOTE_MIN							= 1;
 	/** The maximum note allowed by the API */
-	public static final int		NOTE_MAX		= 5;
+	public static final int		NOTE_MAX							= 5;
 	
 	/**
 	 * Constructor #1.<br />

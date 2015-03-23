@@ -1,6 +1,7 @@
 package com.alexrnl.jseries.request.parameters;
 
-import com.alexrnl.jseries.request.APIConstants;
+import static com.alexrnl.jseries.request.APIConstants.NOTE_MAX;
+import static com.alexrnl.jseries.request.APIConstants.NOTE_MIN;
 
 /**
  * Parameter which allow to set the note of a show or an episode.<br />
@@ -15,12 +16,15 @@ public class Note extends Parameter<Integer> {
 	 * @param note
 	 *        the note to set.
 	 * @throws IllegalArgumentException
-	 *         if the not is outside the range [1;5].
+	 *         if the is outside the range [1;5].
 	 */
 	public Note (final Integer note) {
 		super(PARAMETER_NOTE, note);
-		if (note < APIConstants.NOTE_MIN || note > APIConstants.NOTE_MAX) {
-			throw new IllegalArgumentException("The note must be comprise between 1 and 5.");
+		if (note < NOTE_MIN) {
+			throw new IllegalArgumentException("The note must be over " + NOTE_MIN);
+		}
+		if (note > NOTE_MAX) {
+			throw new IllegalArgumentException("The note must be below " + NOTE_MAX);
 		}
 	}
 	

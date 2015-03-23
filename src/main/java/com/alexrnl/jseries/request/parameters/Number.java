@@ -1,13 +1,12 @@
 package com.alexrnl.jseries.request.parameters;
 
-
 /**
  * Parameter which allow to set the number of items to retrieve.<br />
  * @author Alex
  */
 public class Number extends Parameter<Integer> {
 	/** The name of the number parameter */
-	public static final String PARAMETER_NUMBER = "number";
+	public static final String	PARAMETER_NUMBER	= "number";
 	
 	/**
 	 * Constructor #1.<br />

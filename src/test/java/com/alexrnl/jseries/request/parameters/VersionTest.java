@@ -23,6 +23,6 @@ public class VersionTest {
 	 */
 	@Test
 	public void testGetValue () {
-		assertEquals("2.1", new Version().getValue());
+		assertEquals("2.4", new Version().getValue());
 	}
 }

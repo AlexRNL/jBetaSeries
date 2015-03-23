@@ -58,7 +58,7 @@ public class RequestTest {
 		assertNotEquals(testRequest.hashCode(), comparing.hashCode());
 		assertEquals(comparing.hashCode(), comparing.hashCode());
 		assertEquals(testRequest.hashCode(), testRequest.hashCode());
-
+		
 		final ConcreteRequest comparingOK = new ConcreteRequest(Verb.DELETE, "/test");
 		comparingOK.addParameter(new Id(1));
 		assertEquals(testRequest.hashCode(), comparingOK.hashCode());
@@ -75,7 +75,7 @@ public class RequestTest {
 		assertEquals(comparing, comparing);
 		assertEquals(testRequest, testRequest);
 		assertNotEquals(testRequest, null);
-
+		
 		final ConcreteRequest comparingOK = new ConcreteRequest(Verb.DELETE, "/test");
 		comparingOK.addParameter(new Id(1));
 		assertEquals(testRequest, comparingOK);
@@ -86,7 +86,7 @@ public class RequestTest {
 	 */
 	@Test
 	public void testToString () {
-		assertEquals("ConcreteRequest [verb=DELETE, method=/test, parameters=[Version [name='v', value='2.1'], Id [name='id', value='1']]]",
+		assertEquals("ConcreteRequest [verb=DELETE, method=/test, parameters=[Version [name='v', value='2.4'], Id [name='id', value='1']]]",
 				testRequest.toString());
 	}
 }

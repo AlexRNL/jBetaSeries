@@ -11,7 +11,6 @@ public class Subtitles extends Parameter<Subtitles.Filter> {
 	
 	/**
 	 * Available subtitle filter in the API.
-	 * @author Alex
 	 */
 	public static enum Filter {
 		/** Show all episodes */

@@ -48,7 +48,7 @@ public enum BSBoolean {
 			}
 		}
 		
-		throw new IllegalArgumentException("No BSBoolean matching " + value);
+		throw new IllegalArgumentException("No " + BSBoolean.class.getSimpleName() + " matching " + value);
 	}
 	
 	/**

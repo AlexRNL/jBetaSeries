@@ -54,4 +54,5 @@ public class NoteTest {
 	public void testNoteTooHigh () {
 		new Note(6);
 	}
+	
 }

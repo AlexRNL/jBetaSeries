@@ -1,5 +1,7 @@
 package com.alexrnl.jseries.request.parameters;
 
+import static com.alexrnl.jseries.request.APIConstants.PARAMETER_VALUES_SEPARATOR;
+
 import com.alexrnl.commons.utils.StringUtils;
 
 /**
@@ -11,10 +13,10 @@ public class Ids extends Parameter<String> {
 	/**
 	 * Constructor #1.<br />
 	 * @param ids
-	 *        the id of the show.
+	 *        the ids of the show.
 	 */
 	public Ids (final Integer... ids) {
-		super(Id.PARAMETER_ID, StringUtils.separateWith(",", (Object[]) ids));
+		super(Id.PARAMETER_ID, StringUtils.separateWith(PARAMETER_VALUES_SEPARATOR, (Object[]) ids));
 	}
 	
 }
