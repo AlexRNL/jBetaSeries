@@ -16,6 +16,8 @@ public final class APIConstants {
 	public static final int		NOTE_MIN							= 1;
 	/** The maximum note allowed by the API */
 	public static final int		NOTE_MAX							= 5;
+	/** The maximum number of events per page */
+	public static final int		MAXIMUM_NUMBER_OF_EVENTS_PER_PAGE	= 100;
 	
 	/**
 	 * Constructor #1.<br />

@@ -96,6 +96,9 @@ public final class APIAddresses {
 	public static final String	SHOWS_SIMILARS			= "/shows/similars";
 	/** Address for getting shows videos */
 	public static final String	SHOWS_VIDEOS			= "/shows/videos";
+	// Methods for timeline
+	/** Address for getting the friend timeline */
+	public static final String	TIMELINE_FRIENDS		= "/timeline/friends";
 	
 	/**
 	 * Constructor #1.<br />

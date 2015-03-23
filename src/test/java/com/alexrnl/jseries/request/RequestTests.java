@@ -7,6 +7,7 @@ import org.junit.runners.Suite.SuiteClasses;
 import com.alexrnl.jseries.request.episodes.EpisodesTests;
 import com.alexrnl.jseries.request.messages.MessagesTests;
 import com.alexrnl.jseries.request.parameters.ParametersTests;
+import com.alexrnl.jseries.request.timeline.TimelineTests;
 
 /**
  * Test suite for the request package.
@@ -15,7 +16,7 @@ import com.alexrnl.jseries.request.parameters.ParametersTests;
 @RunWith(Suite.class)
 @SuiteClasses({ APIAddressesTest.class, APIConstantsTest.class, ParametersTests.class,
 		RequestTest.class, FormatTest.class, VerbTest.class, EpisodesTests.class,
-		MessagesTests.class })
+		MessagesTests.class, TimelineTests.class })
 public class RequestTests {
 	
 }
