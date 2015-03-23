@@ -17,14 +17,27 @@ public class EpisodeLatest extends Request {
 	 * @param theTVDB
 	 *        <code>true</code> if the show id is a theTVDB id.
 	 * @param showIds
-	 *        the id of the show.
+	 *        the ids of the show.
 	 */
 	public EpisodeLatest (final Boolean theTVDB, final Integer... showIds) {
 		super(Verb.GET, APIAddresses.EPISODES_LATEST);
+		if (showIds == null || showIds.length == 0) {
+			throw new IllegalArgumentException("At least one show id is required");
+		}
+		
 		if (theTVDB) {
 			addParameter(new TheTVDBIds(showIds));
 		} else {
 			addParameter(new Ids(showIds));
 		}
+	}
+	
+	/**
+	 * Constructor #2.<br />
+	 * @param showIds
+	 *        the ids of the show.
+	 */
+	public EpisodeLatest (final Integer... showIds) {
+		this(false, showIds);
 	}
 }

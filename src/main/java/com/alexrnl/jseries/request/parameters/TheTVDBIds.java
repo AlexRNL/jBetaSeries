@@ -13,7 +13,7 @@ public class TheTVDBIds extends Parameter<String> {
 	/**
 	 * Constructor #1.<br />
 	 * @param theTvdbId
-	 *        the id of the show.
+	 *        the ids of the show.
 	 */
 	public TheTVDBIds (final Integer... theTvdbId) {
 		super(TheTVDBId.PARAMETER_THE_TVDB_ID, StringUtils.separateWith(PARAMETER_VALUES_SEPARATOR, (Object[]) theTvdbId));

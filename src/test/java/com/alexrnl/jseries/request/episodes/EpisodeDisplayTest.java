@@ -40,6 +40,24 @@ public class EpisodeDisplayTest {
 	}
 	
 	/**
+	 * Test that a <code>null</code> ids array is handled.
+	 */
+	@SuppressWarnings("unused")
+	@Test(expected = IllegalArgumentException.class)
+	public void testNullIds () {
+		new EpisodeDisplay((Integer []) null);
+	}
+	
+	/**
+	 * Test that an empty ids array is handled.
+	 */
+	@SuppressWarnings("unused")
+	@Test(expected = IllegalArgumentException.class)
+	public void testEmptyIds () {
+		new EpisodeDisplay();
+	}
+	
+	/**
 	 * Test method for {@link Request#getVerb()}.
 	 */
 	@Test

@@ -18,6 +18,9 @@ public class ShowDisplay extends Request {
 	 */
 	public ShowDisplay (final Integer... ids) {
 		super(Verb.GET, APIAddresses.SHOWS_DISPLAY);
+		if (ids == null || ids.length == 0) {
+			throw new IllegalArgumentException("At least one show id is required");
+		}
 		addParameter(new Ids(ids));
 	}
 	

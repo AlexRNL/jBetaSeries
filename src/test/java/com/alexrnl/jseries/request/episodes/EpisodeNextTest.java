@@ -28,8 +28,26 @@ public class EpisodeNextTest {
 	 */
 	@Before
 	public void setUp () {
-		episodeNext = new EpisodeNext(false, 1, 5);
+		episodeNext = new EpisodeNext(1, 5);
 		episodeNextTVDB = new EpisodeNext(true, 4);
+	}
+	
+	/**
+	 * Test that a <code>null</code> ids array is handled.
+	 */
+	@SuppressWarnings("unused")
+	@Test(expected = IllegalArgumentException.class)
+	public void testNullIds () {
+		new EpisodeNext((Integer []) null);
+	}
+	
+	/**
+	 * Test that an empty ids array is handled.
+	 */
+	@SuppressWarnings("unused")
+	@Test(expected = IllegalArgumentException.class)
+	public void testEmptyIds () {
+		new EpisodeNext();
 	}
 	
 	/**
