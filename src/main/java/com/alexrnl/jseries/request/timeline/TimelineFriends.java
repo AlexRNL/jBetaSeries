@@ -28,7 +28,7 @@ public class TimelineFriends extends Request {
 		if (lastEvent != null) {
 			addParameter(new SinceId(lastEvent));
 		}
-		if (types.length > 0) {
+		if (types != null && types.length > 0) {
 			addParameter(new Types(types));
 		}
 	}

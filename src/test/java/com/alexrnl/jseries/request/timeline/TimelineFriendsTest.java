@@ -34,6 +34,15 @@ public class TimelineFriendsTest {
 	}
 	
 	/**
+	 * Test that a <code>null</code> types array works.
+	 */
+	@Test
+	public void testNullTypes () {
+		final TimelineFriends request = new TimelineFriends(28, 48, (String []) null);
+		assertEquals(Arrays.asList(new Version(), new NumberEventsPerPage(28), new SinceId(48)), request.getParameters());
+	}
+	
+	/**
 	 * Test method for {@link Request#getVerb()}.
 	 */
 	@Test
