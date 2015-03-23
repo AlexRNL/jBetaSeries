@@ -99,6 +99,8 @@ public final class APIAddresses {
 	// Methods for timeline
 	/** Address for getting the friend timeline */
 	public static final String	TIMELINE_FRIENDS		= "/timeline/friends";
+	/** Address for getting the home timeline */
+	public static final String	TIMELINE_HOME			= "/timeline/home";
 	
 	/**
 	 * Constructor #1.<br />

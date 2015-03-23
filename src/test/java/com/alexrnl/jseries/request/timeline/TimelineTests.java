@@ -9,7 +9,7 @@ import org.junit.runners.Suite.SuiteClasses;
  * @author Alex
  */
 @RunWith(Suite.class)
-@SuiteClasses({ TimelineFriendsTest.class })
+@SuiteClasses({ TimelineFriendsTest.class, TimelineHomeTest.class })
 public class TimelineTests {
 	
 }
