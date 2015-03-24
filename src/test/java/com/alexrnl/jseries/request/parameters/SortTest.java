@@ -5,6 +5,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.alexrnl.commons.utils.object.ReflectUtils;
 import com.alexrnl.jseries.request.parameters.Sort.Type;
 
 /**
@@ -54,4 +55,13 @@ public class SortTest {
 		assertEquals("asc", Type.ASCENDING.toString());
 		assertEquals("desc", Type.DESCENDING.toString());
 	}
+	
+	/**
+	 * Trigger a full enum coverage on the {@link Type} enum.
+	 */
+	@Test
+	public void fullStateEnumCoverage () {
+		ReflectUtils.fullEnumCoverage(Type.class);
+	}
+	
 }

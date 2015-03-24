@@ -5,10 +5,10 @@ import java.nio.charset.Charset;
 import java.util.logging.Logger;
 
 import com.alexrnl.commons.error.ExceptionUtils;
-import com.alexrnl.jseries.request.Format;
-import com.alexrnl.jseries.request.RequestManager;
 import com.alexrnl.jseries.request.members.MemberAuth;
 import com.alexrnl.jseries.request.shows.ShowDisplay;
+import com.alexrnl.jseries.services.Format;
+import com.alexrnl.jseries.services.RequestManager;
 
 /**
  * Entry point of the interface to the BetaSeries API.<br />

@@ -6,6 +6,7 @@ import static org.junit.Assert.assertNull;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.alexrnl.commons.utils.object.ReflectUtils;
 import com.alexrnl.jseries.request.parameters.Subtitles.Filter;
 
 /**
@@ -74,4 +75,13 @@ public class SubtitlesTest {
 		assertEquals("vf", Filter.VF.toString());
 		assertEquals("vovf", Filter.VOVF.toString());
 	}
+	
+	/**
+	 * Trigger a full enum coverage on the {@link Filter} enum.
+	 */
+	@Test
+	public void fullStateEnumCoverage () {
+		ReflectUtils.fullEnumCoverage(Filter.class);
+	}
+	
 }

@@ -4,6 +4,8 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
+import com.alexrnl.commons.utils.object.ReflectUtils;
+
 /**
  * Test suite for the {@link BSBoolean} class.
  * @author Alex
@@ -52,5 +54,13 @@ public class BSBooleanTest {
 	public void testFromValueBoolean () {
 		assertEquals(BSBoolean.TRUE, BSBoolean.fromValue(true));
 		assertEquals(BSBoolean.FALSE, BSBoolean.fromValue(false));
+	}
+	
+	/**
+	 * Trigger a full enum coverage on the {@link BSBoolean} enum.
+	 */
+	@Test
+	public void fullStateEnumCoverage () {
+		ReflectUtils.fullEnumCoverage(BSBoolean.class);
 	}
 }

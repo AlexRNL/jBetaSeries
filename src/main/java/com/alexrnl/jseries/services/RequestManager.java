@@ -1,4 +1,4 @@
-package com.alexrnl.jseries.request;
+package com.alexrnl.jseries.services;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -16,6 +16,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import com.alexrnl.commons.error.ExceptionUtils;
+import com.alexrnl.jseries.request.APIAddresses;
+import com.alexrnl.jseries.request.APIConstants;
+import com.alexrnl.jseries.request.Request;
+import com.alexrnl.jseries.request.Verb;
 import com.alexrnl.jseries.request.parameters.Parameter;
 
 /**
@@ -52,11 +56,11 @@ public class RequestManager {
 	 */
 	public RequestManager (final String key, final Format format, final String userAgent,
 			final Charset charset) {
-		this(key, format, userAgent, charset, false);
+		this(key, format, userAgent, charset, true);
 	}
 
 	/**
-	 * Constructor #1.<br />
+	 * Constructor #2.<br />
 	 * @param key
 	 *        the key of the API.
 	 * @param format

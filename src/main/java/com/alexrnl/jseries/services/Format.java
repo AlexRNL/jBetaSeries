@@ -1,7 +1,7 @@
-package com.alexrnl.jseries.request;
+package com.alexrnl.jseries.services;
 
 /**
- * Format available by the API.<br />
+ * Return data types available from the API.<br />
  * @author Alex
  */
 public enum Format {
