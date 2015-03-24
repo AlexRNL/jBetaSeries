@@ -101,6 +101,8 @@ public final class APIAddresses {
 	public static final String	TIMELINE_FRIENDS		= "/timeline/friends";
 	/** Address for getting the home timeline */
 	public static final String	TIMELINE_HOME			= "/timeline/home";
+	/** Address for getting the member timeline */
+	public static final String	TIMELINE_MEMBER			= "/timeline/member";
 	
 	/**
 	 * Constructor #1.<br />
