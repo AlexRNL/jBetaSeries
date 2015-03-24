@@ -8,9 +8,7 @@ import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
-import java.net.URL;
 import java.net.URLEncoder;
-import java.nio.charset.Charset;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -28,58 +26,26 @@ import com.alexrnl.jseries.request.parameters.Parameter;
  */
 public class RequestManager {
 	/** Logger */
-	private static final Logger	LG	= Logger.getLogger(RequestManager.class.getName());
+	private static final Logger				LG	= Logger.getLogger(RequestManager.class.getName());
 	
-	/** The key of the API */
-	private final String		key;
-	/** The format of the API response required */
-	private final Format		format;
-	/** The user-agent of the application */
-	private final String		userAgent;
-	/** The charset to use */
-	private final Charset		charset;
+	/** The configuration of the connector */
+	private final Configuration				configuration;
+	/** The HTTP connection provider */
+	private final HttpConnectionProvider	httpConnectionProvider;
 	/** The token for the user, <code>null</code> if no user is logged. */
-	private String				token;
-	/** <code>true</code> if using the secure API address */
-	private final boolean		isSecure;
+	private String							token;
 	
 	/**
 	 * Constructor #1.<br />
-	 * @param key
-	 *        the key of the API.
-	 * @param format
-	 *        the format for the API response.
-	 * @param userAgent
-	 *        the user-agent to declare.
-	 * @param charset
-	 *        the charset to use.
+	 * @param configuration
+	 *        the configuration of the connector.
+	 * @param httpConnectionProvider
+	 *        the provider for HTTP connection.
 	 */
-	public RequestManager (final String key, final Format format, final String userAgent,
-			final Charset charset) {
-		this(key, format, userAgent, charset, true);
-	}
-
-	/**
-	 * Constructor #2.<br />
-	 * @param key
-	 *        the key of the API.
-	 * @param format
-	 *        the format for the API response.
-	 * @param userAgent
-	 *        the user-agent to declare.
-	 * @param charset
-	 *        the charset to use.
-	 * @param isSecure
-	 *        <code>true</code> for using the secure API address.
-	 */
-	public RequestManager (final String key, final Format format, final String userAgent,
-			final Charset charset, final boolean isSecure) {
+	public RequestManager (final Configuration configuration, final HttpConnectionProvider httpConnectionProvider) {
 		super();
-		this.key = key;
-		this.format = format;
-		this.userAgent = userAgent;
-		this.charset = charset;
-		this.isSecure = isSecure;
+		this.configuration = configuration;
+		this.httpConnectionProvider = httpConnectionProvider;
 		this.token = null;
 		
 		if (LG.isLoggable(Level.FINE)) {
@@ -109,7 +75,7 @@ public class RequestManager {
 			if (LG.isLoggable(Level.INFO)) {
 				LG.info("Connecting to " + address.toString());
 			}
-			connection = (HttpURLConnection) new URL(address.toString()).openConnection();
+			connection = httpConnectionProvider.getHttpConnection(address.toString());
 		} catch (final MalformedURLException e) {
 			LG.warning("Could not build URL: " + ExceptionUtils.display(e));
 			throw new IOException("Could not build address from " + address.toString(), e);
@@ -119,23 +85,23 @@ public class RequestManager {
 		connection.setDoOutput(true);
 		connection.setDoInput(true);
 		connection.setRequestMethod(request.getVerb().getHttpMethodName());
-		connection.addRequestProperty("Accept-Charset", charset.name());
-		connection.addRequestProperty("User-Agent", userAgent);
-		connection.addRequestProperty("Accept", format.getDescription());
-		connection.addRequestProperty(APIConstants.KEY_PARAMETER, key);
+		connection.addRequestProperty("Accept-Charset", configuration.getCharset().name());
+		connection.addRequestProperty("User-Agent", configuration.getUserAgent());
+		connection.addRequestProperty("Accept", configuration.getFormat().getDescription());
+		connection.addRequestProperty(APIConstants.KEY_PARAMETER, configuration.getKey());
 		if (token != null) {
 			connection.addRequestProperty(APIConstants.TOKEN_PARAMETER, token);
 		}
 		
 		// Writing parameter for post request
 		if (isPost(request)) {
-			final byte[] parameterBytes = parameters.getBytes(charset);
+			final byte[] parameterBytes = parameters.getBytes(configuration.getCharset());
 			connection.setInstanceFollowRedirects(false);
-			connection.setRequestProperty("Content-Length", "" + Integer.toString(parameterBytes.length));
+			connection.setRequestProperty("Content-Length", String.valueOf(parameterBytes.length));
 			if (LG.isLoggable(Level.INFO)) {
 				LG.info("Sending parameters: " + parameters);
 			}
-
+			
 			connection.connect();
 			final OutputStream wr = connection.getOutputStream();
 			wr.write(parameterBytes);
@@ -149,12 +115,11 @@ public class RequestManager {
 			LG.info("Response code: " + connection.getResponseCode() +
 					"; message: " + connection.getResponseMessage());
 		}
-
+		
 		final StringBuilder sb = new StringBuilder();
 		final InputStream stream = connection.getResponseCode() == HttpURLConnection.HTTP_OK ?
 				connection.getInputStream() : connection.getErrorStream();
-		try (final BufferedReader rd = new BufferedReader(new InputStreamReader(stream,
-				charset.name()))) {
+		try (final BufferedReader rd = new BufferedReader(new InputStreamReader(stream, configuration.getCharset()))) {
 			String line;
 			while ((line = rd.readLine()) != null) {
 				sb.append(line + '\n');
@@ -182,7 +147,7 @@ public class RequestManager {
 	 * @return the address to connect to.
 	 */
 	private String buildAddress (final Request request) {
-		return (isSecure ? APIAddresses.HTTPS : APIAddresses.HTTP) + APIAddresses.HOST + request.getMethod();
+		return (configuration.isSecure() ? APIAddresses.HTTPS : APIAddresses.HTTP) + APIAddresses.HOST + request.getMethod();
 	}
 	
 	/**
@@ -204,7 +169,7 @@ public class RequestManager {
 			// Check against null parameters, if a parameter is null, then its name is enough
 			if (parameter.getValue() != null) {
 				parametersBuilder.append('=')
-				.append(URLEncoder.encode(String.valueOf(parameter.getValue()), charset.name()));
+				.append(URLEncoder.encode(String.valueOf(parameter.getValue()), configuration.getCharset().name()));
 			}
 			parametersBuilder.append('&');
 		}
@@ -222,24 +187,11 @@ public class RequestManager {
 	
 	/**
 	 * Set the attribute token.
+	 * TODO use a token provider
 	 * @param token the attribute token.
 	 */
 	public void setToken (final String token) {
 		this.token = token;
-	}
-
-	/**
-	 * Return the attribute isSecure.
-	 * @return the attribute isSecure.
-	 */
-	public boolean isSecure () {
-		return isSecure;
-	}
-
-	@Override
-	public String toString () {
-		return "RequestManager [key=" + key + ", format=" + format + ", userAgent=" + userAgent
-				+ ", charset=" + charset + ", token=" + token + ", isSecure=" + isSecure + "]";
 	}
 	
 }
