@@ -11,7 +11,11 @@ import java.net.URL;
  */
 public class DefaultHttpConnectionProvider implements HttpConnectionProvider {
 	@Override
-	public HttpURLConnection getHttpConnection (final String address) throws MalformedURLException, IOException {
-		return (HttpURLConnection) new URL(address.toString()).openConnection();
+	public HttpURLConnection getHttpConnection (final String address) throws IOException {
+		try {
+			return (HttpURLConnection) new URL(address).openConnection();
+		} catch (final MalformedURLException e) {
+			throw new IllegalArgumentException("Address '" + address + "' cannot be parsed as valid URL", e);
+		}
 	}
 }
