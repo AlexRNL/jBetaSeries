@@ -9,7 +9,7 @@ import org.junit.runners.Suite.SuiteClasses;
  * @author Alex
  */
 @RunWith(Suite.class)
-@SuiteClasses({ ConfigurationTest.class, FormatTest.class })
+@SuiteClasses({ ConfigurationTest.class, DefaultHttpConnectionProviderTest.class, FormatTest.class })
 public class ServicesTests {
 	
 }
