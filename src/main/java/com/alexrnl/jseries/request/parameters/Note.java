@@ -1,7 +1,5 @@
 package com.alexrnl.jseries.request.parameters;
 
-import static com.alexrnl.jseries.request.APIConstants.NOTE_MAX;
-import static com.alexrnl.jseries.request.APIConstants.NOTE_MIN;
 
 /**
  * Parameter which allow to set the note of a show or an episode.<br />
@@ -10,6 +8,11 @@ import static com.alexrnl.jseries.request.APIConstants.NOTE_MIN;
 public class Note extends Parameter<Integer> {
 	/** Name of the note parameter */
 	public static final String	PARAMETER_NOTE	= "note";
+	
+	/** The minimum note allowed by the API */
+	public static final int		NOTE_MIN		= 1;
+	/** The maximum note allowed by the API */
+	public static final int		NOTE_MAX		= 5;
 	
 	/**
 	 * Constructor #1.<br />

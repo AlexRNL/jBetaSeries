@@ -14,9 +14,8 @@ import com.alexrnl.jseries.request.timeline.TimelineTests;
  * @author Alex
  */
 @RunWith(Suite.class)
-@SuiteClasses({ APIAddressesTest.class, APIConstantsTest.class, ParametersTests.class,
-		RequestTest.class, VerbTest.class, EpisodesTests.class,
-		MessagesTests.class, TimelineTests.class })
+@SuiteClasses({ APIAddressesTest.class, ParametersTests.class, RequestTest.class, VerbTest.class,
+		EpisodesTests.class, MessagesTests.class, TimelineTests.class })
 public class RequestTests {
 	
 }

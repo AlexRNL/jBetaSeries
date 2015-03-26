@@ -1,6 +1,5 @@
 package com.alexrnl.jseries.request.parameters;
 
-import static com.alexrnl.jseries.request.APIConstants.MAXIMUM_NUMBER_OF_EVENTS_PER_PAGE;
 
 /**
  * Parameter which allow to set the number of events per page.<br />
@@ -9,6 +8,8 @@ import static com.alexrnl.jseries.request.APIConstants.MAXIMUM_NUMBER_OF_EVENTS_
 public class NumberEventsPerPage extends Parameter<Integer> {
 	/** The name of the number parameter */
 	public static final String	PARAMETER_NUMBER_EVENTS_PER_PAGE	= "nbpp";
+	/** The maximum number of events per page */
+	public static final int		MAXIMUM_NUMBER_OF_EVENTS_PER_PAGE	= 100;
 	
 	/**
 	 * Constructor #1.<br />

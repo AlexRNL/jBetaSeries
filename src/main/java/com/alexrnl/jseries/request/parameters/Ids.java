@@ -1,7 +1,5 @@
 package com.alexrnl.jseries.request.parameters;
 
-import static com.alexrnl.jseries.request.APIConstants.PARAMETER_VALUES_SEPARATOR;
-
 import com.alexrnl.commons.utils.StringUtils;
 
 /**

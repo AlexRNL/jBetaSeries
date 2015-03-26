@@ -11,10 +11,13 @@ import com.alexrnl.commons.utils.object.Field;
  *        the type of the parameter.
  */
 public abstract class Parameter<T> {
+	/** The separator for parameters which can hold several values */
+	public static final String	PARAMETER_VALUES_SEPARATOR	= ",";
+	
 	/** The name of the parameter */
-	private final String	name;
+	private final String		name;
 	/** The value of the parameter */
-	private final T			value;
+	private final T				value;
 	
 	/**
 	 * Constructor #1.<br />

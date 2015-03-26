@@ -15,7 +15,6 @@ import java.util.logging.Logger;
 
 import com.alexrnl.commons.error.ExceptionUtils;
 import com.alexrnl.jseries.request.APIAddresses;
-import com.alexrnl.jseries.request.APIConstants;
 import com.alexrnl.jseries.request.Request;
 import com.alexrnl.jseries.request.Verb;
 import com.alexrnl.jseries.request.parameters.Parameter;
@@ -27,6 +26,11 @@ import com.alexrnl.jseries.request.parameters.Parameter;
 public class RequestManager {
 	/** Logger */
 	private static final Logger				LG	= Logger.getLogger(RequestManager.class.getName());
+	
+	/** The name for the API key parameter */
+	public static final String	KEY_PARAMETER						= "X-BetaSeries-Key";
+	/** The name for the API token parameter */
+	public static final String	TOKEN_PARAMETER						= "X-BetaSeries-Token";
 	
 	/** The configuration of the connector */
 	private final Configuration				configuration;
@@ -73,7 +77,7 @@ public class RequestManager {
 		// Open connection to address
 		try {
 			if (LG.isLoggable(Level.INFO)) {
-				LG.info("Connecting to " + address.toString());
+				LG.info("Connecting to " + address);
 			}
 			connection = httpConnectionProvider.getHttpConnection(address.toString());
 		} catch (final MalformedURLException e) {
@@ -88,9 +92,9 @@ public class RequestManager {
 		connection.addRequestProperty("Accept-Charset", configuration.getCharset().name());
 		connection.addRequestProperty("User-Agent", configuration.getUserAgent());
 		connection.addRequestProperty("Accept", configuration.getFormat().getDescription());
-		connection.addRequestProperty(APIConstants.KEY_PARAMETER, configuration.getKey());
+		connection.addRequestProperty(KEY_PARAMETER, configuration.getKey());
 		if (token != null) {
-			connection.addRequestProperty(APIConstants.TOKEN_PARAMETER, token);
+			connection.addRequestProperty(TOKEN_PARAMETER, token);
 		}
 		
 		// Writing parameter for post request
