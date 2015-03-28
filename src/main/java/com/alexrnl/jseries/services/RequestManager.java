@@ -37,9 +37,9 @@ public class RequestManager {
 	private static final String				PROPERTY_ACCEPT_CHARSET	= "Accept-Charset";
 	// BetaSeries properties
 	/** The name for the API key property */
-	public static final String				PROPERTY_KEY			= "X-BetaSeries-Key";
+	private static final String				PROPERTY_KEY			= "X-BetaSeries-Key";
 	/** The name for the API token property */
-	public static final String				PROPERTY_TOKEN			= "X-BetaSeries-Token";
+	private static final String				PROPERTY_TOKEN			= "X-BetaSeries-Token";
 	
 	/** The configuration of the connector */
 	private final Configuration				configuration;
@@ -75,7 +75,6 @@ public class RequestManager {
 	 *         if there was an error while sending the request to the API.
 	 */
 	public String execute (final Request request) throws IOException {
-		HttpURLConnection connection;
 		// Build address
 		final StringBuilder address = new StringBuilder(buildAddress(request));
 		final String parameters = getParameters(request);
@@ -87,7 +86,8 @@ public class RequestManager {
 		if (LG.isLoggable(Level.INFO)) {
 			LG.info("Connecting to " + address);
 		}
-		connection = httpConnectionProvider.getHttpConnection(address.toString());
+		
+		final HttpURLConnection connection = httpConnectionProvider.getHttpConnection(address.toString());
 		
 		// Set connection properties
 		connection.setDoOutput(isPost(request));
