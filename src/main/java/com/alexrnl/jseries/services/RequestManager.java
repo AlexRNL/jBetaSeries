@@ -22,7 +22,6 @@ import com.alexrnl.jseries.request.parameters.Parameter;
  * @author Alex
  */
 public class RequestManager {
-
 	/** Logger */
 	private static final Logger				LG	= Logger.getLogger(RequestManager.class.getName());
 	
@@ -60,10 +59,6 @@ public class RequestManager {
 		this.configuration = configuration;
 		this.httpConnectionProvider = httpConnectionProvider;
 		this.token = null;
-		
-		if (LG.isLoggable(Level.FINE)) {
-			LG.fine(RequestManager.class.getSimpleName() + " created: " + toString());
-		}
 	}
 	
 	/**
@@ -71,10 +66,16 @@ public class RequestManager {
 	 * @param request
 	 *        the request to execute.
 	 * @return the result of the request.
+	 * @throws IllegalArgumentException
+	 *         if the request is <code>null</code>.
 	 * @throws IOException
 	 *         if there was an error while sending the request to the API.
 	 */
 	public String execute (final Request request) throws IOException {
+		if (request == null) {
+			throw new IllegalArgumentException("Request cannot be null");
+		}
+		
 		// Build address
 		final StringBuilder address = new StringBuilder(buildAddress(request));
 		final String parameters = getParameters(request);
@@ -124,16 +125,16 @@ public class RequestManager {
 					"; message: " + connection.getResponseMessage());
 		}
 		
-		final StringBuilder sb = new StringBuilder();
 		final InputStream stream = connection.getResponseCode() == HttpURLConnection.HTTP_OK ?
 				connection.getInputStream() : connection.getErrorStream();
+		final StringBuilder sb = new StringBuilder();
 		try (final BufferedReader rd = new BufferedReader(new InputStreamReader(stream, configuration.getCharset()))) {
 			String line;
 			while ((line = rd.readLine()) != null) {
 				sb.append(line + System.lineSeparator());
 			}
 		}
-		return sb.toString();
+		return sb.substring(0, sb.length() - System.lineSeparator().length()).toString();
 	}
 	
 	/**

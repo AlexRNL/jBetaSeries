@@ -11,10 +11,10 @@ import com.alexrnl.jseries.request.parameters.Parameter;
 import com.alexrnl.jseries.request.parameters.Version;
 
 /**
- * Abstract class defining a generic request to the BetaSeries API.<br />
+ * Class defining a generic request to the BetaSeries API.<br />
  * @author Alex
  */
-public abstract class Request {
+public class Request {
 	/** The verb to use for the request */
 	private final Verb					verb;
 	/** The target method */
