@@ -114,6 +114,18 @@ public class RequestManagerTest {
 	}
 	
 	/**
+	 * Test method for {@link RequestManager#execute(Request)} with a GET request and with parameters.
+	 * @throws IOException
+	 *         if the request could not be processed.
+	 */
+	@Test
+	public void testExecuteGetRequestWithParameter () throws IOException {
+		assertEquals("OK", requestManager.execute(new ParameterizedRequest(Verb.GET, "hello, world")));
+		
+		verify(httpConnectionProvider).getHttpConnection(eq("https://api.betaseries.com/api/unit-test?v=2.4&comments=hello%2C+world"));
+	}
+	
+	/**
 	 * Test method for {@link RequestManager#execute(Request)} with a bad address.
 	 * @throws IOException
 	 *         if the request could not be processed.
