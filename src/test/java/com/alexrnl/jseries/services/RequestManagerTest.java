@@ -126,6 +126,35 @@ public class RequestManagerTest {
 	}
 	
 	/**
+	 * Test method for {@link RequestManager#execute(Request)} with a GET request and with
+	 * <code>null</code> parameters.
+	 * @throws IOException
+	 *         if the request could not be processed.
+	 */
+	@Test
+	public void testExecuteGetRequestWithToken () throws IOException {
+		requestManager.setToken("ABCXXX");
+		assertEquals("ABCXXX", requestManager.getToken());
+		assertEquals("OK", requestManager.execute(new Request(Verb.GET, "/api/unit-test")));
+		
+		verify(httpConnectionProvider).getHttpConnection(eq("https://api.betaseries.com/api/unit-test?v=2.4"));
+		verify(urlConnection).addRequestProperty(eq("X-BetaSeries-Token"), eq("ABCXXX"));
+	}
+	
+	/**
+	 * Test method for {@link RequestManager#execute(Request)} with a GET request and with
+	 * <code>null</code> parameters.
+	 * @throws IOException
+	 *         if the request could not be processed.
+	 */
+	@Test
+	public void testExecuteGetRequestWithNullParameter () throws IOException {
+		assertEquals("OK", requestManager.execute(new ParameterizedRequest(Verb.GET, null)));
+		
+		verify(httpConnectionProvider).getHttpConnection(eq("https://api.betaseries.com/api/unit-test?v=2.4&comments"));
+	}
+	
+	/**
 	 * Test method for {@link RequestManager#execute(Request)} with a bad address.
 	 * @throws IOException
 	 *         if the request could not be processed.
