@@ -3,6 +3,7 @@ package com.alexrnl.jseries.request.timeline;
 import static org.junit.Assert.assertEquals;
 
 import java.util.Arrays;
+import java.util.HashSet;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -39,7 +40,7 @@ public class TimelineHomeTest {
 	@Test
 	public void testNullTypes () {
 		final TimelineHome request = new TimelineHome(28, 48, (String []) null);
-		assertEquals(Arrays.asList(new Version(), new NumberEventsPerPage(28), new SinceId(48)), request.getParameters());
+		assertEquals(new HashSet<>(Arrays.asList(new Version(), new NumberEventsPerPage(28), new SinceId(48))), request.getParameters());
 	}
 	
 	/**
@@ -65,7 +66,7 @@ public class TimelineHomeTest {
 	 */
 	@Test
 	public void testGetParameters () {
-		assertEquals(Arrays.asList(new Version(), new NumberEventsPerPage(25)), timelineHome.getParameters());
-		assertEquals(Arrays.asList(new Version(), new NumberEventsPerPage(50), new SinceId(128), new Types("movies", "show")), timelineHomePerType.getParameters());
+		assertEquals(new HashSet<>(Arrays.asList(new Version(), new NumberEventsPerPage(25))), timelineHome.getParameters());
+		assertEquals(new HashSet<>(Arrays.asList(new Version(), new NumberEventsPerPage(50), new SinceId(128), new Types("movies", "show"))), timelineHomePerType.getParameters());
 	}
 }

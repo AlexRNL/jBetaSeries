@@ -3,6 +3,7 @@ package com.alexrnl.jseries.request.episodes;
 import static org.junit.Assert.assertEquals;
 
 import java.util.Arrays;
+import java.util.HashSet;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -84,10 +85,10 @@ public class EpisodeDisplayTest {
 	 */
 	@Test
 	public void testGetParameters () {
-		assertEquals(Arrays.asList(new Version(), new Ids(8)), episodeDisplay.getParameters());
-		assertEquals(Arrays.asList(new Version(), new Ids(2, 3)), multiEpisodeDisplay.getParameters());
-		assertEquals(Arrays.asList(new Version(), new Subtitles(), new Ids(14, 88)), episodeDisplayWithSubtitles.getParameters());
-		assertEquals(Arrays.asList(new Version(), new TheTVDBIds(4, 8)), episodeDisplayTheTvdb.getParameters());
+		assertEquals(new HashSet<>(Arrays.asList(new Version(), new Ids(8))), episodeDisplay.getParameters());
+		assertEquals(new HashSet<>(Arrays.asList(new Version(), new Ids(2, 3))), multiEpisodeDisplay.getParameters());
+		assertEquals(new HashSet<>(Arrays.asList(new Version(), new Subtitles(), new Ids(14, 88))), episodeDisplayWithSubtitles.getParameters());
+		assertEquals(new HashSet<>(Arrays.asList(new Version(), new TheTVDBIds(4, 8))), episodeDisplayTheTvdb.getParameters());
 	}
 	
 	/**

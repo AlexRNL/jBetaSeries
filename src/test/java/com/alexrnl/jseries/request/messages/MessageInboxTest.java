@@ -3,6 +3,7 @@ package com.alexrnl.jseries.request.messages;
 import static org.junit.Assert.assertEquals;
 
 import java.util.Arrays;
+import java.util.HashSet;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -54,7 +55,7 @@ public class MessageInboxTest {
 	 */
 	@Test
 	public void testGetParameters () {
-		assertEquals(Arrays.asList(new Version(), new Page(4)), messageInbox.getParameters());
-		assertEquals(Arrays.asList(new Version()), messageInboxDefaultPage.getParameters());
+		assertEquals(new HashSet<>(Arrays.asList(new Version(), new Page(4))), messageInbox.getParameters());
+		assertEquals(new HashSet<>(Arrays.asList(new Version())), messageInboxDefaultPage.getParameters());
 	}
 }

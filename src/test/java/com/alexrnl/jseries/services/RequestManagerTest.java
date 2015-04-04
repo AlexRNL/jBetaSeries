@@ -1,6 +1,11 @@
 package com.alexrnl.jseries.services;
 
+import static org.hamcrest.Matchers.both;
+import static org.hamcrest.Matchers.containsString;
+import static org.hamcrest.Matchers.not;
+import static org.hamcrest.Matchers.startsWith;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
 import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.anyString;
 import static org.mockito.Matchers.eq;
@@ -16,6 +21,8 @@ import java.nio.charset.StandardCharsets;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.ArgumentCaptor;
+import org.mockito.Captor;
 import org.mockito.Mock;
 
 import com.alexrnl.commons.io.EditableInputStream;
@@ -37,6 +44,9 @@ public class RequestManagerTest {
 	/** The mocked URL connection */
 	@Mock
 	private HttpURLConnection		urlConnection;
+	/** Argument captor that can be used to capture the address requested */
+	@Captor
+	private ArgumentCaptor<String>	addressCaptor;
 	/** The response of the mocked connection */
 	private EditableInputStream		response;
 	/** The response of the mocked connection on error */
@@ -122,7 +132,9 @@ public class RequestManagerTest {
 	public void testExecuteGetRequestWithParameter () throws IOException {
 		assertEquals("OK", requestManager.execute(new ParameterizedRequest(Verb.GET, "hello, world")));
 		
-		verify(httpConnectionProvider).getHttpConnection(eq("https://api.betaseries.com/api/unit-test?v=2.4&comments=hello%2C+world"));
+		verify(httpConnectionProvider).getHttpConnection(addressCaptor.capture());
+		final String address = addressCaptor.getValue();
+		assertThat(address, both(startsWith("https://api.betaseries.com/api/unit-test?")).and(containsString("comments=hello%2C+world")));
 	}
 	
 	/**
@@ -151,7 +163,9 @@ public class RequestManagerTest {
 	public void testExecuteGetRequestWithNullParameter () throws IOException {
 		assertEquals("OK", requestManager.execute(new ParameterizedRequest(Verb.GET, null)));
 		
-		verify(httpConnectionProvider).getHttpConnection(eq("https://api.betaseries.com/api/unit-test?v=2.4&comments"));
+		verify(httpConnectionProvider).getHttpConnection(addressCaptor.capture());
+		final String address = addressCaptor.getValue();
+		assertThat(address, both(startsWith("https://api.betaseries.com/api/unit-test?")).and(both(containsString("comments")).and(not(containsString("comments=")))));
 	}
 	
 	/**

@@ -3,6 +3,7 @@ package com.alexrnl.jseries.request.episodes;
 import static org.junit.Assert.assertEquals;
 
 import java.util.Arrays;
+import java.util.HashSet;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -82,13 +83,13 @@ public class EpisodeListTest {
 	 */
 	@Test
 	public void testGetParameters () {
-		assertEquals(Arrays.asList(new Version(), new ShowId(28), new Limit(14), new Subtitles(Filter.ALL)), fullRequest.getParameters());
-		assertEquals(Arrays.asList(new Version()), defaultRequest.getParameters());
-		assertEquals(Arrays.asList(new Version(), new ShowId(28)), showRequest.getParameters());
-		assertEquals(Arrays.asList(new Version(), new Subtitles(Filter.VO)), subtitleFilteredRequest.getParameters());
-		assertEquals(Arrays.asList(new Version(), new ShowId(8), new Limit(14)), limitedShowRequest.getParameters());
-		assertEquals(Arrays.asList(new Version(), new ShowId(2), new Subtitles(Filter.VOVF)), subtitleShowRequest.getParameters());
-		assertEquals(Arrays.asList(new Version(), new Limit(88), new Subtitles(Filter.VF)), subtitleLimitRequest.getParameters());
+		assertEquals(new HashSet<>(Arrays.asList(new Version(), new ShowId(28), new Limit(14), new Subtitles(Filter.ALL))), fullRequest.getParameters());
+		assertEquals(new HashSet<>(Arrays.asList(new Version())), defaultRequest.getParameters());
+		assertEquals(new HashSet<>(Arrays.asList(new Version(), new ShowId(28))), showRequest.getParameters());
+		assertEquals(new HashSet<>(Arrays.asList(new Version(), new Subtitles(Filter.VO))), subtitleFilteredRequest.getParameters());
+		assertEquals(new HashSet<>(Arrays.asList(new Version(), new ShowId(8), new Limit(14))), limitedShowRequest.getParameters());
+		assertEquals(new HashSet<>(Arrays.asList(new Version(), new ShowId(2), new Subtitles(Filter.VOVF))), subtitleShowRequest.getParameters());
+		assertEquals(new HashSet<>(Arrays.asList(new Version(), new Limit(88), new Subtitles(Filter.VF))), subtitleLimitRequest.getParameters());
 	}
 	
 }

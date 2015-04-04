@@ -3,6 +3,7 @@ package com.alexrnl.jseries.request.episodes;
 import static org.junit.Assert.assertEquals;
 
 import java.util.Arrays;
+import java.util.HashSet;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -68,10 +69,10 @@ public class EpisodeWatchedTest {
 	 */
 	@Test
 	public void testGetParameters () {
-		assertEquals(Arrays.asList(new Version(), new Id(8)), episodeWatched.getParameters());
-		assertEquals(Arrays.asList(new Version(), new Id(8), new Note(3)), episodeWatchedGraded.getParameters());
-		assertEquals(Arrays.asList(new Version(), new Id(8), new Bulk(false), new Delete(false), new Note(3)), episodeWatchedNotBulkNotDelete.getParameters());
-		assertEquals(Arrays.asList(new Version(), new TheTVDBId(8), new Bulk(true), new Delete(true), new Note(3)), episodeWatchedTheTVDB.getParameters());
+		assertEquals(new HashSet<>(Arrays.asList(new Version(), new Id(8))), episodeWatched.getParameters());
+		assertEquals(new HashSet<>(Arrays.asList(new Version(), new Id(8), new Note(3))), episodeWatchedGraded.getParameters());
+		assertEquals(new HashSet<>(Arrays.asList(new Version(), new Id(8), new Bulk(false), new Delete(false), new Note(3))), episodeWatchedNotBulkNotDelete.getParameters());
+		assertEquals(new HashSet<>(Arrays.asList(new Version(), new TheTVDBId(8), new Bulk(true), new Delete(true), new Note(3))), episodeWatchedTheTVDB.getParameters());
 	}
 	
 }

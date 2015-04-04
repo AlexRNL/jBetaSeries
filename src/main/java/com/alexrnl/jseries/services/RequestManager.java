@@ -8,7 +8,7 @@ import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URLEncoder;
-import java.util.List;
+import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -166,7 +166,7 @@ public class RequestManager {
 	 *         if the selected encoding is not supported by the platform.
 	 */
 	private String getParameters (final Request request) throws UnsupportedEncodingException {
-		final List<Parameter<?>> parameters = request.getParameters();
+		final Set<Parameter<?>> parameters = request.getParameters();
 		if (parameters.isEmpty()) {
 			return "";
 		}

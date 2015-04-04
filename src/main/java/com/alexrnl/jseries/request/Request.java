@@ -1,8 +1,8 @@
 package com.alexrnl.jseries.request;
 
 import java.util.Collections;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 import com.alexrnl.commons.utils.object.AutoEquals;
 import com.alexrnl.commons.utils.object.AutoHashCode;
@@ -20,7 +20,7 @@ public class Request {
 	/** The target method */
 	private final String				method;
 	/** The parameters of the request */
-	private final List<Parameter<?>>	parameters;
+	private final Set<Parameter<?>>	parameters;
 	
 	/**
 	 * Constructor #1.<br />
@@ -33,7 +33,7 @@ public class Request {
 		super();
 		this.verb = verb;
 		this.method = method;
-		this.parameters = new LinkedList<>();
+		this.parameters = new HashSet<>();
 		parameters.add(new Version());
 	}
 	
@@ -69,8 +69,8 @@ public class Request {
 	 * @return the parameters to sent to the API.
 	 */
 	@Field
-	public final List<Parameter<?>> getParameters () {
-		return Collections.unmodifiableList(parameters);
+	public final Set<Parameter<?>> getParameters () {
+		return Collections.unmodifiableSet(parameters);
 	}
 
 	@Override

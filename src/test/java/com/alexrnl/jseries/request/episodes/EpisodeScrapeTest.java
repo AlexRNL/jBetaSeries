@@ -3,6 +3,7 @@ package com.alexrnl.jseries.request.episodes;
 import static org.junit.Assert.assertEquals;
 
 import java.util.Arrays;
+import java.util.HashSet;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -49,6 +50,6 @@ public class EpisodeScrapeTest {
 	 */
 	@Test
 	public void testGetParameters () {
-		assertEquals(Arrays.asList(new Version(), new File("PersonOfInterest.s04e11.mp4")), episodeScrape.getParameters());
+		assertEquals(new HashSet<>(Arrays.asList(new Version(), new File("PersonOfInterest.s04e11.mp4"))), episodeScrape.getParameters());
 	}
 }
