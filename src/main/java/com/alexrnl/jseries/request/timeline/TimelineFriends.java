@@ -1,17 +1,14 @@
 package com.alexrnl.jseries.request.timeline;
 
 import com.alexrnl.jseries.request.APIAddresses;
-import com.alexrnl.jseries.request.Request;
 import com.alexrnl.jseries.request.Verb;
-import com.alexrnl.jseries.request.parameters.NumberEventsPerPage;
-import com.alexrnl.jseries.request.parameters.SinceId;
-import com.alexrnl.jseries.request.parameters.Types;
+import com.alexrnl.jseries.request.template.TimelineRequestTemplate;
 
 /**
  * Request for retrieving the last event of the identified member's friend.<br />
  * @author Alex
  */
-public class TimelineFriends extends Request {
+public class TimelineFriends extends TimelineRequestTemplate {
 	
 	/**
 	 * Constructor #1.<br />
@@ -23,14 +20,7 @@ public class TimelineFriends extends Request {
 	 *        the type of events to receive.
 	 */
 	public TimelineFriends (final Integer eventsPerPage, final Integer lastEvent, final String... types) {
-		super(Verb.GET, APIAddresses.TIMELINE_FRIENDS);
-		addParameter(new NumberEventsPerPage(eventsPerPage));
-		if (lastEvent != null) {
-			addParameter(new SinceId(lastEvent));
-		}
-		if (types != null && types.length > 0) {
-			addParameter(new Types(types));
-		}
+		super(Verb.GET, APIAddresses.TIMELINE_FRIENDS, eventsPerPage, lastEvent, types);
 	}
 	
 	/**

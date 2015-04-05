@@ -1,15 +1,14 @@
 package com.alexrnl.jseries.request.messages;
 
 import com.alexrnl.jseries.request.APIAddresses;
-import com.alexrnl.jseries.request.Request;
 import com.alexrnl.jseries.request.Verb;
-import com.alexrnl.jseries.request.parameters.Id;
+import com.alexrnl.jseries.request.template.IdRequestTemplate;
 
 /**
  * Request which allow to delete a message from a conversation (or a full conversation).<br />
  * @author Alex
  */
-public class MessageDeleteMessage extends Request {
+public class MessageDeleteMessage extends IdRequestTemplate {
 	
 	/**
 	 * Constructor #1.<br />
@@ -18,7 +17,6 @@ public class MessageDeleteMessage extends Request {
 	 *        conversation will be deleted.
 	 */
 	public MessageDeleteMessage (final Integer messageId) {
-		super(Verb.DELETE, APIAddresses.MESSAGES_MESSAGE);
-		addParameter(new Id(messageId));
+		super(Verb.DELETE, APIAddresses.MESSAGES_MESSAGE, messageId);
 	}
 }

@@ -1,15 +1,14 @@
 package com.alexrnl.jseries.request.messages;
 
 import com.alexrnl.jseries.request.APIAddresses;
-import com.alexrnl.jseries.request.Request;
 import com.alexrnl.jseries.request.Verb;
-import com.alexrnl.jseries.request.parameters.Id;
+import com.alexrnl.jseries.request.template.IdRequestTemplate;
 
 /**
  * Request for getting a conversation by its id.<br />
  * @author Alex
  */
-public class MessageDiscussion extends Request {
+public class MessageDiscussion extends IdRequestTemplate {
 	
 	/**
 	 * Constructor 1.<br />
@@ -17,7 +16,6 @@ public class MessageDiscussion extends Request {
 	 *        the id of the conversation.
 	 */
 	public MessageDiscussion (final Integer conversationId) {
-		super(Verb.GET, APIAddresses.MESSAGES_DISCUSSION);
-		addParameter(new Id(conversationId));
+		super(Verb.GET, APIAddresses.MESSAGES_DISCUSSION, conversationId);
 	}
 }
