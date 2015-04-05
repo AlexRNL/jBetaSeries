@@ -19,9 +19,6 @@ public class EpisodeNext extends IdsOrTheTVDBIdsRequestTemplate {
 	 */
 	public EpisodeNext (final boolean theTVDB, final Integer... showIds) {
 		super(Verb.GET, APIAddresses.EPISODES_NEXT, theTVDB, showIds);
-		if (showIds == null || showIds.length == 0) {
-			throw new IllegalArgumentException("At least one show id is required");
-		}
 	}
 	
 	/**

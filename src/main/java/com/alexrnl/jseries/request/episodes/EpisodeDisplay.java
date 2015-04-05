@@ -22,10 +22,6 @@ public class EpisodeDisplay extends IdsOrTheTVDBIdsRequestTemplate {
 	 */
 	public EpisodeDisplay (final Boolean subtitles, final boolean theTVDB, final Integer... episodeIds) {
 		super(Verb.GET, APIAddresses.EPISODES_DISPLAY, theTVDB, episodeIds);
-		if (episodeIds == null || episodeIds.length == 0) {
-			throw new IllegalArgumentException("At least one episode id is required");
-		}
-		
 		if (subtitles) {
 			addParameter(new Subtitles());
 		}

@@ -21,9 +21,15 @@ public class IdsOrTheTVDBIdsRequestTemplate extends Request {
 	 *        <code>true</code> if the ids are the theTVDB ids.
 	 * @param ids
 	 *        the ids to use in the request.
+	 * @throws IllegalArgumentException
+	 *         if there are no id provided.
 	 */
 	public IdsOrTheTVDBIdsRequestTemplate (final Verb verb, final String method, final boolean theTVDB, final Integer... ids) {
 		super(verb, method);
+		if (ids == null || ids.length == 0) {
+			throw new IllegalArgumentException("At least one id is required");
+		}
+		
 		if (theTVDB) {
 			addParameter(new TheTVDBIds(ids));
 		} else {
