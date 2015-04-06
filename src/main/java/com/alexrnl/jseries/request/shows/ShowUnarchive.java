@@ -9,7 +9,7 @@ import com.alexrnl.jseries.request.template.IdOrTheTVDBIdRequestTemplate;
  * @author Alex
  */
 public class ShowUnarchive extends IdOrTheTVDBIdRequestTemplate {
-	
+
 	/**
 	 * Constructor #1.<br />
 	 * @param theTVDB
@@ -21,4 +21,12 @@ public class ShowUnarchive extends IdOrTheTVDBIdRequestTemplate {
 		super(Verb.DELETE, APIAddresses.SHOWS_ARCHIVE, theTVDB, id);
 	}
 	
+	/**
+	 * Constructor #2.<br />
+	 * @param id
+	 *        the id of the show to archive.
+	 */
+	public ShowUnarchive (final Integer id) {
+		this(false, id);
+	}
 }

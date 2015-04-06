@@ -21,4 +21,12 @@ public class ShowArchive extends IdOrTheTVDBIdRequestTemplate {
 		super(Verb.POST, APIAddresses.SHOWS_ARCHIVE, theTVDB, id);
 	}
 	
+	/**
+	 * Constructor #2.<br />
+	 * @param id
+	 *        the id of the show to archive.
+	 */
+	public ShowArchive (final Integer id) {
+		this(false, id);
+	}
 }

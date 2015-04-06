@@ -9,6 +9,7 @@ import com.alexrnl.jseries.request.template.IdOrTheTVDBIdRequestTemplate;
  * @author Alex
  */
 public class ShowCharacters extends IdOrTheTVDBIdRequestTemplate {
+	
 	/**
 	 * Constructor #1.<br />
 	 * @param theTVDB
@@ -18,5 +19,14 @@ public class ShowCharacters extends IdOrTheTVDBIdRequestTemplate {
 	 */
 	public ShowCharacters (final boolean theTVDB, final Integer showId) {
 		super(Verb.GET, APIAddresses.SHOWS_CHARACTERS, theTVDB, showId);
+	}
+	
+	/**
+	 * Constructor #2.<br />
+	 * @param showId
+	 *        the id of the show.
+	 */
+	public ShowCharacters (final Integer showId) {
+		this(false, showId);
 	}
 }

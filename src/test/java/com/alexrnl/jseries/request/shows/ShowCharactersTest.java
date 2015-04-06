@@ -29,7 +29,7 @@ public class ShowCharactersTest {
 	 */
 	@Before
 	public void setUp () {
-		showCharacters = new ShowCharacters(false, 8);
+		showCharacters = new ShowCharacters(8);
 		showCharactersTVDB = new ShowCharacters(true, 28);
 	}
 	

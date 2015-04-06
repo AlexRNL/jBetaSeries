@@ -29,7 +29,7 @@ public class ShowArchiveTest {
 	 */
 	@Before
 	public void setUp () {
-		showArchive = new ShowArchive(false, 8);
+		showArchive = new ShowArchive(8);
 		showArchiveTVDB = new ShowArchive(true, 28);
 	}
 	
