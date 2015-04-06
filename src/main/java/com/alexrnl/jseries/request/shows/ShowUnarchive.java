@@ -1,24 +1,24 @@
 package com.alexrnl.jseries.request.shows;
 
 import com.alexrnl.jseries.request.APIAddresses;
-import com.alexrnl.jseries.request.Request;
 import com.alexrnl.jseries.request.Verb;
-import com.alexrnl.jseries.request.parameters.Id;
+import com.alexrnl.jseries.request.template.IdOrTheTVDBIdRequestTemplate;
 
 /**
- * Archive a show in the logged member account.<br />
+ * Un-archive a show in the logged member account.<br />
  * @author Alex
  */
-public class ShowUnarchive extends Request {
+public class ShowUnarchive extends IdOrTheTVDBIdRequestTemplate {
 	
 	/**
 	 * Constructor #1.<br />
+	 * @param theTVDB
+	 *        <code>true</code> if the episode id is a theTVDB id.
 	 * @param id
 	 *        the id of the show to archive.
 	 */
-	public ShowUnarchive (final Integer id) {
-		super(Verb.DELETE, APIAddresses.SHOWS_ARCHIVE);
-		addParameter(new Id(id));
+	public ShowUnarchive (final boolean theTVDB, final Integer id) {
+		super(Verb.DELETE, APIAddresses.SHOWS_ARCHIVE, theTVDB, id);
 	}
 	
 }

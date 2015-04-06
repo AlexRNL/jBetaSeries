@@ -9,7 +9,7 @@ import org.junit.runners.Suite.SuiteClasses;
  * @author Alex
  */
 @RunWith(Suite.class)
-@SuiteClasses({ ShowArchiveTest.class })
+@SuiteClasses({ ShowArchiveTest.class, ShowUnarchiveTest.class })
 public class ShowsTests {
 	
 }
