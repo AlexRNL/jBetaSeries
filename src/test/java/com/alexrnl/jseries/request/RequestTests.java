@@ -7,6 +7,7 @@ import org.junit.runners.Suite.SuiteClasses;
 import com.alexrnl.jseries.request.episodes.EpisodesTests;
 import com.alexrnl.jseries.request.messages.MessagesTests;
 import com.alexrnl.jseries.request.parameters.ParametersTests;
+import com.alexrnl.jseries.request.shows.ShowsTests;
 import com.alexrnl.jseries.request.timeline.TimelineTests;
 
 /**
@@ -15,7 +16,7 @@ import com.alexrnl.jseries.request.timeline.TimelineTests;
  */
 @RunWith(Suite.class)
 @SuiteClasses({ APIAddressesTest.class, ParametersTests.class, RequestTest.class, VerbTest.class,
-		EpisodesTests.class, MessagesTests.class, TimelineTests.class })
+		EpisodesTests.class, MessagesTests.class, ShowsTests.class, TimelineTests.class })
 public class RequestTests {
 	
 }
