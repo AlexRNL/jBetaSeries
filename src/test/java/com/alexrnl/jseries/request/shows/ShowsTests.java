@@ -10,7 +10,7 @@ import org.junit.runners.Suite.SuiteClasses;
  */
 @RunWith(Suite.class)
 @SuiteClasses({ ShowArchiveTest.class, ShowCharactersTest.class, ShowDisplayTest.class,
-		ShowEpisodesTest.class, ShowUnarchiveTest.class })
+		ShowEpisodesTest.class, ShowFavoriteTest.class, ShowUnarchiveTest.class })
 public class ShowsTests {
 	
 }
