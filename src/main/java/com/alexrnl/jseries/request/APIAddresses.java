@@ -84,6 +84,8 @@ public final class APIAddresses {
 	public static final String	SHOWS_FAVORITE			= "/shows/favorite";
 	/** Address for retrieving favorites */
 	public static final String	SHOWS_FAVORITES			= "/shows/favorites";
+	/** Address for retrieving the shows */
+	public static final String	SHOWS_LIST				= "/shows/list";
 	/** Address for noting a show */
 	public static final String	SHOWS_NOTE				= "/shows/note";
 	/** Address for getting a random show */
