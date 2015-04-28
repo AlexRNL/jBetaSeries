@@ -17,7 +17,7 @@ public class ShowUnnote extends Request {
 	 *        the id of the show.
 	 */
 	public ShowUnnote (final Integer showId) {
-		super(Verb.DELETE, APIAddresses.SHOWS_NOTE);
+		super(Verb.DELETE, APIAddresses.SHOWS_GRADE);
 		addParameter(new Id(showId));
 	}
 }

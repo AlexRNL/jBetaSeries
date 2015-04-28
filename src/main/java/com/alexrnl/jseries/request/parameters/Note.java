@@ -19,7 +19,7 @@ public class Note extends Parameter<Integer> {
 	 * @param note
 	 *        the note to set.
 	 * @throws IllegalArgumentException
-	 *         if the is outside the range [1;5].
+	 *         if the is outside the range [{@link #NOTE_MIN};{@link #NOTE_MAX}].
 	 */
 	public Note (final Integer note) {
 		super(PARAMETER_NOTE, note);

@@ -87,7 +87,7 @@ public final class APIAddresses {
 	/** Address for retrieving the shows */
 	public static final String	SHOWS_LIST				= "/shows/list";
 	/** Address for noting a show */
-	public static final String	SHOWS_NOTE				= "/shows/note";
+	public static final String	SHOWS_GRADE				= "/shows/note";
 	/** Address for getting a random show */
 	public static final String	SHOWS_RANDOM			= "/shows/random";
 	/** Address for recommending shows */
