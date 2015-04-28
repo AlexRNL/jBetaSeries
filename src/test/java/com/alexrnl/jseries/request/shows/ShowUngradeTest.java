@@ -29,7 +29,7 @@ public class ShowUngradeTest {
 	 */
 	@Before
 	public void setUp () {
-		showUngrade = new ShowUngrade(false, 8);
+		showUngrade = new ShowUngrade(8);
 		showUngradeTVDB = new ShowUngrade(true, 28);
 	}
 	

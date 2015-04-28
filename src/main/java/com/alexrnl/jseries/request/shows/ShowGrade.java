@@ -14,7 +14,7 @@ public class ShowGrade extends IdOrTheTVDBIdRequestTemplate {
 	/**
 	 * Constructor #1.<br />
 	 * @param theTVDB
-	 *        <code>true</code> if the episode id is a theTVDB id.
+	 *        <code>true</code> if the show id is a theTVDB id.
 	 * @param showId
 	 *        the id of the show to note.
 	 * @param note
@@ -25,5 +25,18 @@ public class ShowGrade extends IdOrTheTVDBIdRequestTemplate {
 	public ShowGrade (final boolean theTVDB, final Integer showId, final Integer note) {
 		super(Verb.POST, APIAddresses.SHOWS_GRADE, theTVDB, showId);
 		addParameter(new Note(note));
+	}
+	
+	/**
+	 * Constructor #2.<br />
+	 * @param showId
+	 *        the id of the show to note.
+	 * @param note
+	 *        the note to set for the show.
+	 * @throws IllegalArgumentException
+	 *         if the not is outside the range [1;5].
+	 */
+	public ShowGrade (final Integer showId, final Integer note) {
+		this(false, showId, note);
 	}
 }

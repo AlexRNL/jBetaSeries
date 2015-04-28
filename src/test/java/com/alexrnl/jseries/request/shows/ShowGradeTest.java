@@ -30,7 +30,7 @@ public class ShowGradeTest {
 	 */
 	@Before
 	public void setUp () {
-		showGrade = new ShowGrade(false, 8, 4);
+		showGrade = new ShowGrade(8, 4);
 		showGradeTVDB = new ShowGrade(true, 28, 1);
 	}
 	
