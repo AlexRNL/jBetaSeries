@@ -1,6 +1,8 @@
 package com.alexrnl.jseries.request.parameters;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -38,7 +40,7 @@ public class AutoDeleteTest {
 	 */
 	@Test
 	public void testGetValue () {
-		assertEquals(BSBoolean.TRUE, delete.getValue());
-		assertEquals(BSBoolean.FALSE, notDelete.getValue());
+		assertTrue(delete.getValue());
+		assertFalse(notDelete.getValue());
 	}
 }

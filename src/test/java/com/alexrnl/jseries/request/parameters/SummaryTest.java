@@ -1,6 +1,8 @@
 package com.alexrnl.jseries.request.parameters;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -10,18 +12,18 @@ import org.junit.Test;
  * @author Alex
  */
 public class SummaryTest {
-	/** The summary from a boolean */
-	private Summary	booleanSummary;
-	/** The summary from a {@link BSBoolean} */
-	private Summary	bsBooleanSummary;
+	/** The with summary flag */
+	private Summary	withSummary;
+	/** The no summary flag */
+	private Summary	noSummary;
 	
 	/**
 	 * Set up test attribute.
 	 */
 	@Before
 	public void setUp () {
-		booleanSummary = new Summary(true);
-		bsBooleanSummary = new Summary(BSBoolean.FALSE);
+		withSummary = new Summary(true);
+		noSummary = new Summary(false);
 	}
 	
 	/**
@@ -29,8 +31,8 @@ public class SummaryTest {
 	 */
 	@Test
 	public void testGetName () {
-		assertEquals("summary", booleanSummary.getName());
-		assertEquals("summary", bsBooleanSummary.getName());
+		assertEquals("summary", withSummary.getName());
+		assertEquals("summary", noSummary.getName());
 	}
 	
 	/**
@@ -38,7 +40,7 @@ public class SummaryTest {
 	 */
 	@Test
 	public void testGetValue () {
-		assertEquals(BSBoolean.TRUE, booleanSummary.getValue());
-		assertEquals(BSBoolean.FALSE, bsBooleanSummary.getValue());
+		assertTrue(withSummary.getValue());
+		assertFalse(noSummary.getValue());
 	}
 }
