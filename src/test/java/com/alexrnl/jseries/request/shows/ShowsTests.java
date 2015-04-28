@@ -11,7 +11,8 @@ import org.junit.runners.Suite.SuiteClasses;
 @RunWith(Suite.class)
 @SuiteClasses({ ShowArchiveTest.class, ShowCharactersTest.class, ShowDisplayTest.class,
 		ShowEpisodesTest.class, ShowFavoriteTest.class, ShowFavoritesTest.class,
-		ShowGradeTest.class, ShowListTest.class, ShowUnarchiveTest.class, ShowUnfavoriteTest.class })
+		ShowGradeTest.class, ShowListTest.class, ShowUnarchiveTest.class, ShowUnfavoriteTest.class,
+		ShowUngradeTest.class })
 public class ShowsTests {
 	
 }
