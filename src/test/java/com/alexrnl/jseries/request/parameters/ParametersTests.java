@@ -12,7 +12,7 @@ import org.junit.runners.Suite.SuiteClasses;
 @SuiteClasses({ ParameterTest.class, AutoDeleteTest.class, VersionTest.class, BulkTest.class,
 		CommentTest.class, DeleteTest.class, EMailTest.class, EpisodeTest.class, FileTest.class,
 		FindTest.class, IdTest.class, IdsTest.class, LastIdTest.class, LimitTest.class,
-		LoginTest.class, MailsTest.class, NameTest.class, NoteTest.class,
+		LoginTest.class, MailsTest.class, NameTest.class, NoteTest.class, NbTest.class,
 		NumberEventsPerPageTest.class, NumberTest.class, NumberStrTest.class, OrderTest.class,
 		PageTest.class, PasswordTest.class, SeasonTest.class, ShowIdTest.class, SinceTest.class,
 		SinceIdTest.class, SortTest.class, SubtitlesTest.class, SubtitlesTest.class,
