@@ -8,12 +8,12 @@ import com.alexrnl.jseries.request.Verb;
  * Get the recommendations of the logged member.<br />
  * @author Alex
  */
-public class ShowGetRecommendations extends Request {
+public class ShowRecommendations extends Request {
 	
 	/**
 	 * Constructor #1.<br />
 	 */
-	public ShowGetRecommendations () {
+	public ShowRecommendations () {
 		super(Verb.GET, APIAddresses.SHOWS_RECOMMENDATIONS);
 	}
 }
