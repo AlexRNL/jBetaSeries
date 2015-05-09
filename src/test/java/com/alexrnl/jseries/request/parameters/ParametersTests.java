@@ -17,7 +17,7 @@ import org.junit.runners.Suite.SuiteClasses;
 		PageTest.class, PasswordTest.class, SeasonTest.class, ShowIdTest.class, SinceTest.class,
 		SinceIdTest.class, SortTest.class, SubtitlesTest.class, SubtitlesTest.class,
 		SummaryTest.class, TextTest.class, TheTVDBIdTest.class, TheTVDBIdsTest.class,
-		TitleTest.class, ToTest.class, ToIdTest.class, TypesTest.class, ValueTest.class })
+		TitleTest.class, ToTest.class, TypesTest.class, ValueTest.class })
 public class ParametersTests {
 	
 }
