@@ -6,19 +6,19 @@ import org.junit.Before;
 import org.junit.Test;
 
 /**
- * Test suite for the {@link NumberEventsPerPage} class.
+ * Test suite for the {@link NumberResultsPerPage} class.
  * @author Alex
  */
-public class NumberEventsPerPageTest {
-	/** The eventsPerPage to test */
-	private NumberEventsPerPage	eventsPerPage;
+public class NumberResultsPerPageTest {
+	/** The resultsPerPage to test */
+	private NumberResultsPerPage	resultsPerPage;
 	
 	/**
 	 * Set up test attributes.
 	 */
 	@Before
 	public void setUp () {
-		eventsPerPage = new NumberEventsPerPage(28);
+		resultsPerPage = new NumberResultsPerPage(28);
 	}
 	
 	/**
@@ -26,7 +26,7 @@ public class NumberEventsPerPageTest {
 	 */
 	@Test
 	public void testGetName () {
-		assertEquals("nbpp", eventsPerPage.getName());
+		assertEquals("nbpp", resultsPerPage.getName());
 	}
 	
 	/**
@@ -34,25 +34,25 @@ public class NumberEventsPerPageTest {
 	 */
 	@Test
 	public void testGetValue () {
-		assertEquals(Integer.valueOf(28), eventsPerPage.getValue());
+		assertEquals(Integer.valueOf(28), resultsPerPage.getValue());
 	}
 	
 	/**
-	 * Test method for an invalid eventsPerPage (too low).
+	 * Test method for an invalid resultsPerPage (too low).
 	 */
 	@SuppressWarnings("unused")
 	@Test(expected = IllegalArgumentException.class)
-	public void testNumberEventsTooLow () {
-		new NumberEventsPerPage(0);
+	public void testNumberResultsTooLow () {
+		new NumberResultsPerPage(0);
 	}
 	
 	/**
-	 * Test method for an invalid eventsPerPage (too high).
+	 * Test method for an invalid resultsPerPage (too high).
 	 */
 	@SuppressWarnings("unused")
 	@Test(expected = IllegalArgumentException.class)
-	public void testNumberEventsTooHigh () {
-		new NumberEventsPerPage(108);
+	public void testNumberResultsTooHigh () {
+		new NumberResultsPerPage(108);
 	}
 	
 }

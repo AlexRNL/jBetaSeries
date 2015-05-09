@@ -2,7 +2,7 @@ package com.alexrnl.jseries.request.template;
 
 import com.alexrnl.jseries.request.Request;
 import com.alexrnl.jseries.request.Verb;
-import com.alexrnl.jseries.request.parameters.NumberEventsPerPage;
+import com.alexrnl.jseries.request.parameters.NumberResultsPerPage;
 import com.alexrnl.jseries.request.parameters.SinceId;
 import com.alexrnl.jseries.request.parameters.Types;
 
@@ -28,7 +28,7 @@ public class TimelineRequestTemplate extends Request {
 	public TimelineRequestTemplate (final Verb verb, final String method, final Integer eventsPerPage,
 			final Integer lastEvent, final String... types) {
 		super(verb, method);
-		addParameter(new NumberEventsPerPage(eventsPerPage));
+		addParameter(new NumberResultsPerPage(eventsPerPage));
 		if (lastEvent != null) {
 			addParameter(new SinceId(lastEvent));
 		}

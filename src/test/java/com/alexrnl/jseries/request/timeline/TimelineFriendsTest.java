@@ -10,7 +10,7 @@ import org.junit.Test;
 
 import com.alexrnl.jseries.request.Request;
 import com.alexrnl.jseries.request.Verb;
-import com.alexrnl.jseries.request.parameters.NumberEventsPerPage;
+import com.alexrnl.jseries.request.parameters.NumberResultsPerPage;
 import com.alexrnl.jseries.request.parameters.SinceId;
 import com.alexrnl.jseries.request.parameters.Types;
 import com.alexrnl.jseries.request.parameters.Version;
@@ -40,7 +40,7 @@ public class TimelineFriendsTest {
 	@Test
 	public void testNullTypes () {
 		final TimelineFriends request = new TimelineFriends(28, 48, (String []) null);
-		assertEquals(new HashSet<>(Arrays.asList(new Version(), new NumberEventsPerPage(28), new SinceId(48))), request.getParameters());
+		assertEquals(new HashSet<>(Arrays.asList(new Version(), new NumberResultsPerPage(28), new SinceId(48))), request.getParameters());
 	}
 	
 	/**
@@ -66,7 +66,7 @@ public class TimelineFriendsTest {
 	 */
 	@Test
 	public void testGetParameters () {
-		assertEquals(new HashSet<>(Arrays.asList(new Version(), new NumberEventsPerPage(25))), timelineFriends.getParameters());
-		assertEquals(new HashSet<>(Arrays.asList(new Version(), new NumberEventsPerPage(50), new SinceId(128), new Types("movies", "show"))), timelineFriendsPerType.getParameters());
+		assertEquals(new HashSet<>(Arrays.asList(new Version(), new NumberResultsPerPage(25))), timelineFriends.getParameters());
+		assertEquals(new HashSet<>(Arrays.asList(new Version(), new NumberResultsPerPage(50), new SinceId(128), new Types("movies", "show"))), timelineFriendsPerType.getParameters());
 	}
 }
