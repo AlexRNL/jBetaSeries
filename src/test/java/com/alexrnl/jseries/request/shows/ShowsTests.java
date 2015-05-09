@@ -13,8 +13,8 @@ import org.junit.runners.Suite.SuiteClasses;
 		ShowEpisodesTest.class, ShowFavoriteTest.class, ShowFavoritesTest.class,
 		ShowGradeTest.class, ShowListTest.class, ShowPicturesTest.class, ShowRandomTest.class,
 		ShowSendRecommendationTest.class, ShowDeleteRecommendationTest.class,
-		ShowRecommendationsTest.class, ShowUnarchiveTest.class, ShowUnfavoriteTest.class,
-		ShowUngradeTest.class })
+		ShowRecommendationsTest.class, ShowSearchTest.class, ShowUnarchiveTest.class,
+		ShowUnfavoriteTest.class, ShowUngradeTest.class })
 public class ShowsTests {
 	
 }
